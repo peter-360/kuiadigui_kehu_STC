@@ -1,0 +1,160 @@
+C51 COMPILER V9.60.0.0   TIMER                                                             05/24/2020 22:31:13 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN ..\hex\timer.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\user\timer.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJ
+                    -ECTEXTEND PRINT(.\LIST\timer.lst) TABS(2) OBJECT(..\hex\timer.obj)
+
+line level    source
+
+   1          /*                        -- 渡河蚂蚁电子工作室 --                        */
+   2          /*
+   3          *   说    明: STC8A8KS4A12 DEMO程序
+   4          *   开发平台: STC15W408S     
+   5          *   淘宝网店: 
+   6          *
+   7          //  文件名：main.c                                                              
+   8          //  说明：供客户测试模块通信使用程序                                                                  
+   9          //  编写人员：Duhemayi                                                                   
+  10          //  编写日期：2018-09-16                                                               
+  11          //  程序维护：
+  12          //  维护记录：
+  13          //  版    本: V1.0
+  14          //                                                          
+  15          // 免责声明：该程序仅用于学习与交流 
+  16          // (c) Duhemayi Corporation. All rights reserved.     
+  17          ******************************************************************************/
+  18          #include "timer.h"
+  19          
+  20          //测试工作频率为11.0592MHz
+  21          uint16 Timer_CNT;
+  22          
+  23          void Timer0_Init(void)
+  24          {
+  25   1          TMOD = 0x00;                                //模式0
+  26   1          TL0 = 0x66;                                 //65536-11.0592M/12/1000  定时1ms
+  27   1          TH0 = 0xfc;
+  28   1          TR0 = 1;                                    //启动定时器
+  29   1          ET0 = 1;                                    //使能定时器中断
+  30   1          EA = 1;
+  31   1      }
+  32          
+  33          void TM0_Isr() interrupt 1 using 1
+  34          {
+  35   1        Timer_CNT++;
+  36   1        if(Timer_CNT >= 500)
+  37   1        {
+  38   2          Timer_CNT = 0;
+  39   2          LED = !LED;      //测试端口
+  40   2        }                         
+  41   1      }
+  42          
+  43          
+  44          void TM1_Isr() interrupt 3 using 1
+  45          {
+  46   1          Timer_CNT++;
+  47   1        if(Timer_CNT >= 500)
+  48   1        {
+  49   2          Timer_CNT = 0;
+  50   2          LED = !LED;      //测试端口
+  51   2        }                                  
+  52   1      }
+  53          
+  54          void Timer1_Init(void)
+C51 COMPILER V9.60.0.0   TIMER                                                             05/24/2020 22:31:13 PAGE 2   
+
+  55          {
+  56   1          TMOD = 0x00;                                //模式0
+  57   1          TL1 = 0x66;                                 //65536-11.0592M/12/1000
+  58   1          TH1 = 0xfc;
+  59   1          TR1 = 1;                                    //启动定时器
+  60   1          ET1 = 1;                                    //使能定时器中断
+  61   1          EA = 1;
+  62   1      }
+  63          
+  64          
+  65          void TM2_Isr() interrupt 12 using 1
+  66          {
+  67   1          AUXINTIF &= ~T2IF;                          //清中断标志
+  68   1        Timer_CNT++;
+  69   1        if(Timer_CNT >= 300)
+  70   1        {
+  71   2          Timer_CNT = 0;
+  72   2          LED = !LED;      //测试端口
+  73   2        } 
+  74   1      }
+  75          
+  76          void Timer2_Init(void)
+  77          {
+  78   1          T2L = 0x66;                                 //65536-11.0592M/12/1000
+  79   1          T2H = 0xfc;
+  80   1          AUXR = 0x10;                                //启动定时器
+  81   1          IE2 = ET2;                                  //使能定时器中断
+  82   1          EA = 1;
+  83   1      }
+  84          
+  85          void TM3_Isr() interrupt 19 using 1
+  86          {
+  87   1          AUXINTIF &= ~T3IF;                          //清中断标志
+  88   1      
+  89   1        Timer_CNT++;
+  90   1        if(Timer_CNT >= 700)
+  91   1        {
+  92   2          Timer_CNT = 0;
+  93   2          LED = !LED;      //测试端口
+  94   2        }
+  95   1      }
+  96          
+  97          void Timer3_Init(void)
+  98          {
+  99   1          T3L = 0x66;                                 //65536-11.0592M/12/1000
+ 100   1          T3H = 0xfc;
+ 101   1          T4T3M = 0x08;                               //启动定时器
+ 102   1          IE2 = ET3;                                  //使能定时器中断
+ 103   1          EA = 1;
+ 104   1      }
+ 105          
+ 106          void TM4_Isr() interrupt 20 using 1
+ 107          {                                //测试端口
+ 108   1          AUXINTIF &= ~T4IF;                          //清中断标志
+ 109   1        Timer_CNT++;
+ 110   1        if(Timer_CNT >= 1000)
+ 111   1        {
+ 112   2          Timer_CNT = 0;
+ 113   2          LED = !LED;      //测试端口
+ 114   2        }
+ 115   1      }
+ 116          
+C51 COMPILER V9.60.0.0   TIMER                                                             05/24/2020 22:31:13 PAGE 3   
+
+ 117          void Timer4_Init(void)
+ 118          {
+ 119   1          T4L = 0x66;                                 //65536-11.0592M/12/1000
+ 120   1          T4H = 0xfc;
+ 121   1          T4T3M = 0x80;                               //启动定时器
+ 122   1          IE2 = ET4;                                  //使能定时器中断
+ 123   1          EA = 1;
+ 124   1      }
+ 125          
+ 126          
+ 127          
+ 128          
+ 129          
+ 130          
+ 131          
+ 132          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    346    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      2    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

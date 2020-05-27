@@ -1,0 +1,320 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              05/24/2020 22:31:11 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\hex\MAIN.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\user\MAIN.C LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJE
+                    -CTEXTEND PRINT(.\LIST\MAIN.lst) TABS(2) OBJECT(..\hex\MAIN.obj)
+
+line level    source
+
+   1          /*                        -- ¶ÉºÓÂìÒÏµç×Ó¹¤×÷ÊÒ --                        */
+   2          /*
+   3          *   Ëµ    Ã÷: STC8A8KS4A12 DEMO³ÌÐò
+   4          *   ¿ª·¢Æ½Ì¨: STC15W408S     
+   5          *   ÌÔ±¦Íøµê: 
+   6          *
+   7          //  ÎÄ¼þÃû£ºmain.c                                                              
+   8          //  ËµÃ÷£º¹©¿Í»§²âÊÔÄ£¿éÍ¨ÐÅÊ¹ÓÃ³ÌÐò                                                                  
+   9          //  ±àÐ´ÈËÔ±£ºDuhemayi                                                                   
+  10          //  ±àÐ´ÈÕÆÚ£º2018-09-16                                                               
+  11          //  ³ÌÐòÎ¬»¤£º
+  12          //  Î¬»¤¼ÇÂ¼£º
+  13          //  °æ    ±¾: V1.0
+  14          //                                                          
+  15          // ÃâÔðÉùÃ÷£º¸Ã³ÌÐò½öÓÃÓÚÑ§Ï°Óë½»Á÷ 
+  16          // (c) Duhemayi Corporation. All rights reserved.     
+  17          ******************************************************************************/
+  18          #include "config.h"
+  19          
+  20          
+  21          
+  22          
+  23          
+  24          
+  25          
+  26          void spear_uart_send_datas(uint8* str, uint8 len)
+  27          {
+  28   1        while(len--)
+  29   1        {
+  30   2      //    USART_SendData(USART1, *str);
+  31   2      //    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET); 
+  32   2      //    str++;
+  33   2          UartSend(*str++);
+  34   2        }
+  35   1      }
+  36          
+  37          void debug_uart_send_datas(uint8* str, uint8 len)
+  38          {
+  39   1        UartSend(0xee);
+  40   1        while(len--)
+  41   1        {
+  42   2      //    USART_SendData(USART1, *str);
+  43   2      //    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET); 
+  44   2      //    str++;
+  45   2          UartSend(*str++);
+  46   2        }
+  47   1        UartSend(0xff);
+  48   1      }
+  49          
+  50          
+  51          
+  52          
+  53          ///command struct
+  54          typedef struct
+C51 COMPILER V9.60.0.0   MAIN                                                              05/24/2020 22:31:11 PAGE 2   
+
+  55          {
+  56            //uint8_t type;
+  57            uint8_t opcode;
+  58            
+  59            uint8_t board_addr;
+  60            uint8_t lock_addr;//-------
+  61            uint8_t gu_ding;//---
+  62            
+  63            uint8_t bcc;
+  64          }command1_struct;
+  65          
+  66          /////start process the data in
+  67          
+  68          command1_struct m_data;
+  69          
+  70          
+  71          uint8_t ComputXor(uint8_t *InData, uint16_t Len)
+  72          {
+  73   1        uint8_t Sum = 0;
+  74   1        uint16_t i;
+  75   1        for(i = 0; i < Len; i++)
+  76   1        {
+  77   2          Sum ^= InData[i]; 
+  78   2        }
+  79   1        return Sum;
+  80   1      }
+  81          
+  82          void data_parse()
+  83          {
+  84   1        uint8_t bcc_temp;
+  85   1        uint8_t tx_Buffer[256]={0};        //?????
+  86   1        //uint8_t length = 0;             //??
+  87   1        uint8_t gpio_level=0;
+  88   1        uint8_t grp_level_1;
+  89   1        uint8_t grp_level_2;
+  90   1        uint8_t grp_level_3;
+  91   1        uint8_t board_addr;
+  92   1        
+  93   1        uint8_t Uart1_Buffer_T[256]={0};        //?????
+  94   1        uint8_t Uart1_Rx_T = 0;             //??
+  95   1        
+  96   1        //SEGGER_RTT_printf(0, "-parse-Uart1_Rx = %d\n",Uart1_Rx);      //RTT´òÓ¡
+  97   1        Uart1_Rx_T = Uart1_Rx - 8;
+  98   1        //SEGGER_RTT_printf(0, "-Uart1_Rx_T = %d\n",Uart1_Rx_T);      //RTT´òÓ
+  99   1        memcpy(Uart1_Buffer_T,Uart1_Buffer+4,Uart1_Rx_T);
+ 100   1        
+ 101   1      
+ 102   1        //board_addr= DSW_1 | (DSW_2<<1) | (DSW_3<<2) | (DSW_4<<3) | (DSW_5<<4) | (DSW_6<<5) | (DSW_7<<6) | (DSW_
+             -8<<7);
+ 103   1        
+ 104   1        //if(board_addr == Uart1_Buffer_T[1])//todo
+ 105   1        if(1)
+ 106   1        {
+ 107   2          if(5==Uart1_Rx_T)
+ 108   2          {
+ 109   3            m_data.opcode = Uart1_Buffer_T[0];
+ 110   3            m_data.board_addr = Uart1_Buffer_T[1];// to do
+ 111   3            m_data.lock_addr = Uart1_Buffer_T[2];//
+ 112   3            m_data.gu_ding = Uart1_Buffer_T[3];//
+ 113   3            m_data.bcc = Uart1_Buffer_T[4];
+ 114   3      
+ 115   3            bcc_temp = ComputXor(Uart1_Buffer_T,4);
+C51 COMPILER V9.60.0.0   MAIN                                                              05/24/2020 22:31:11 PAGE 3   
+
+ 116   3            //SEGGER_RTT_printf(0, "bcc_temp = %x\n",bcc_temp);
+ 117   3            if(bcc_temp == m_data.bcc)
+ 118   3            {
+ 119   4              switch(m_data.opcode)
+ 120   4              {
+ 121   5                case 0x8A:
+ 122   5                  //----1------
+ 123   5                  if(m_data.gu_ding  == 0x11)//process
+ 124   5                  {
+ 125   6                    switch(m_data.lock_addr)
+ 126   6                    {
+ 127   7                      case 1:
+ 128   7                        GO_1=1;           //open
+ 129   7                        Delay100ms(); 
+ 130   7                        GO_1=0;           //close
+ 131   7                        Delay100ms(); 
+ 132   7                      
+ 133   7                        //gpio_level= GI_1;
+ 134   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 135   7                        break;
+ 136   7                      
+ 137   7                      case 2:
+ 138   7                        GO_2=1;              //open
+ 139   7                        Delay100ms(); 
+ 140   7                        GO_2=0;              //close
+ 141   7                        Delay100ms(); 
+ 142   7      
+ 143   7                        //gpio_level= GI_2;
+ 144   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 145   7                        break;
+ 146   7        
+ 147   7                      
+ 148   7                      default:
+ 149   7                        break;
+ 150   7      
+ 151   7                    }
+ 152   6                    
+ 153   6                    memcpy(tx_Buffer,"star",4);
+ 154   6                    tx_Buffer[4]= m_data.opcode;
+ 155   6                    tx_Buffer[5]= m_data.board_addr;
+ 156   6                    tx_Buffer[6]= m_data.lock_addr;
+ 157   6                    
+ 158   6                    if(0x01 == gpio_level)
+ 159   6                      tx_Buffer[7]= 0x11;//lock state todo open
+ 160   6                    else
+ 161   6                      tx_Buffer[7]= 0x00;//lock state todo close
+ 162   6                    
+ 163   6                    bcc_temp = ComputXor(tx_Buffer+4,4);
+ 164   6                    tx_Buffer[8]= bcc_temp;
+ 165   6                    memcpy(tx_Buffer+9,"end",3);
+ 166   6                    
+ 167   6                    tx_Buffer[12]='\0';
+ 168   6                    
+ 169   6                    spear_uart_send_datas(tx_Buffer,12);
+ 170   6      //              spear_rtt_send_datas(tx_Buffer,12);
+ 171   6      
+ 172   6                    //SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+ 173   6                  }
+ 174   5                  else
+ 175   5                  {
+ 176   6                    //SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
+ 177   6                  }
+C51 COMPILER V9.60.0.0   MAIN                                                              05/24/2020 22:31:11 PAGE 4   
+
+ 178   5                  break;
+ 179   5                  
+ 180   5      
+ 181   5                default:
+ 182   5                  break;
+ 183   5              }
+ 184   4              
+ 185   4              //SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
+ 186   4            }
+ 187   3            else
+ 188   3            {
+ 189   4              //SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
+ 190   4            }
+ 191   3            
+ 192   3          }
+ 193   2          
+ 194   2          
+ 195   2          
+ 196   2        }
+ 197   1      
+ 198   1      }
+*** WARNING C280 IN LINE 88 OF ..\user\MAIN.C: 'grp_level_1': unreferenced local variable
+*** WARNING C280 IN LINE 89 OF ..\user\MAIN.C: 'grp_level_2': unreferenced local variable
+*** WARNING C280 IN LINE 90 OF ..\user\MAIN.C: 'grp_level_3': unreferenced local variable
+*** WARNING C280 IN LINE 91 OF ..\user\MAIN.C: 'board_addr': unreferenced local variable
+ 199          
+ 200          
+ 201          
+ 202          
+ 203          /******************************************************************************/
+ 204          // º¯ÊýÃû³Æ£ºmain 
+ 205          // ÊäÈë²ÎÊý£º 
+ 206          // Êä³ö²ÎÊý£º 
+ 207          // º¯Êý¹¦ÄÜ£º 
+ 208          /******************************************************************************/
+ 209          void main(void)
+ 210          {
+ 211   1      //  uint16 ADC_RES;
+ 212   1          
+ 213   1        Uart1Init();
+ 214   1      //  Timer4_Init();
+ 215   1          ES = 1;
+ 216   1          EA = 1;
+ 217   1          UartSendStr("Uart Test !\r\n");
+ 218   1      //  Read_ID_fromROM();  
+ 219   1      ////  ADC_Init();
+ 220   1      //  PWM0_INIT();
+ 221   1      //  PCA_INIT();
+ 222   1      
+ 223   1        while(1)
+ 224   1        {
+ 225   2          if((1== packerflag))
+ 226   2          {
+ 227   3            //RS485_TX_EN();
+ 228   3      //      SEGGER_RTT_printf(0, "\n");
+ 229   3      //      SEGGER_RTT_printf(0, "-main-Uart1_Rx = %d\n",Uart1_Rx);      //RTT´òÓ¡
+ 230   3      //      SEGGER_RTT_printf(0, "---rcv-datas---"); 
+ 231   3            //spear_rtt_send_datas(Uart1_Buffer,Uart1_Rx);
+ 232   3            
+ 233   3            //spear_uart_send_datas(Uart1_Buffer,Uart1_Rx); //debug
+ 234   3      
+ 235   3      
+C51 COMPILER V9.60.0.0   MAIN                                                              05/24/2020 22:31:11 PAGE 5   
+
+ 236   3            data_parse();
+ 237   3            //RS485_RX_EN();
+ 238   3            
+ 239   3            memset(Uart1_Buffer,0,13);//max =4+5+4 =13
+ 240   3            Uart1_Rx   = 0 ;
+ 241   3            packerflag = 0;
+ 242   3            //Uart1_index_flag_end =0;
+ 243   3          }
+ 244   2          
+ 245   2          
+ 246   2          
+ 247   2          
+ 248   2          
+ 249   2          
+ 250   2          
+ 251   2      //    
+ 252   2      //    
+ 253   2      //    LED1 = 0;
+ 254   2      //    Delay100ms();
+ 255   2      //    Delay100ms();
+ 256   2      //    Delay100ms();
+ 257   2      //    Delay100ms();
+ 258   2      //    Delay100ms();
+ 259   2      //    LED1 = 1;
+ 260   2      //    Delay100ms();
+ 261   2      //    Delay100ms();
+ 262   2      //    Delay100ms();
+ 263   2      //    Delay100ms();
+ 264   2      //    Delay100ms();
+ 265   2      ////    ADC_RES = Get_ADC_RES();
+ 266   2      ////    UartSend(ADC_RES);
+ 267   2      ////    ADC_RES = ADC_RES>>8;
+ 268   2      ////    UartSend(ADC_RES>>8);
+ 269   2      //    
+ 270   2      //    
+ 271   2      ////    UartSend(length);
+ 272   2      ////    UartSend(length>>8);
+ 273   2      ////    UartSend(length>>16);
+ 274   2      ////    UartSend(length>>24);
+ 275   2      //    UartSendStr("Uart Test !\r\n");
+ 276   2      
+ 277   2          
+ 278   2          
+ 279   2          
+ 280   2        }
+ 281   1      }
+ 282          
+ 283          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    561    ----
+   CONSTANT SIZE    =    535    ----
+   XDATA SIZE       =      5     533
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)

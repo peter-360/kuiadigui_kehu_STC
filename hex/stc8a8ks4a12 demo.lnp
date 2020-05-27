@@ -1,0 +1,11 @@
+"..\hex\delay.obj",
+"..\hex\MAIN.obj",
+"..\hex\UART.obj",
+"..\hex\stc8aid.obj",
+"..\hex\IO.obj",
+"..\hex\timer.obj",
+"..\hex\adc.obj",
+"..\hex\pwm.obj",
+"..\hex\pca.obj" 
+TO "..\hex\stc8a8ks4a12 demo" 
+PRINT(".\LIST\stc8a8ks4a12 demo.m51") RAMSIZE(256) 

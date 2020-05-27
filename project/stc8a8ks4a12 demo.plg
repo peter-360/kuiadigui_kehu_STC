@@ -1,0 +1,1151 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\STC8A8K60S4A12\project\stc8a8ks4a12 demo.uvproj
+Project File Date:  09/14/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling CS1180.c...
+compiling delay.c...
+compiling MAIN.C...
+..\USER\MAIN.C(46): warning C280: 'AD_DAT': unreferenced local variable
+compiling NRF_24L01.C...
+..\USER\STC89C51RC_RD_PLUS.H(7): error C231: 'P4': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(8): error C231: 'P43': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(9): error C231: 'P42': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(10): error C231: 'P41': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(11): error C231: 'P40': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(21): error C231: 'IE2': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(24): error C231: 'WDT_CONTR': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(47): error C231: 'P0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(48): error C231: 'P1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(49): error C231: 'P2': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(50): error C231: 'P3': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(51): error C231: 'PSW': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(52): error C231: 'ACC': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(53): error C231: 'B': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(54): error C231: 'SP': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(55): error C231: 'DPL': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(56): error C231: 'DPH': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(57): error C231: 'PCON': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(58): error C231: 'TCON': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(59): error C231: 'TMOD': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(60): error C231: 'TL0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(61): error C231: 'TL1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(62): error C231: 'TH0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(63): error C231: 'TH1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(64): error C231: 'IE': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(65): error C231: 'IP': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(66): error C231: 'SCON': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(67): error C231: 'SBUF': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(70): error C231: 'AUXR': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(71): error C231: 'AUXR1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(72): error C231: 'SADDR': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(74): error C231: 'SADEN': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(106): error C231: 'CY': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(107): error C231: 'AC': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(108): error C231: 'F0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(109): error C231: 'RS1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(110): error C231: 'RS0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(111): error C231: 'OV': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(112): error C231: 'P': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(115): error C231: 'TF1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(116): error C231: 'TR1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(117): error C231: 'TF0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(118): error C231: 'TR0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(119): error C231: 'IE1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(120): error C231: 'IT1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(121): error C231: 'IE0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(122): error C231: 'IT0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(125): error C231: 'EA': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(128): error C231: 'ES': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(129): error C231: 'ET1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(130): error C231: 'EX1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(131): error C231: 'ET0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(132): error C231: 'EX0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(137): error C231: 'PS': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(138): error C231: 'PT1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(139): error C231: 'PX1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(140): error C231: 'PT0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(141): error C231: 'PX0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(154): error C231: 'SM0': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(156): error C231: 'SM1': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(157): error C231: 'SM2': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(158): error C231: 'REN': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(159): error C231: 'TB8': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(160): error C231: 'RB8': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(161): error C231: 'TI': redefinition
+..\USER\STC89C51RC_RD_PLUS.H(162): error C231: 'RI': redefinition
+compiling UART.C...
+Target not created
+Build target 'Target 1'
+compiling MAIN.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY100MS
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=716
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY100MS
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=716
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\CONFIG.H(51): error C202: 'P5': undefined identifier
+compiling MAIN.C...
+..\USER\CONFIG.H(51): error C202: 'P5': undefined identifier
+..\USER\MAIN.C(50): error C202: 'LED': undefined identifier
+..\USER\MAIN.C(52): error C202: 'LED': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\CONFIG.H(51): error C202: 'P5': undefined identifier
+compiling MAIN.C...
+..\USER\CONFIG.H(51): error C202: 'P5': undefined identifier
+..\USER\MAIN.C(50): error C202: 'LED': undefined identifier
+..\USER\MAIN.C(52): error C202: 'LED': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+compiling MAIN.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY100MS
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=723
+Target not created
+Build target 'Target 1'
+compiling MAIN.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY100MS
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=723
+Target not created
+Build target 'Target 1'
+compiling MAIN.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY100MS
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=723
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+..\USER\MAIN.C(33): warning C206: 'Delay100ms': missing function-prototype
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=708
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=708
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling MAIN.C...
+..\USER\MAIN.C(33): warning C206: 'Delay100ms': missing function-prototype
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=735
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\CONFIG.H(22): warning C318: can't open file 'STC8A.h'
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CS1180.C(53): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(55): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(69): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(84): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(88): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(90): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(92): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(110): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(112): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(120): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(139): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(140): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(141): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(143): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(147): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(149): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(158): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(160): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(161): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(163): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(164): error C202: 'CS1180_CS': undefined identifier
+compiling MAIN.C...
+..\USER\CONFIG.H(22): warning C318: can't open file 'STC8A.h'
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\MAIN.C(30): error C202: 'LED': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\CONFIG.H(22): warning C318: can't open file 'STC8A.h'
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CS1180.C(53): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(55): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(69): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(84): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(88): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(90): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(92): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(110): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(112): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(120): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(139): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(140): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(141): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(143): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(147): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(149): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(158): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(160): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(161): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(163): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(164): error C202: 'CS1180_CS': undefined identifier
+compiling delay.c...
+compiling MAIN.C...
+..\USER\CONFIG.H(22): warning C318: can't open file 'STC8A.h'
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\MAIN.C(30): error C202: 'LED': undefined identifier
+compiling UART.C...
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\CONFIG.H(22): warning C318: can't open file 'stc8a.h'
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CS1180.C(53): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(55): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(69): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(84): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(88): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(90): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(92): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(110): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(112): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(120): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(139): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(140): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(141): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(143): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(147): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(149): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(158): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(160): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(161): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(163): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(164): error C202: 'CS1180_CS': undefined identifier
+compiling MAIN.C...
+..\USER\CONFIG.H(22): warning C318: can't open file 'stc8a.h'
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\MAIN.C(30): error C202: 'LED': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\CONFIG.H(22): warning C318: can't open file 'STC8A.h'
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CS1180.C(53): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(55): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(69): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(84): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(88): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(90): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(92): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(110): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(112): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(120): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(139): error C202: 'CS1180_SCK': undefined identifier
+..\USER\CS1180.C(140): error C202: 'CS1180_SDI': undefined identifier
+..\USER\CS1180.C(141): error C202: 'CS1180_SDO': undefined identifier
+..\USER\CS1180.C(143): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(147): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(149): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(158): error C202: 'CS1180_CS': undefined identifier
+..\USER\CS1180.C(160): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(161): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(163): error C202: 'CS1180_DRDY': undefined identifier
+..\USER\CS1180.C(164): error C202: 'CS1180_CS': undefined identifier
+compiling MAIN.C...
+..\USER\CONFIG.H(22): warning C318: can't open file 'STC8A.h'
+..\USER\CS1180.H(30): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(31): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(32): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(33): error C202: 'P1': undefined identifier
+..\USER\CS1180.H(34): error C202: 'P1': undefined identifier
+..\USER\CONFIG.H(48): error C202: 'P5': undefined identifier
+..\USER\MAIN.C(30): error C202: 'LED': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\STC8A.H(51): error C231: 'P4': redefinition
+compiling MAIN.C...
+..\USER\STC8A.H(51): error C231: 'P4': redefinition
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\STC8A.H(51): error C231: 'P4': redefinition
+compiling MAIN.C...
+..\USER\STC8A.H(51): error C231: 'P4': redefinition
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\STC8A.H(51): error C231: 'P4': redefinition
+compiling MAIN.C...
+..\USER\STC8A.H(51): error C231: 'P4': redefinition
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+compiling MAIN.C...
+..\USER\MAIN.C(31): warning C206: 'Delay100ms': missing function-prototype
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=735
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling CS1180.c...
+..\USER\REG51.H(4): error C231: 'ACC': redefinition
+..\USER\REG51.H(5): error C231: 'B': redefinition
+..\USER\REG51.H(6): error C231: 'PSW': redefinition
+..\USER\REG51.H(7): error C231: 'CY': redefinition
+..\USER\REG51.H(8): error C231: 'AC': redefinition
+..\USER\REG51.H(9): error C231: 'F0': redefinition
+..\USER\REG51.H(10): error C231: 'RS1': redefinition
+..\USER\REG51.H(11): error C231: 'RS0': redefinition
+..\USER\REG51.H(12): error C231: 'OV': redefinition
+..\USER\REG51.H(13): error C231: 'P': redefinition
+..\USER\REG51.H(14): error C231: 'SP': redefinition
+..\USER\REG51.H(15): error C231: 'DPL': redefinition
+..\USER\REG51.H(16): error C231: 'DPH': redefinition
+..\USER\REG51.H(19): error C231: 'P0': redefinition
+..\USER\REG51.H(28): error C231: 'P1': redefinition
+..\USER\REG51.H(37): error C231: 'P2': redefinition
+..\USER\REG51.H(46): error C231: 'P3': redefinition
+..\USER\REG51.H(55): error C231: 'P4': redefinition
+..\USER\REG51.H(64): error C231: 'P5': redefinition
+..\USER\REG51.H(109): error C231: 'PCON': redefinition
+..\USER\REG51.H(110): error C231: 'AUXR': redefinition
+..\USER\REG51.H(111): error C231: 'AUXR1': redefinition
+..\USER\REG51.H(120): error C231: 'IE': redefinition
+..\USER\REG51.H(121): error C231: 'EA': redefinition
+..\USER\REG51.H(124): error C231: 'ES': redefinition
+..\USER\REG51.H(125): error C231: 'ET1': redefinition
+..\USER\REG51.H(126): error C231: 'EX1': redefinition
+..\USER\REG51.H(127): error C231: 'ET0': redefinition
+..\USER\REG51.H(128): error C231: 'EX0': redefinition
+..\USER\REG51.H(129): error C231: 'IP': redefinition
+..\USER\REG51.H(133): error C231: 'PS': redefinition
+..\USER\REG51.H(134): error C231: 'PT1': redefinition
+..\USER\REG51.H(135): error C231: 'PX1': redefinition
+..\USER\REG51.H(136): error C231: 'PT0': redefinition
+..\USER\REG51.H(137): error C231: 'PX0': redefinition
+..\USER\REG51.H(138): error C231: 'IE2': redefinition
+..\USER\REG51.H(143): error C231: 'TCON': redefinition
+..\USER\REG51.H(144): error C231: 'TF1': redefinition
+..\USER\REG51.H(145): error C231: 'TR1': redefinition
+..\USER\REG51.H(146): error C231: 'TF0': redefinition
+..\USER\REG51.H(147): error C231: 'TR0': redefinition
+..\USER\REG51.H(148): error C231: 'IE1': redefinition
+..\USER\REG51.H(149): error C231: 'IT1': redefinition
+..\USER\REG51.H(150): error C231: 'IE0': redefinition
+..\USER\REG51.H(151): error C231: 'IT0': redefinition
+..\USER\REG51.H(152): error C231: 'TMOD': redefinition
+..\USER\REG51.H(153): error C231: 'TL0': redefinition
+..\USER\REG51.H(154): error C231: 'TL1': redefinition
+..\USER\REG51.H(155): error C231: 'TH0': redefinition
+..\USER\REG51.H(156): error C231: 'TH1': redefinition
+..\USER\REG51.H(167): error C231: 'WDT_CONTR': redefinition
+..\USER\REG51.H(170): error C231: 'SCON': redefinition
+..\USER\REG51.H(171): error C231: 'SM0': redefinition
+..\USER\REG51.H(172): error C231: 'SM1': redefinition
+..\USER\REG51.H(173): error C231: 'SM2': redefinition
+..\USER\REG51.H(174): error C231: 'REN': redefinition
+..\USER\REG51.H(175): error C231: 'TB8': redefinition
+..\USER\REG51.H(176): error C231: 'RB8': redefinition
+..\USER\REG51.H(177): error C231: 'TI': redefinition
+..\USER\REG51.H(178): error C231: 'RI': redefinition
+..\USER\REG51.H(179): error C231: 'SBUF': redefinition
+..\USER\REG51.H(186): error C231: 'SADDR': redefinition
+..\USER\REG51.H(187): error C231: 'SADEN': redefinition
+compiling MAIN.C...
+..\USER\REG51.H(4): error C231: 'ACC': redefinition
+..\USER\REG51.H(5): error C231: 'B': redefinition
+..\USER\REG51.H(6): error C231: 'PSW': redefinition
+..\USER\REG51.H(7): error C231: 'CY': redefinition
+..\USER\REG51.H(8): error C231: 'AC': redefinition
+..\USER\REG51.H(9): error C231: 'F0': redefinition
+..\USER\REG51.H(10): error C231: 'RS1': redefinition
+..\USER\REG51.H(11): error C231: 'RS0': redefinition
+..\USER\REG51.H(12): error C231: 'OV': redefinition
+..\USER\REG51.H(13): error C231: 'P': redefinition
+..\USER\REG51.H(14): error C231: 'SP': redefinition
+..\USER\REG51.H(15): error C231: 'DPL': redefinition
+..\USER\REG51.H(16): error C231: 'DPH': redefinition
+..\USER\REG51.H(19): error C231: 'P0': redefinition
+..\USER\REG51.H(28): error C231: 'P1': redefinition
+..\USER\REG51.H(37): error C231: 'P2': redefinition
+..\USER\REG51.H(46): error C231: 'P3': redefinition
+..\USER\REG51.H(55): error C231: 'P4': redefinition
+..\USER\REG51.H(64): error C231: 'P5': redefinition
+..\USER\REG51.H(109): error C231: 'PCON': redefinition
+..\USER\REG51.H(110): error C231: 'AUXR': redefinition
+..\USER\REG51.H(111): error C231: 'AUXR1': redefinition
+..\USER\REG51.H(120): error C231: 'IE': redefinition
+..\USER\REG51.H(121): error C231: 'EA': redefinition
+..\USER\REG51.H(124): error C231: 'ES': redefinition
+..\USER\REG51.H(125): error C231: 'ET1': redefinition
+..\USER\REG51.H(126): error C231: 'EX1': redefinition
+..\USER\REG51.H(127): error C231: 'ET0': redefinition
+..\USER\REG51.H(128): error C231: 'EX0': redefinition
+..\USER\REG51.H(129): error C231: 'IP': redefinition
+..\USER\REG51.H(133): error C231: 'PS': redefinition
+..\USER\REG51.H(134): error C231: 'PT1': redefinition
+..\USER\REG51.H(135): error C231: 'PX1': redefinition
+..\USER\REG51.H(136): error C231: 'PT0': redefinition
+..\USER\REG51.H(137): error C231: 'PX0': redefinition
+..\USER\REG51.H(138): error C231: 'IE2': redefinition
+..\USER\REG51.H(143): error C231: 'TCON': redefinition
+..\USER\REG51.H(144): error C231: 'TF1': redefinition
+..\USER\REG51.H(145): error C231: 'TR1': redefinition
+..\USER\REG51.H(146): error C231: 'TF0': redefinition
+..\USER\REG51.H(147): error C231: 'TR0': redefinition
+..\USER\REG51.H(148): error C231: 'IE1': redefinition
+..\USER\REG51.H(149): error C231: 'IT1': redefinition
+..\USER\REG51.H(150): error C231: 'IE0': redefinition
+..\USER\REG51.H(151): error C231: 'IT0': redefinition
+..\USER\REG51.H(152): error C231: 'TMOD': redefinition
+..\USER\REG51.H(153): error C231: 'TL0': redefinition
+..\USER\REG51.H(154): error C231: 'TL1': redefinition
+..\USER\REG51.H(155): error C231: 'TH0': redefinition
+..\USER\REG51.H(156): error C231: 'TH1': redefinition
+..\USER\REG51.H(167): error C231: 'WDT_CONTR': redefinition
+..\USER\REG51.H(170): error C231: 'SCON': redefinition
+..\USER\REG51.H(171): error C231: 'SM0': redefinition
+..\USER\REG51.H(172): error C231: 'SM1': redefinition
+..\USER\REG51.H(173): error C231: 'SM2': redefinition
+..\USER\REG51.H(174): error C231: 'REN': redefinition
+..\USER\REG51.H(175): error C231: 'TB8': redefinition
+..\USER\REG51.H(176): error C231: 'RB8': redefinition
+..\USER\REG51.H(177): error C231: 'TI': redefinition
+..\USER\REG51.H(178): error C231: 'RI': redefinition
+..\USER\REG51.H(179): error C231: 'SBUF': redefinition
+..\USER\REG51.H(186): error C231: 'SADDR': redefinition
+..\USER\REG51.H(187): error C231: 'SADEN': redefinition
+Target not created
+Build target 'Target 1'
+compiling CS1180.c...
+compiling delay.c...
+compiling MAIN.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=735
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CS1180.c...
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.1 xdata=26 code=735
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CS1180.c...
+compiling delay.c...
+compiling MAIN.C...
+compiling stc8aid.c...
+..\user\stc8aid.c(20): warning C317: attempt to redefine macro 'FOSC'
+..\USER\STC8AID.C(23): error C231: 'AUXR': redefinition
+Target not created
+Build target 'Target 1'
+compiling stc8aid.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  MAIN
+    MODULE:  ..\hex\stc8aid.obj (STC8AID)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  UARTINIT
+    MODULE:  ..\hex\stc8aid.obj (STC8AID)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MAIN?STC8AID
+Program Size: data=9.2 xdata=29 code=872
+Target not created
+Build target 'Target 1'
+compiling stc8aid.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSENDSTRING?UART
+Program Size: data=9.2 xdata=29 code=742
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CS1180.c...
+compiling delay.c...
+compiling MAIN.C...
+..\USER\MAIN.C(28): warning C206: 'UartInit': missing function-prototype
+compiling UART.C...
+..\USER\UART.C(102): warning C206: 'UartInit': missing function-prototype
+compiling stc8aid.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  MAIN
+    MODULE:  ..\hex\UART.obj (UART)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  BUSY
+    MODULE:  ..\hex\stc8aid.obj (STC8AID)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1INIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MAIN?UART
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0023H
+    TO:      0025H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+    ADDRESS: 0252H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  ..\hex\UART.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  ..\hex\UART.obj (UART)
+    ADDRESS: 0215H
+Program Size: data=17.2 xdata=47 code=874
+Target not created
+Build target 'Target 1'
+compiling MAIN.C...
+compiling UART.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  BUSY
+    MODULE:  ..\hex\stc8aid.obj (STC8AID)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0023H
+    TO:      0025H
+Program Size: data=17.2 xdata=47 code=799
+Target not created
+Build target 'Target 1'
+compiling stc8aid.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID?STC8AID
+Program Size: data=17.1 xdata=48 code=894
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling UART.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID?STC8AID
+Program Size: data=17.1 xdata=48 code=894
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling MAIN.C...
+..\USER\MAIN.C(32): warning C206: 'Read_ID': missing function-prototype
+compiling UART.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+Program Size: data=17.1 xdata=47 code=897
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READADDATA?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITCS1180?CS1180
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+Program Size: data=17.1 xdata=47 code=897
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+compiling stc8aid.c...
+..\USER\STC8AID.C(51): error C202: 'uint5': undefined identifier
+..\USER\STC8AID.C(51): error C141: syntax error near 'i'
+..\USER\STC8AID.C(55): error C202: 'i': undefined identifier
+..\USER\STC8AID.C(57): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling stc8aid.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMROM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  READ_ID
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  READ_ID
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+    ADDRESS: 014FH
+Program Size: data=17.1 xdata=26 code=471
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+..\USER\UART.H(25): error C100: unprintable character 0xA3 skipped
+..\USER\UART.H(25): error C100: unprintable character 0xBB skipped
+..\USER\UART.H(26): error C132: '_UartSendStr': not in formal parameter list
+..\USER\STC8AID.H(23): error C132: 'Read_ID_fromROM': not in formal parameter list
+..\USER\STC8AID.H(24): error C132: 'Read_ID_fromRAM': not in formal parameter list
+..\USER\IO.H(23): error C132: 'IO_MODE_SET': not in formal parameter list
+..\USER\CONFIG.H(31): error C127: 'int8': invalid storage class
+..\USER\CONFIG.H(32): error C127: 'int16': invalid storage class
+..\USER\CONFIG.H(33): error C127: 'int32': invalid storage class
+..\USER\CONFIG.H(34): error C127: 'uint8': invalid storage class
+..\USER\CONFIG.H(35): error C127: 'uint16': invalid storage class
+..\USER\CONFIG.H(36): error C127: 'uint32': invalid storage class
+..\USER\CONFIG.H(49): error C141: syntax error near 'sbit'
+compiling MAIN.C...
+..\USER\UART.H(25): error C100: unprintable character 0xA3 skipped
+..\USER\UART.H(25): error C100: unprintable character 0xBB skipped
+..\USER\UART.H(26): error C132: '_UartSendStr': not in formal parameter list
+..\USER\STC8AID.H(23): error C132: 'Read_ID_fromROM': not in formal parameter list
+..\USER\STC8AID.H(24): error C132: 'Read_ID_fromRAM': not in formal parameter list
+..\USER\DELAY.H(23): error C132: 'Delay1us': not in formal parameter list
+..\USER\DELAY.H(24): error C132: 'Delay100ms': not in formal parameter list
+..\USER\IO.H(23): error C132: 'IO_MODE_SET': not in formal parameter list
+..\USER\CONFIG.H(31): error C127: 'int8': invalid storage class
+..\USER\CONFIG.H(32): error C127: 'int16': invalid storage class
+..\USER\CONFIG.H(33): error C127: 'int32': invalid storage class
+..\USER\CONFIG.H(34): error C127: 'uint8': invalid storage class
+..\USER\CONFIG.H(35): error C127: 'uint16': invalid storage class
+..\USER\CONFIG.H(36): error C127: 'uint32': invalid storage class
+..\USER\CONFIG.H(49): error C141: syntax error near 'sbit'
+compiling UART.C...
+..\USER\UART.H(25): error C100: unprintable character 0xA3 skipped
+..\USER\UART.H(25): error C100: unprintable character 0xBB skipped
+..\USER\UART.H(26): error C132: '_UartSendStr': not in formal parameter list
+..\USER\UART.C(20): error C132: 'busy': not in formal parameter list
+..\USER\UART.C(21): error C132: 'wptr': not in formal parameter list
+..\USER\UART.C(22): error C132: 'rptr': not in formal parameter list
+..\USER\UART.C(23): error C132: 'buffer': not in formal parameter list
+..\USER\UART.C(32): error C132: 'Uart1Init': not in formal parameter list
+..\USER\UART.C(32): error C141: syntax error near '{'
+..\USER\UART.C(33): error C136: 'SCON': 'void' on variable
+..\USER\UART.C(33): error C244: 'SCON': can't initialize, bad type or class
+..\USER\UART.C(33): error C136: 'SCON': 'void' on variable
+..\USER\UART.C(33): error C132: 'SCON': not in formal parameter list
+..\USER\UART.C(34): error C244: 'T2L': can't initialize, bad type or class
+..\USER\UART.C(34): error C132: 'T2L': not in formal parameter list
+..\USER\UART.C(35): error C244: 'T2H': can't initialize, bad type or class
+..\USER\UART.C(35): error C132: 'T2H': not in formal parameter list
+..\USER\UART.C(36): error C132: 'AUXR': not in formal parameter list
+..\USER\UART.C(36): error C141: syntax error near '|='
+..\USER\UART.C(37): error C244: 'wptr': can't initialize, bad type or class
+..\USER\UART.C(37): error C132: 'wptr': not in formal parameter list
+..\USER\UART.C(38): error C244: 'rptr': can't initialize, bad type or class
+..\USER\UART.C(38): error C132: 'rptr': not in formal parameter list
+..\USER\UART.C(39): error C244: 'busy': can't initialize, bad type or class
+..\USER\UART.C(39): error C132: 'busy': not in formal parameter list
+..\USER\UART.C(40): error C141: syntax error near '}'
+..\USER\UART.C(50): error C202: 'busy': undefined identifier
+..\USER\UART.C(51): error C202: 'busy': undefined identifier
+..\USER\UART.C(80): error C202: 'busy': undefined identifier
+..\USER\UART.C(85): error C202: 'wptr': undefined identifier
+..\USER\UART.C(86): error C202: 'wptr': undefined identifier
+compiling stc8aid.c...
+..\USER\UART.H(25): error C100: unprintable character 0xA3 skipped
+..\USER\UART.H(25): error C100: unprintable character 0xBB skipped
+..\USER\UART.H(26): error C132: '_UartSendStr': not in formal parameter list
+..\USER\DELAY.H(23): error C132: 'Delay1us': not in formal parameter list
+..\USER\DELAY.H(24): error C132: 'Delay100ms': not in formal parameter list
+..\USER\IO.H(23): error C132: 'IO_MODE_SET': not in formal parameter list
+..\USER\CONFIG.H(31): error C127: 'int8': invalid storage class
+..\USER\CONFIG.H(32): error C127: 'int16': invalid storage class
+..\USER\CONFIG.H(33): error C127: 'int32': invalid storage class
+..\USER\CONFIG.H(34): error C127: 'uint8': invalid storage class
+..\USER\CONFIG.H(35): error C127: 'uint16': invalid storage class
+..\USER\CONFIG.H(36): error C127: 'uint32': invalid storage class
+..\USER\CONFIG.H(49): error C141: syntax error near 'sbit'
+..\USER\STC8AID.C(51): error C202: 'uint8': undefined identifier
+..\USER\STC8AID.C(51): error C141: syntax error near 'i'
+..\USER\STC8AID.C(55): error C202: 'i': undefined identifier
+..\USER\STC8AID.C(57): error C202: 'i': undefined identifier
+compiling IO.c...
+..\USER\UART.H(25): error C100: unprintable character 0xA3 skipped
+..\USER\UART.H(25): error C100: unprintable character 0xBB skipped
+..\USER\UART.H(26): error C132: '_UartSendStr': not in formal parameter list
+..\USER\STC8AID.H(23): error C132: 'Read_ID_fromROM': not in formal parameter list
+..\USER\STC8AID.H(24): error C132: 'Read_ID_fromRAM': not in formal parameter list
+..\USER\DELAY.H(23): error C132: 'Delay1us': not in formal parameter list
+..\USER\DELAY.H(24): error C132: 'Delay100ms': not in formal parameter list
+..\USER\CONFIG.H(31): error C127: 'int8': invalid storage class
+..\USER\CONFIG.H(32): error C127: 'int16': invalid storage class
+..\USER\CONFIG.H(33): error C127: 'int32': invalid storage class
+..\USER\CONFIG.H(34): error C127: 'uint8': invalid storage class
+..\USER\CONFIG.H(35): error C127: 'uint16': invalid storage class
+..\USER\CONFIG.H(36): error C127: 'uint32': invalid storage class
+..\USER\CONFIG.H(49): error C141: syntax error near 'sbit'
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+..\USER\MAIN.C(32): warning C206: 'Read_ID': missing function-prototype
+compiling UART.C...
+compiling stc8aid.c...
+compiling IO.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMROM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  READ_ID
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  READ_ID
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+    ADDRESS: 014FH
+Program Size: data=17.1 xdata=26 code=497
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling MAIN.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+Program Size: data=17.1 xdata=25 code=497
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+compiling stc8aid.c...
+compiling IO.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  TIMR0_INIT
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  TIMR0_INIT
+    MODULE:  ..\hex\MAIN.obj (MAIN)
+    ADDRESS: 0007H
+Program Size: data=17.1 xdata=25 code=466
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+Program Size: data=17.1 xdata=25 code=488
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+Program Size: data=17.1 xdata=26 code=522
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+Program Size: data=17.1 xdata=27 code=537
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+compiling stc8aid.c...
+compiling IO.c...
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER0_INIT?TIMER
+Program Size: data=17.1 xdata=27 code=608
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+compiling stc8aid.c...
+compiling IO.c...
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER0_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INIT?TIMER
+Program Size: data=17.1 xdata=27 code=681
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling timer.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  MAIN
+    MODULE:  ..\hex\timer.obj (TIMER)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER0_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MAIN?TIMER
+Program Size: data=17.1 xdata=27 code=754
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+compiling stc8aid.c...
+compiling IO.c...
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER0_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INIT?TIMER
+Program Size: data=17.1 xdata=27 code=754
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling MAIN.C...
+compiling UART.C...
+compiling stc8aid.c...
+compiling IO.c...
+compiling timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER0_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER3_INIT?TIMER
+Program Size: data=17.1 xdata=27 code=827
+creating hex file from "..\hex\stc8a8ks4a12 demo"...
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 9 Warning(s).

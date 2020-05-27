@@ -1,0 +1,230 @@
+C51 COMPILER V9.60.0.0   UART                                                              05/24/2020 22:31:12 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN ..\hex\UART.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\user\UART.C LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJE
+                    -CTEXTEND PRINT(.\LIST\UART.lst) TABS(2) OBJECT(..\hex\UART.obj)
+
+line level    source
+
+   1          /*                        -- 渡河蚂蚁电子工作室 --                        */
+   2          /*
+   3          *   说    明: STC8A8KS4A12 DEMO程序
+   4          *   开发平台: STC15W408S     
+   5          *   淘宝网店: 
+   6          *
+   7          //  文件名：main.c                                                              
+   8          //  说明：供客户测试模块通信使用程序                                                                  
+   9          //  编写人员：Duhemayi                                                                   
+  10          //  编写日期：2018-09-16                                                               
+  11          //  程序维护：
+  12          //  维护记录：
+  13          //  版    本: V1.0
+  14          //                                                          
+  15          // 免责声明：该程序仅用于学习与交流 
+  16          // (c) Duhemayi Corporation. All rights reserved.     
+  17          ******************************************************************************/
+  18          #include "uart.h"
+  19          
+  20          bit busy;
+  21          char wptr;
+  22          char rptr;
+  23          char buffer[16];
+  24          
+  25          /******************************************************************************/
+  26          // 函数名称：uart1Init 
+  27          // 输入参数：无 
+  28          // 输出参数：无 
+  29          // 函数功能：设置好定时器0的工作模式 
+  30          /******************************************************************************/
+  31          void Uart1Init(void)
+  32          {
+  33   1          SCON = 0x50;     //8位波特率，允许接收
+  34   1          T2L = BRT;
+  35   1          T2H = BRT >> 8;
+  36   1          AUXR |= 0x15;
+  37   1          wptr = 0x00;
+  38   1          rptr = 0x00;
+  39   1          busy = 0;
+  40   1      }
+  41          
+  42          /******************************************************************************/
+  43          // 函数名称：uartSendData 
+  44          // 输入参数：ucData: 发送字节 
+  45          // 输出参数：无 
+  46          // 函数功能：使用串口发送一个字节数据 
+  47          /******************************************************************************/
+  48          //void UartSend(uint8 dat)
+  49          //{
+  50          //    while (busy);
+  51          //    busy = 1;
+  52          //    SBUF = dat;
+  53          //}
+  54          
+C51 COMPILER V9.60.0.0   UART                                                              05/24/2020 22:31:12 PAGE 2   
+
+  55          void UartSend(uint8 dat)
+  56          {
+  57   1        SBUF =dat;
+  58   1        //SBUF =0x55;
+  59   1        while(!TI);
+  60   1        TI =0;
+  61   1      }
+  62          
+  63          /******************************************************************************/
+  64          // 函数名称：uartSendString 
+  65          // 输入参数：pS: 字符串首地址 
+  66          // 输出参数：无 
+  67          // 函数功能：发送字符串通过串口输出 
+  68          /******************************************************************************/
+  69          void UartSendStr(uint8 *p)
+  70          {
+  71   1          while (*p)
+  72   1          {
+  73   2              UartSend(*p++);
+  74   2          }
+  75   1      }
+  76          
+  77          
+  78          
+  79          
+  80          
+  81          
+  82          
+  83          unsigned char Uart1_index_flag=0,Uart1_index_flag_end=0;                //???????
+  84          
+  85          unsigned char Uart1_Buffer[256];        //?????
+  86          unsigned char Uart1_Rx = 0;             //Uart1_Buffer??
+  87          unsigned char packerflag=0;
+  88          /******************************************************************************/
+  89          // 函数名称：time0ISR 
+  90          // 输入参数：无 
+  91          // 输出参数：无 
+  92          // 函数功能：串口0服务函数 
+  93          /******************************************************************************/
+  94          void Uart1Isr() interrupt 4 using 1
+  95          {
+  96   1        uint8 ch;
+  97   1        if (TI)
+  98   1        {
+  99   2            TI = 0;
+ 100   2            busy = 0;
+ 101   2        }
+ 102   1      //  if (RI)
+ 103   1      //  {
+ 104   1      //      RI = 0;
+ 105   1      //      buffer[wptr++] = SBUF;
+ 106   1      //      wptr &= 0x0f;
+ 107   1      //  }
+ 108   1        if (RI)
+ 109   1        {
+ 110   2          RI = 0;
+ 111   2          ch = SBUF;
+ 112   2          //UartSend(ch);
+ 113   2          
+ 114   2          
+ 115   2          Uart1_Buffer[Uart1_Rx] = ch; 
+ 116   2          
+C51 COMPILER V9.60.0.0   UART                                                              05/24/2020 22:31:12 PAGE 3   
+
+ 117   2          if(Uart1_Rx>13)//4+5+4
+ 118   2            Uart1_Rx=0;
+ 119   2          
+ 120   2          if(('s'== Uart1_Buffer[0])
+ 121   2            &&('t'== Uart1_Buffer[1])
+ 122   2            &&('a'== Uart1_Buffer[2])
+ 123   2            &&('r'== Uart1_Buffer[3])
+ 124   2            && (Uart1_Rx >4))
+ 125   2          {
+ 126   3            //UartSendStr
+ 127   3            //debug_uart_send_datas(Uart1_Buffer,4);
+ 128   3      //      SEGGER_RTT_printf(0, "1-Uart1_Buffer[Uart1_Rx] = %02x, Uart1_Rx=%d\n",
+ 129   3      //                              Uart1_Buffer[Uart1_Rx],Uart1_Rx);      //RTT打印
+ 130   3            switch(Uart1_index_flag_end)
+ 131   3            {
+ 132   4              case 0:
+ 133   4                if(ch == 'e')//process
+ 134   4                {
+ 135   5      //            SEGGER_RTT_printf(0, "2-Uart1_Buffer[Uart1_Rx] = %02x, Uart1_Rx=%d\n",
+ 136   5      //            Uart1_Buffer[Uart1_Rx],Uart1_Rx);      //RTT打印
+ 137   5      
+ 138   5                  Uart1_index_flag_end =1;
+ 139   5                }
+ 140   4                break;
+ 141   4              case 1:
+ 142   4                if(ch == 'n')//process
+ 143   4                  Uart1_index_flag_end =2;
+ 144   4                break;
+ 145   4              case 2:
+ 146   4                if(ch == 'd')//process
+ 147   4                  Uart1_index_flag_end =3;
+ 148   4                break;
+ 149   4              case 3:
+ 150   4                if(ch == 'o')//process
+ 151   4                {
+ 152   5                  //TIM3_Set(0);
+ 153   5      //            SEGGER_RTT_printf(0, "3-Uart1_Buffer[Uart1_Rx] = %02x, Uart1_Rx=%d\n",
+ 154   5      //                        Uart1_Buffer[Uart1_Rx],Uart1_Rx);      //RTT打印
+ 155   5      //            debug_uart_send_datas(Uart1_Buffer,13);
+ 156   5      //            debug_uart_send_datas(&Uart1_Rx,1);
+ 157   5                  
+ 158   5                  Uart1_index_flag_end =0;
+ 159   5                  packerflag = 1;                      //
+ 160   5      
+ 161   5                }
+ 162   4                break;
+ 163   4              default:
+ 164   4                break;
+ 165   4                  
+ 166   4              
+ 167   4            }
+ 168   3          
+ 169   3          
+ 170   3          }
+ 171   2          else//timer interrrupt, Uart1_Rx =0;
+ 172   2          {
+ 173   3            //TIM3_Set(1);
+ 174   3          }
+ 175   2          Uart1_Rx++;
+ 176   2        }
+ 177   1      }
+ 178          
+C51 COMPILER V9.60.0.0   UART                                                              05/24/2020 22:31:12 PAGE 4   
+
+ 179          /******************************************************************************/
+ 180          // 函数名称：void UART1_IOPORT_CHANGE(void)
+ 181          // 输入参数：无 
+ 182          // 输出参数：无 
+ 183          // 函数功能：串口一的IO口切换
+ 184          /******************************************************************************/
+ 185          void UART1_IOPORT_CHANGE(void)
+ 186          {
+ 187   1          P_SW1 = 0x00;                               //RXD/P3.0, TXD/P3.1
+ 188   1      //  P_SW1 = 0x40;                               //RXD_2/P3.6, TXD_2/P3.7
+ 189   1      //  P_SW1 = 0x80;                               //RXD_3/P1.6, TXD_3/P1.7
+ 190   1      //  P_SW1 = 0xc0;                               //RXD_4/P4.3, TXD_4/P4.4
+ 191   1      
+ 192   1      }
+ 193          
+ 194          
+ 195          
+ 196          
+ 197          
+ 198          
+ 199          
+ 200          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    267    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    278       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

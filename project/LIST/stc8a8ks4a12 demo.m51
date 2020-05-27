@@ -1,0 +1,1259 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/27/2020  16:44:58  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE ..\hex\delay.obj, ..\hex\MAIN.obj, ..\hex\UART.obj, ..\hex\stc8aid.obj, ..\hex\IO.obj, ..\he
+>> x\timer.obj, ..\hex\adc.obj, ..\hex\pwm.obj, ..\hex\pca.obj TO ..\hex\stc8a8ks4a12 demo PRINT (.\LIST\stc8a8ks4a12 de
+>> mo.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  ..\hex\delay.obj (DELAY)
+  ..\hex\MAIN.obj (MAIN)
+  ..\hex\UART.obj (UART)
+  ..\hex\stc8aid.obj (STC8AID)
+  ..\hex\IO.obj (IO)
+  ..\hex\timer.obj (TIMER)
+  ..\hex\adc.obj (ADC)
+  ..\hex\pwm.obj (PWM)
+  ..\hex\pca.obj (PCA)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?COPY)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?ILDIX)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?ULCMP)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?LSTXDATA)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?LSTKXDATA)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?MEMSET)
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  ..\hex\stc8a8ks4a12 demo (DELAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            REG     0008H     0008H     ABSOLUTE     "REG BANK 1"
+                    0010H     0010H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?UART
+            BIT     0020H.1   0000H.1   UNIT         ?BI?PWM
+                    0020H.2   0000H.6                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     020CH     UNIT         _XDATA_GROUP_
+            XDATA   020CH     0116H     UNIT         ?XD?UART
+            XDATA   0322H     000DH     UNIT         ?XD?PCA
+            XDATA   032FH     0005H     UNIT         ?XD?MAIN
+            XDATA   0334H     0004H     UNIT         ?XD?_RS485_DELAY?DELAY
+            XDATA   0338H     0004H     UNIT         ?XD?_DEBUG_UART_SEND_DATAS?MAIN
+            XDATA   033CH     0004H     UNIT         ?XD?_RS485_DELAY?UART
+            XDATA   0340H     0004H     UNIT         ?XD?_RS485_DELAY?STC8AID
+            XDATA   0344H     0004H     UNIT         ?XD?_RS485_DELAY?IO
+            XDATA   0348H     0004H     UNIT         ?XD?_RS485_DELAY?TIMER
+            XDATA   034CH     0004H     UNIT         ?XD?_RS485_DELAY?ADC
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 2
+
+
+            XDATA   0350H     0004H     UNIT         ?XD?_RS485_DELAY?PWM
+            XDATA   0354H     0004H     UNIT         ?XD?_RS485_DELAY?PCA
+            XDATA   0358H     0003H     UNIT         ?XD?STC8AID
+            XDATA   035BH     0002H     UNIT         ?XD?TIMER
+            XDATA   035DH     0002H     UNIT         ?XD?PWM
+            XDATA   035FH     0001H     UNIT         ?XD?READ_ID_FROMROM?STC8AID
+            XDATA   0360H     0001H     UNIT         ?XD?READ_ID_FROMRAM?STC8AID
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?_UARTSEND?UART
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     000DH     UNIT         ?PR?ADC_INIT?ADC
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     0004H     UNIT         ?PR?UART1_IOPORT_CHANGE?UART
+                    0022H     0001H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0013H     UNIT         ?PR?UART1INIT?UART
+                    0039H     0002H                  *** GAP ***
+            CODE    003BH     0003H     ABSOLUTE     
+            CODE    003EH     0018H     UNIT         ?C_INITSEG
+            CODE    0056H     0007H     UNIT         ?PR?DELAY1US?DELAY
+                    005DH     0006H                  *** GAP ***
+            CODE    0063H     0003H     ABSOLUTE     
+            CODE    0066H     0034H     UNIT         ?PR?TM1_ISR?TIMER
+                    009AH     0001H                  *** GAP ***
+            CODE    009BH     0003H     ABSOLUTE     
+                    009EH     0005H                  *** GAP ***
+            CODE    00A3H     0003H     ABSOLUTE     
+                    00A6H     000DH                  *** GAP ***
+            CODE    00B3H     0003H     ABSOLUTE     
+            CODE    00B6H     0236H     UNIT         ?CO?MAIN
+            CODE    02ECH     01F9H     UNIT         ?PR?DATA_PARSE?MAIN
+            CODE    04E5H     01CCH     UNIT         ?C?LIB_CODE
+            CODE    06B1H     00B9H     UNIT         ?PR?UART1ISR?UART
+            CODE    076AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    07F6H     0080H     UNIT         ?PR?PCA_ISR?PCA
+            CODE    0876H     0071H     UNIT         ?PR?PWM_ISR?PWM
+            CODE    08E7H     0054H     UNIT         ?PR?_COMPUTXOR?MAIN
+            CODE    093BH     0052H     UNIT         ?PR?MAIN?MAIN
+            CODE    098DH     004BH     UNIT         ?PR?READ_ID_FROMROM?STC8AID
+            CODE    09D8H     004AH     UNIT         ?PR?_RS485_DELAY?MAIN
+            CODE    0A22H     0040H     UNIT         ?PR?_RS485_DELAY?DELAY
+            CODE    0A62H     0040H     UNIT         ?PR?_RS485_DELAY?UART
+            CODE    0AA2H     0040H     UNIT         ?PR?_RS485_DELAY?STC8AID
+            CODE    0AE2H     0040H     UNIT         ?PR?_RS485_DELAY?IO
+            CODE    0B22H     0040H     UNIT         ?PR?_RS485_DELAY?TIMER
+            CODE    0B62H     0040H     UNIT         ?PR?_RS485_DELAY?ADC
+            CODE    0BA2H     0040H     UNIT         ?PR?_RS485_DELAY?PWM
+            CODE    0BE2H     0040H     UNIT         ?PR?_RS485_DELAY?PCA
+            CODE    0C22H     003EH     UNIT         ?PR?READ_ID_FROMRAM?STC8AID
+            CODE    0C60H     003AH     UNIT         ?PR?_DEBUG_UART_SEND_DATAS?MAIN
+            CODE    0C9AH     0037H     UNIT         ?PR?TM2_ISR?TIMER
+            CODE    0CD1H     0037H     UNIT         ?PR?TM3_ISR?TIMER
+            CODE    0D08H     0037H     UNIT         ?PR?TM4_ISR?TIMER
+            CODE    0D3FH     0037H     UNIT         ?PR?PCA_INIT?PCA
+            CODE    0D76H     0033H     UNIT         ?PR?_UARTSENDSTR?UART
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 3
+
+
+            CODE    0DA9H     0032H     UNIT         ?PR?_SPEAR_UART_SEND_DATAS?MAIN
+            CODE    0DDBH     0029H     UNIT         ?PR?PWM0_INIT?PWM
+            CODE    0E04H     0027H     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    0E2BH     0016H     UNIT         ?PR?IO_MODE_SET?IO
+            CODE    0E41H     0016H     UNIT         ?PR?TM0_ISR?TIMER
+            CODE    0E57H     0016H     UNIT         ?PR?GET_ADC_RES?ADC
+            CODE    0E6DH     0013H     UNIT         ?PR?TIMER0_INIT?TIMER
+            CODE    0E80H     0010H     UNIT         ?PR?TIMER1_INIT?TIMER
+            CODE    0E90H     000FH     UNIT         ?PR?TIMER2_INIT?TIMER
+            CODE    0E9FH     000FH     UNIT         ?PR?TIMER3_INIT?TIMER
+            CODE    0EAEH     000FH     UNIT         ?PR?TIMER4_INIT?TIMER
+            CODE    0EBDH     000EH     UNIT         ?PR?DELAY100MS?DELAY
+
+
+
+OVERLAY MAP OF MODULE:   ..\hex\stc8a8ks4a12 demo (DELAY)
+
+
+SEGMENT                                   XDATA_GROUP
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                           -----    -----
+  +--> ?PR?UART1INIT?UART
+  +--> ?PR?TIMER0_INIT?TIMER
+  +--> ?PR?_RS485_DELAY?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_UARTSENDSTR?UART
+  +--> ?PR?DATA_PARSE?MAIN
+
+?PR?_RS485_DELAY?MAIN                   0000H    0004H
+
+?PR?_UARTSENDSTR?UART                   0206H    0003H
+  +--> ?PR?_UARTSEND?UART
+
+?PR?DATA_PARSE?MAIN                     0000H    0206H
+  +--> ?CO?MAIN
+  +--> ?PR?_COMPUTXOR?MAIN
+  +--> ?PR?_DELAY_MS?DELAY
+  +--> ?PR?_UARTSENDSTR?UART
+  +--> ?PR?_SPEAR_UART_SEND_DATAS?MAIN
+
+?PR?_COMPUTXOR?MAIN                     0206H    0006H
+
+?PR?_DELAY_MS?DELAY                     -----    -----
+  +--> ?PR?DELAY1US?DELAY
+
+?PR?_SPEAR_UART_SEND_DATAS?MAIN         0206H    0004H
+  +--> ?PR?_UARTSEND?UART
+
+
+
+SYMBOL TABLE OF MODULE:  ..\hex\stc8a8ks4a12 demo (DELAY)
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 4
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  C:0056H         PUBLIC        Delay1us
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0A22H         SYMBOL        _RS485_delay
+  C:0E04H         PUBLIC        _delay_ms
+  C:0EBDH         PUBLIC        Delay100ms
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _RS485_DELAY
+  X:0334H         SYMBOL        nCount
+  C:0A22H         LINE#         112
+  C:0A22H         LINE#         113
+  C:0A22H         LINE#         114
+  C:0A61H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          DELAY100MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  D:0005H         SYMBOL        k
+  -------         ENDDO         
+  C:0EBDH         LINE#         27
+  C:0EBDH         LINE#         28
+  C:0EBDH         LINE#         31
+  C:0EBEH         LINE#         32
+  C:0EC0H         LINE#         33
+  C:0EC2H         LINE#         34
+  C:0EC4H         LINE#         36
+  C:0EC4H         LINE#         38
+  C:0EC4H         LINE#         39
+  C:0EC6H         LINE#         40
+  C:0EC8H         LINE#         41
+  C:0ECAH         LINE#         42
+  -------         ENDPROC       DELAY100MS
+  -------         PROC          DELAY1US
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0056H         LINE#         51
+  C:0056H         LINE#         52
+  C:0056H         LINE#         55
+  C:0057H         LINE#         56
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 5
+
+
+  C:0058H         LINE#         57
+  C:005AH         LINE#         58
+  C:005CH         LINE#         59
+  -------         ENDPROC       DELAY1US
+  -------         PROC          _DELAY_MS
+  D:0004H         SYMBOL        nms
+  -------         DO            
+  D:0082H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0E04H         LINE#         61
+  C:0E08H         LINE#         62
+  C:0E08H         LINE#         64
+  C:0E12H         LINE#         65
+  C:0E12H         LINE#         66
+  C:0E15H         LINE#         67
+  C:0E15H         LINE#         68
+  C:0E18H         LINE#         69
+  C:0E23H         LINE#         70
+  C:0E2AH         LINE#         72
+  -------         ENDPROC       _DELAY_MS
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0080H.2       PUBLIC        DSW_1
+  D:0080H         PUBLIC        P0
+  B:00F8H.4       PUBLIC        DSW_2
+  D:0090H         PUBLIC        P1
+  B:00F8H.5       PUBLIC        DSW_3
+  D:00A0H         PUBLIC        P2
+  B:00F8H.6       PUBLIC        DSW_4
+  D:00B0H         PUBLIC        P3
+  B:00F8H.7       PUBLIC        DSW_5
+  D:00C0H         PUBLIC        P4
+  B:00C0H.3       PUBLIC        DSW_6
+  D:00C8H         PUBLIC        P5
+  B:00A8H.7       PUBLIC        EA
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  C:02ECH         PUBLIC        data_parse
+  B:0090H.7       PUBLIC        GI_1
+  B:00C0H.4       PUBLIC        GI_2
+  B:0090H.4       PUBLIC        GI_3
+  D:00D8H         PUBLIC        CCON
+  C:093BH         PUBLIC        main
+  B:0090H.6       PUBLIC        GO_1
+  C:0C60H         PUBLIC        _debug_uart_send_datas
+  B:0090H.5       PUBLIC        GO_2
+  B:00E8H.3       PUBLIC        GO_3
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:08EDH         PUBLIC        _ComputXor
+  C:09E2H         SYMBOL        _RS485_delay
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 6
+
+
+  C:0DA9H         PUBLIC        _spear_uart_send_datas
+  B:00E8H.5       PUBLIC        RS485_RE
+  C:00ECH         SYMBOL        _?ix1000
+  C:01ECH         SYMBOL        _?ix1001
+  X:032FH         PUBLIC        m_data
+  D:00D0H         PUBLIC        PSW
+  C:09DAH         SYMBOL        L?0042
+  -------         PROC          L?0041
+  -------         ENDPROC       L?0041
+  C:09DAH         SYMBOL        L?0042
+  -------         PROC          _RS485_DELAY
+  X:0000H         SYMBOL        nCount
+  C:09E2H         LINE#         112
+  C:09E2H         LINE#         113
+  C:09E2H         LINE#         114
+  C:0A21H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          _SPEAR_UART_SEND_DATAS
+  X:0206H         SYMBOL        str
+  X:0209H         SYMBOL        len
+  C:0DA9H         LINE#         26
+  C:0DB7H         LINE#         27
+  C:0DB7H         LINE#         28
+  C:0DC1H         LINE#         29
+  C:0DC1H         LINE#         33
+  C:0DD8H         LINE#         34
+  C:0DDAH         LINE#         35
+  -------         ENDPROC       _SPEAR_UART_SEND_DATAS
+  -------         PROC          _DEBUG_UART_SEND_DATAS
+  X:0338H         SYMBOL        str
+  X:033BH         SYMBOL        len
+  C:0C60H         LINE#         37
+  C:0C6EH         LINE#         38
+  C:0C6EH         LINE#         39
+  C:0C72H         LINE#         40
+  C:0C7CH         LINE#         41
+  C:0C7CH         LINE#         45
+  C:0C93H         LINE#         46
+  C:0C95H         LINE#         47
+  -------         ENDPROC       _DEBUG_UART_SEND_DATAS
+  -------         PROC          L?0043
+  -------         ENDPROC       L?0043
+  -------         PROC          _COMPUTXOR
+  X:0206H         SYMBOL        InData
+  X:0209H         SYMBOL        Len
+  -------         DO            
+  X:020BH         SYMBOL        Sum
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:08EDH         LINE#         71
+  C:08FEH         LINE#         72
+  C:08FEH         LINE#         73
+  C:0901H         LINE#         75
+  C:0910H         LINE#         76
+  C:0910H         LINE#         77
+  C:092EH         LINE#         78
+  C:0935H         LINE#         79
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 7
+
+
+  C:093AH         LINE#         80
+  -------         ENDPROC       _COMPUTXOR
+  -------         PROC          DATA_PARSE
+  -------         DO            
+  X:0000H         SYMBOL        bcc_temp
+  X:0001H         SYMBOL        tx_Buffer
+  X:0101H         SYMBOL        gpio_level
+  X:0102H         SYMBOL        grp_level_1
+  X:0103H         SYMBOL        grp_level_2
+  X:0104H         SYMBOL        grp_level_3
+  D:0007H         SYMBOL        board_addr
+  X:0105H         SYMBOL        Uart1_Buffer_T
+  X:0205H         SYMBOL        Uart1_Rx_T
+  D:0001H         SYMBOL        DSW_T_1
+  D:0007H         SYMBOL        DSW_T_2
+  D:0006H         SYMBOL        DSW_T_3
+  D:0005H         SYMBOL        DSW_T_4
+  D:0004H         SYMBOL        DSW_T_5
+  D:0003H         SYMBOL        DSW_T_6
+  -------         ENDDO         
+  C:02ECH         LINE#         82
+  C:02ECH         LINE#         83
+  C:02ECH         LINE#         85
+  C:02FFH         LINE#         87
+  C:0304H         LINE#         93
+  C:0316H         LINE#         94
+  C:031BH         LINE#         99
+  C:0326H         LINE#         101
+  C:0337H         LINE#         103
+  C:033DH         LINE#         104
+  C:0343H         LINE#         105
+  C:0349H         LINE#         106
+  C:034FH         LINE#         107
+  C:0355H         LINE#         108
+  C:035BH         LINE#         109
+  C:0384H         LINE#         112
+  C:038FH         LINE#         113
+  C:038FH         LINE#         114
+  C:039AH         LINE#         115
+  C:039AH         LINE#         116
+  C:03A2H         LINE#         117
+  C:03A5H         LINE#         118
+  C:03ADH         LINE#         119
+  C:03B5H         LINE#         120
+  C:03BDH         LINE#         122
+  C:03C9H         LINE#         124
+  C:03D3H         LINE#         125
+  C:03D3H         LINE#         126
+  C:03DEH         LINE#         127
+  C:03DEH         LINE#         128
+  C:03DEH         LINE#         130
+  C:03E9H         LINE#         131
+  C:03E9H         LINE#         132
+  C:03F8H         LINE#         133
+  C:03F8H         LINE#         134
+  C:03F8H         LINE#         135
+  C:03FAH         LINE#         136
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 8
+
+
+  C:0401H         LINE#         137
+  C:0403H         LINE#         138
+  C:040AH         LINE#         140
+  C:040CH         LINE#         141
+  C:040EH         LINE#         143
+  C:0410H         LINE#         144
+  C:0412H         LINE#         146
+  C:0414H         LINE#         147
+  C:0416H         LINE#         152
+  C:041CH         LINE#         155
+  C:0422H         LINE#         156
+  C:0424H         LINE#         158
+  C:0424H         LINE#         159
+  C:0426H         LINE#         160
+  C:042DH         LINE#         161
+  C:042FH         LINE#         162
+  C:0436H         LINE#         165
+  C:0438H         LINE#         166
+  C:043AH         LINE#         168
+  C:043CH         LINE#         169
+  C:043EH         LINE#         171
+  C:0440H         LINE#         172
+  C:0442H         LINE#         177
+  C:0448H         LINE#         179
+  C:044EH         LINE#         180
+  C:0450H         LINE#         183
+  C:0450H         LINE#         184
+  C:0452H         LINE#         185
+  C:0459H         LINE#         186
+  C:045BH         LINE#         187
+  C:0462H         LINE#         194
+  C:0468H         LINE#         197
+  C:0471H         LINE#         198
+  C:0471H         LINE#         200
+  C:0471H         LINE#         201
+  C:0471H         LINE#         203
+  C:0471H         LINE#         205
+  C:0484H         LINE#         206
+  C:048CH         LINE#         207
+  C:0494H         LINE#         208
+  C:049CH         LINE#         210
+  C:04A4H         LINE#         211
+  C:04ACH         LINE#         213
+  C:04B1H         LINE#         215
+  C:04BDH         LINE#         216
+  C:04C1H         LINE#         217
+  C:04D4H         LINE#         219
+  C:04D9H         LINE#         221
+  C:04E4H         LINE#         225
+  C:04E4H         LINE#         227
+  C:04E4H         LINE#         229
+  C:04E4H         LINE#         230
+  C:04E4H         LINE#         233
+  C:04E4H         LINE#         234
+  C:04E4H         LINE#         235
+  C:04E4H         LINE#         238
+  C:04E4H         LINE#         240
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 9
+
+
+  C:04E4H         LINE#         242
+  C:04E4H         LINE#         244
+  C:04E4H         LINE#         248
+  C:04E4H         LINE#         250
+  -------         ENDPROC       DATA_PARSE
+  -------         PROC          MAIN
+  C:093BH         LINE#         261
+  C:093BH         LINE#         262
+  C:093BH         LINE#         265
+  C:093EH         LINE#         267
+  C:0941H         LINE#         268
+  C:0943H         LINE#         269
+  C:0945H         LINE#         276
+  C:094BH         LINE#         278
+  C:0954H         LINE#         279
+  C:0954H         LINE#         280
+  C:0954H         LINE#         281
+  C:095CH         LINE#         282
+  C:095CH         LINE#         283
+  C:096AH         LINE#         293
+  C:096DH         LINE#         294
+  C:0973H         LINE#         296
+  C:0982H         LINE#         297
+  C:0987H         LINE#         298
+  C:098BH         LINE#         300
+  C:098BH         LINE#         304
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:06B1H         PUBLIC        Uart1Isr
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A2H         PUBLIC        P_SW1
+  X:020CH         PUBLIC        Uart1_Buffer
+  D:00A8H         PUBLIC        IE
+  X:030CH         PUBLIC        packerflag
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:00D8H         PUBLIC        CCON
+  C:0003H         PUBLIC        _UartSend
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:001EH         PUBLIC        UART1_IOPORT_CHANGE
+  C:0A62H         SYMBOL        _RS485_delay
+  D:008EH         PUBLIC        AUXR
+  B:0020H.0       PUBLIC        busy
+  X:030DH         PUBLIC        Uart1_index_flag
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 10
+
+
+  X:030EH         PUBLIC        rptr
+  D:00D6H         PUBLIC        T2H
+  X:030FH         PUBLIC        wptr
+  D:00D7H         PUBLIC        T2L
+  B:0088H.4       PUBLIC        TR0
+  X:0310H         PUBLIC        Uart1_index_flag_end
+  C:0D76H         PUBLIC        _UartSendStr
+  C:0026H         PUBLIC        Uart1Init
+  X:0311H         PUBLIC        Uart1_Rx
+  D:00D0H         PUBLIC        PSW
+  X:0312H         PUBLIC        buffer
+  -------         PROC          _RS485_DELAY
+  X:033CH         SYMBOL        nCount
+  C:0A62H         LINE#         112
+  C:0A62H         LINE#         113
+  C:0A62H         LINE#         114
+  C:0AA1H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          UART1INIT
+  C:0026H         LINE#         63
+  C:0026H         LINE#         64
+  C:0026H         LINE#         65
+  C:0029H         LINE#         66
+  C:002CH         LINE#         67
+  C:002FH         LINE#         68
+  C:0032H         LINE#         69
+  C:0035H         LINE#         70
+  C:0038H         LINE#         71
+  -------         ENDPROC       UART1INIT
+  -------         PROC          _UARTSEND
+  D:0007H         SYMBOL        dat
+  C:0003H         LINE#         89
+  C:0003H         LINE#         90
+  C:0003H         LINE#         91
+  C:0005H         LINE#         93
+  C:0008H         LINE#         94
+  C:000AH         LINE#         95
+  -------         ENDPROC       _UARTSEND
+  -------         PROC          _UARTSENDSTR
+  X:0206H         SYMBOL        p
+  C:0D76H         LINE#         103
+  C:0D81H         LINE#         104
+  C:0D81H         LINE#         105
+  C:0D91H         LINE#         106
+  C:0D91H         LINE#         107
+  C:0DA6H         LINE#         108
+  C:0DA8H         LINE#         109
+  -------         ENDPROC       _UARTSENDSTR
+  -------         PROC          UART1ISR
+  -------         DO            
+  D:000FH         SYMBOL        ch
+  -------         ENDDO         
+  C:06B1H         LINE#         128
+  C:06BCH         LINE#         131
+  C:06BFH         LINE#         132
+  C:06BFH         LINE#         133
+  C:06C1H         LINE#         134
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 11
+
+
+  C:06C3H         LINE#         135
+  C:06C3H         LINE#         142
+  C:06C9H         LINE#         143
+  C:06C9H         LINE#         144
+  C:06CBH         LINE#         145
+  C:06CDH         LINE#         149
+  C:06DDH         LINE#         151
+  C:06E7H         LINE#         152
+  C:06ECH         LINE#         154
+  C:0713H         LINE#         159
+  C:0713H         LINE#         164
+  C:0724H         LINE#         165
+  C:0724H         LINE#         166
+  C:0724H         LINE#         167
+  C:0729H         LINE#         168
+  C:0729H         LINE#         172
+  C:072EH         LINE#         173
+  C:072EH         LINE#         174
+  C:0730H         LINE#         175
+  C:0730H         LINE#         176
+  C:0735H         LINE#         177
+  C:073BH         LINE#         178
+  C:073DH         LINE#         179
+  C:073DH         LINE#         180
+  C:0741H         LINE#         181
+  C:0747H         LINE#         182
+  C:0749H         LINE#         183
+  C:0749H         LINE#         184
+  C:074DH         LINE#         185
+  C:074DH         LINE#         192
+  C:0752H         LINE#         193
+  C:0757H         LINE#         195
+  C:0757H         LINE#         196
+  C:0759H         LINE#         197
+  C:0759H         LINE#         198
+  C:0759H         LINE#         201
+  C:0759H         LINE#         204
+  C:0759H         LINE#         206
+  C:0759H         LINE#         207
+  C:075BH         LINE#         209
+  C:075BH         LINE#         210
+  C:0761H         LINE#         212
+  C:0761H         LINE#         213
+  -------         ENDPROC       UART1ISR
+  -------         PROC          UART1_IOPORT_CHANGE
+  C:001EH         LINE#         221
+  C:001EH         LINE#         222
+  C:001EH         LINE#         223
+  C:0021H         LINE#         228
+  -------         ENDPROC       UART1_IOPORT_CHANGE
+  -------         ENDMOD        UART
+
+  -------         MODULE        STC8AID
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 12
+
+
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  X:0358H         PUBLIC        ID
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0AA2H         SYMBOL        _RS485_delay
+  C:0C22H         PUBLIC        Read_ID_fromRAM
+  C:098DH         PUBLIC        Read_ID_fromROM
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _RS485_DELAY
+  X:0340H         SYMBOL        nCount
+  C:0AA2H         LINE#         112
+  C:0AA2H         LINE#         113
+  C:0AA2H         LINE#         114
+  C:0AE1H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          READ_ID_FROMROM
+  -------         DO            
+  X:035FH         SYMBOL        i
+  -------         ENDDO         
+  C:098DH         LINE#         28
+  C:098DH         LINE#         29
+  C:098DH         LINE#         32
+  C:099BH         LINE#         37
+  C:09B5H         LINE#         38
+  C:09B5H         LINE#         39
+  C:09CFH         LINE#         40
+  C:09D7H         LINE#         41
+  -------         ENDPROC       READ_ID_FROMROM
+  -------         PROC          READ_ID_FROMRAM
+  -------         DO            
+  X:0360H         SYMBOL        i
+  -------         ENDDO         
+  C:0C22H         LINE#         49
+  C:0C22H         LINE#         50
+  C:0C22H         LINE#         53
+  C:0C2DH         LINE#         55
+  C:0C40H         LINE#         56
+  C:0C40H         LINE#         57
+  C:0C57H         LINE#         58
+  C:0C5FH         LINE#         59
+  -------         ENDPROC       READ_ID_FROMRAM
+  -------         ENDMOD        STC8AID
+
+  -------         MODULE        IO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0092H         PUBLIC        P1M0
+  D:0093H         PUBLIC        P0M1
+  D:0096H         PUBLIC        P2M0
+  D:0091H         PUBLIC        P1M1
+  D:0080H         PUBLIC        P0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 13
+
+
+  D:00B2H         PUBLIC        P3M0
+  D:0095H         PUBLIC        P2M1
+  D:0090H         PUBLIC        P1
+  D:00B1H         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0AE2H         SYMBOL        _RS485_delay
+  C:0E2BH         PUBLIC        IO_MODE_SET
+  D:00D0H         PUBLIC        PSW
+  D:0094H         PUBLIC        P0M0
+  -------         PROC          _RS485_DELAY
+  X:0344H         SYMBOL        nCount
+  C:0AE2H         LINE#         112
+  C:0AE2H         LINE#         113
+  C:0AE2H         LINE#         114
+  C:0B21H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          IO_MODE_SET
+  C:0E2BH         LINE#         21
+  C:0E2BH         LINE#         22
+  C:0E2BH         LINE#         23
+  C:0E2EH         LINE#         24
+  C:0E30H         LINE#         25
+  C:0E33H         LINE#         26
+  C:0E35H         LINE#         27
+  C:0E37H         LINE#         28
+  C:0E3AH         LINE#         29
+  C:0E3DH         LINE#         30
+  C:0E40H         LINE#         31
+  -------         ENDPROC       IO_MODE_SET
+  -------         ENDMOD        IO
+
+  -------         MODULE        TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  B:00A8H.7       PUBLIC        EA
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:0E6DH         PUBLIC        Timer0_Init
+  C:0E80H         PUBLIC        Timer1_Init
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 14
+
+
+  C:0E90H         PUBLIC        Timer2_Init
+  C:0E9FH         PUBLIC        Timer3_Init
+  C:0EAEH         PUBLIC        Timer4_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:0B22H         SYMBOL        _RS485_delay
+  D:00AFH         PUBLIC        IE2
+  D:008EH         PUBLIC        AUXR
+  B:00A8H.1       PUBLIC        ET0
+  X:035BH         PUBLIC        Timer_CNT
+  B:0088H.5       PUBLIC        TF0
+  B:00A8H.3       PUBLIC        ET1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:00D6H         PUBLIC        T2H
+  D:00D4H         PUBLIC        T3H
+  D:00D2H         PUBLIC        T4H
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  D:00D7H         PUBLIC        T2L
+  D:00D5H         PUBLIC        T3L
+  D:00D3H         PUBLIC        T4L
+  B:0080H.0       PUBLIC        LED
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  D:00D1H         PUBLIC        T4T3M
+  C:0E41H         PUBLIC        TM0_Isr
+  C:0066H         PUBLIC        TM1_Isr
+  C:0C9AH         PUBLIC        TM2_Isr
+  C:0CD1H         PUBLIC        TM3_Isr
+  C:0D08H         PUBLIC        TM4_Isr
+  D:00EFH         PUBLIC        AUXINTIF
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _RS485_DELAY
+  X:0348H         SYMBOL        nCount
+  C:0B22H         LINE#         112
+  C:0B22H         LINE#         113
+  C:0B22H         LINE#         114
+  C:0B61H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          TIMER0_INIT
+  C:0E6DH         LINE#         33
+  C:0E6DH         LINE#         34
+  C:0E6DH         LINE#         35
+  C:0E70H         LINE#         37
+  C:0E73H         LINE#         40
+  C:0E76H         LINE#         41
+  C:0E79H         LINE#         43
+  C:0E7BH         LINE#         44
+  C:0E7DH         LINE#         45
+  C:0E7FH         LINE#         46
+  -------         ENDPROC       TIMER0_INIT
+  -------         PROC          TM0_ISR
+  C:0E41H         LINE#         49
+  C:0E47H         LINE#         51
+  C:0E49H         LINE#         52
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 15
+
+
+  C:0E4BH         LINE#         55
+  C:0E50H         LINE#         61
+  -------         ENDPROC       TM0_ISR
+  -------         PROC          TM1_ISR
+  C:0066H         LINE#         74
+  C:006EH         LINE#         76
+  C:007CH         LINE#         77
+  C:008BH         LINE#         78
+  C:008BH         LINE#         79
+  C:008FH         LINE#         80
+  C:0091H         LINE#         81
+  C:0091H         LINE#         82
+  -------         ENDPROC       TM1_ISR
+  -------         PROC          TIMER1_INIT
+  C:0E80H         LINE#         84
+  C:0E80H         LINE#         85
+  C:0E80H         LINE#         86
+  C:0E83H         LINE#         87
+  C:0E86H         LINE#         88
+  C:0E89H         LINE#         89
+  C:0E8BH         LINE#         90
+  C:0E8DH         LINE#         91
+  C:0E8FH         LINE#         92
+  -------         ENDPROC       TIMER1_INIT
+  -------         PROC          TM2_ISR
+  C:0C9AH         LINE#         95
+  C:0CA2H         LINE#         97
+  C:0CA5H         LINE#         98
+  C:0CB3H         LINE#         99
+  C:0CC2H         LINE#         100
+  C:0CC2H         LINE#         101
+  C:0CC6H         LINE#         102
+  C:0CC8H         LINE#         103
+  C:0CC8H         LINE#         104
+  -------         ENDPROC       TM2_ISR
+  -------         PROC          TIMER2_INIT
+  C:0E90H         LINE#         106
+  C:0E90H         LINE#         107
+  C:0E90H         LINE#         108
+  C:0E93H         LINE#         109
+  C:0E96H         LINE#         110
+  C:0E99H         LINE#         111
+  C:0E9CH         LINE#         112
+  C:0E9EH         LINE#         113
+  -------         ENDPROC       TIMER2_INIT
+  -------         PROC          TM3_ISR
+  C:0CD1H         LINE#         115
+  C:0CD9H         LINE#         117
+  C:0CDCH         LINE#         119
+  C:0CEAH         LINE#         120
+  C:0CF9H         LINE#         121
+  C:0CF9H         LINE#         122
+  C:0CFDH         LINE#         123
+  C:0CFFH         LINE#         124
+  C:0CFFH         LINE#         125
+  -------         ENDPROC       TM3_ISR
+  -------         PROC          TIMER3_INIT
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 16
+
+
+  C:0E9FH         LINE#         127
+  C:0E9FH         LINE#         128
+  C:0E9FH         LINE#         129
+  C:0EA2H         LINE#         130
+  C:0EA5H         LINE#         131
+  C:0EA8H         LINE#         132
+  C:0EABH         LINE#         133
+  C:0EADH         LINE#         134
+  -------         ENDPROC       TIMER3_INIT
+  -------         PROC          TM4_ISR
+  C:0D08H         LINE#         136
+  C:0D10H         LINE#         138
+  C:0D13H         LINE#         139
+  C:0D21H         LINE#         140
+  C:0D30H         LINE#         141
+  C:0D30H         LINE#         142
+  C:0D34H         LINE#         143
+  C:0D36H         LINE#         144
+  C:0D36H         LINE#         145
+  -------         ENDPROC       TM4_ISR
+  -------         PROC          TIMER4_INIT
+  C:0EAEH         LINE#         147
+  C:0EAEH         LINE#         148
+  C:0EAEH         LINE#         149
+  C:0EB1H         LINE#         150
+  C:0EB4H         LINE#         151
+  C:0EB7H         LINE#         152
+  C:0EBAH         LINE#         153
+  C:0EBCH         LINE#         154
+  -------         ENDPROC       TIMER4_INIT
+  -------         ENDMOD        TIMER
+
+  -------         MODULE        ADC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0092H         PUBLIC        P1M0
+  D:0091H         PUBLIC        P1M1
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00BDH         PUBLIC        ADC_RES
+  C:0E57H         PUBLIC        Get_ADC_RES
+  D:00B8H         PUBLIC        IP
+  D:00DEH         PUBLIC        ADCCFG
+  D:00D8H         PUBLIC        CCON
+  D:00BCH         PUBLIC        ADC_CONTR
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0B62H         SYMBOL        _RS485_delay
+  C:000EH         PUBLIC        ADC_Init
+  D:00BEH         PUBLIC        ADC_RESL
+  D:00D0H         PUBLIC        PSW
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 17
+
+
+  -------         PROC          _RS485_DELAY
+  X:034CH         SYMBOL        nCount
+  C:0B62H         LINE#         112
+  C:0B62H         LINE#         113
+  C:0B62H         LINE#         114
+  C:0BA1H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          ADC_INIT
+  C:000EH         LINE#         22
+  C:000EH         LINE#         23
+  C:000EH         LINE#         24
+  C:0011H         LINE#         25
+  C:0014H         LINE#         26
+  C:0017H         LINE#         27
+  C:001AH         LINE#         28
+  -------         ENDPROC       ADC_INIT
+  -------         PROC          GET_ADC_RES
+  -------         DO            
+  D:0006H         SYMBOL        adc_val
+  -------         ENDDO         
+  C:0E57H         LINE#         30
+  C:0E57H         LINE#         31
+  C:0E57H         LINE#         34
+  C:0E5AH         LINE#         35
+  C:0E5BH         LINE#         36
+  C:0E5CH         LINE#         37
+  C:0E61H         LINE#         38
+  C:0E64H         LINE#         40
+  C:0E6CH         LINE#         44
+  C:0E6CH         LINE#         45
+  -------         ENDPROC       GET_ADC_RES
+  -------         ENDMOD        ADC
+
+  -------         MODULE        PWM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  C:0876H         PUBLIC        PWM_Isr
+  D:00C8H         PUBLIC        P5
+  B:00A8H.7       PUBLIC        EA
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00FEH         PUBLIC        PWMCR
+  D:00BAH         PUBLIC        P_SW2
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0BA2H         SYMBOL        _RS485_delay
+  C:0DDBH         PUBLIC        PWM0_INIT
+  D:00F1H         PUBLIC        PWMCFG
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _RS485_DELAY
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 18
+
+
+  X:0350H         SYMBOL        nCount
+  C:0BA2H         LINE#         112
+  C:0BA2H         LINE#         113
+  C:0BA2H         LINE#         114
+  C:0BE1H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          PWM0_INIT
+  C:0DDBH         LINE#         29
+  C:0DDBH         LINE#         30
+  C:0DDBH         LINE#         31
+  C:0DDEH         LINE#         32
+  C:0DE3H         LINE#         33
+  C:0DECH         LINE#         34
+  C:0DF2H         LINE#         35
+  C:0DF7H         LINE#         36
+  C:0DFBH         LINE#         37
+  C:0DFEH         LINE#         39
+  C:0E01H         LINE#         40
+  C:0E03H         LINE#         41
+  -------         ENDPROC       PWM0_INIT
+  -------         PROC          PWM_ISR
+  -------         DO            
+  B:0020H.1       SYMBOL        dir
+  X:035DH         SYMBOL        val
+  -------         ENDDO         
+  C:0876H         LINE#         43
+  C:0881H         LINE#         48
+  C:0886H         LINE#         49
+  C:0886H         LINE#         50
+  C:0889H         LINE#         51
+  C:088CH         LINE#         52
+  C:088CH         LINE#         53
+  C:089AH         LINE#         54
+  C:08A7H         LINE#         55
+  C:08A9H         LINE#         57
+  C:08A9H         LINE#         58
+  C:08B7H         LINE#         59
+  C:08C8H         LINE#         60
+  C:08C8H         LINE#         61
+  C:08CAH         LINE#         62
+  C:08CDH         LINE#         63
+  C:08DCH         LINE#         64
+  C:08DEH         LINE#         65
+  C:08DEH         LINE#         66
+  -------         ENDPROC       PWM_ISR
+  -------         ENDMOD        PWM
+
+  -------         MODULE        PCA
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  X:0322H         PUBLIC        length
+  B:00A8H.7       PUBLIC        EA
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 19
+
+
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  B:00D8H.7       PUBLIC        CF
+  D:00F9H         PUBLIC        CH
+  D:00A8H         PUBLIC        IE
+  D:00E9H         PUBLIC        CL
+  D:00FAH         PUBLIC        CCAP0H
+  D:00EAH         PUBLIC        CCAP0L
+  B:00D8H.6       PUBLIC        CR
+  D:00DAH         PUBLIC        CCAPM0
+  D:00B8H         PUBLIC        IP
+  D:00D9H         PUBLIC        CMOD
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0BE2H         SYMBOL        _RS485_delay
+  X:0326H         PUBLIC        cnt
+  X:0327H         PUBLIC        count0
+  X:032BH         PUBLIC        count1
+  C:07F6H         PUBLIC        PCA_Isr
+  C:0D3FH         PUBLIC        PCA_INIT
+  D:00D0H         PUBLIC        PSW
+  B:00D8H.0       PUBLIC        CCF0
+  -------         PROC          _RS485_DELAY
+  X:0354H         SYMBOL        nCount
+  C:0BE2H         LINE#         112
+  C:0BE2H         LINE#         113
+  C:0BE2H         LINE#         114
+  C:0C21H         LINE#         115
+  -------         ENDPROC       _RS485_DELAY
+  -------         PROC          PCA_INIT
+  C:0D3FH         LINE#         33
+  C:0D3FH         LINE#         34
+  C:0D3FH         LINE#         35
+  C:0D44H         LINE#         36
+  C:0D4CH         LINE#         37
+  C:0D56H         LINE#         38
+  C:0D60H         LINE#         39
+  C:0D63H         LINE#         40
+  C:0D66H         LINE#         41
+  C:0D68H         LINE#         42
+  C:0D6AH         LINE#         44
+  C:0D6DH         LINE#         46
+  C:0D6FH         LINE#         47
+  C:0D71H         LINE#         48
+  C:0D73H         LINE#         49
+  C:0D75H         LINE#         50
+  -------         ENDPROC       PCA_INIT
+  -------         PROC          PCA_ISR
+  C:07F6H         LINE#         54
+  C:0803H         LINE#         56
+  C:0806H         LINE#         57
+  C:0806H         LINE#         58
+  C:0808H         LINE#         59
+  C:080EH         LINE#         60
+  C:080EH         LINE#         61
+  C:0811H         LINE#         62
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 20
+
+
+  C:0811H         LINE#         63
+  C:0813H         LINE#         64
+  C:0827H         LINE#         65
+  C:082DH         LINE#         66
+  C:0833H         LINE#         67
+  C:083BH         LINE#         68
+  C:0840H         LINE#         69
+  C:086BH         LINE#         70
+  C:086BH         LINE#         71
+  -------         ENDPROC       PCA_ISR
+  -------         ENDMOD        PCA
+
+  -------         MODULE        ?C?COPY
+  C:05B5H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDPTR
+  C:05DBH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:05F4H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?ILDIX
+  C:0621H         PUBLIC        ?C?ILDIX
+  -------         ENDMOD        ?C?ILDIX
+
+  -------         MODULE        ?C?ULCMP
+  C:0637H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        ?C?LSTXDATA
+  C:0648H         PUBLIC        ?C?LSTXDATA
+  -------         ENDMOD        ?C?LSTXDATA
+
+  -------         MODULE        ?C?LSTKXDATA
+  C:0654H         PUBLIC        ?C?LSTKXDATA
+  -------         ENDMOD        ?C?LSTKXDATA
+
+  -------         MODULE        ?C?MEMSET
+  C:0685H         PUBLIC        ?C?MEMSET
+  -------         ENDMOD        ?C?MEMSET
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?DELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DEBUG_UART_SEND_DATAS?MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?UART
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2020  16:44:58  PAGE 21
+
+
+    SEGMENT: ?PR?UART1_IOPORT_CHANGE?UART
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?STC8AID
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMROM?STC8AID
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READ_ID_FROMRAM?STC8AID
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?IO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?IO_MODE_SET?IO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?TIMER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INIT?TIMER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INIT?TIMER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER3_INIT?TIMER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER4_INIT?TIMER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?ADC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ADC_INIT?ADC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_ADC_RES?ADC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?PWM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWM0_INIT?PWM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RS485_DELAY?PCA
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PCA_INIT?PCA
+
+Program Size: data=17.2 xdata=865 code=3759
+LINK/LOCATE RUN COMPLETE.  22 WARNING(S),  0 ERROR(S)
