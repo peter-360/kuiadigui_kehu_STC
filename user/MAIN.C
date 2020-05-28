@@ -49,6 +49,14 @@ void debug_uart_send_datas(uint8* str, uint8 len)
 
 
 
+void debug_uart_send_data1(uint8 str)
+{
+	UartSend(0xee);
+	UartSend(str);
+	UartSend(0xff);
+}
+
+
 
 ///command struct
 typedef struct
@@ -95,6 +103,12 @@ void data_parse()
 	
 	uint8_t DSW_T_1, DSW_T_2, DSW_T_3, DSW_T_4, DSW_T_5, DSW_T_6 ;
 	
+	uint8_t GI_T_1=GI_1,   GI_T_2=GI_2,   GI_T_3=GI_3,   GI_T_4=GI_4,   GI_T_5=GI_5,   GI_T_6=GI_6,
+					GI_T_7=GI_7,   GI_T_8=GI_8,   GI_T_9=GI_9,   GI_T_10=GI_10, GI_T_11=GI_11, GI_T_12=GI_12, 
+					GI_T_13=GI_13, GI_T_14=GI_14, GI_T_15=GI_15, GI_T_16=GI_16, GI_T_17=GI_17, GI_T_18=GI_18,
+					GI_T_19=GI_19, GI_T_20=GI_20, GI_T_21=GI_21, GI_T_22=GI_22, GI_T_23=GI_23, GI_T_24=GI_24;
+	
+					
 	//SEGGER_RTT_printf(0, "-parse-Uart1_Rx = %d\n",Uart1_Rx);      //RTT¥Ú”°
 	Uart1_Rx_T = Uart1_Rx - 8;
 	//SEGGER_RTT_printf(0, "-Uart1_Rx_T = %d\n",Uart1_Rx_T);      //RTT¥Ú”
@@ -155,7 +169,6 @@ void data_parse()
 									//LED1 =0;
 									gpio_level= GI_2;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
-									//UartSendStr("\r\n--2--\r\n");
 									break;
 								
 							case 3:
@@ -389,7 +402,152 @@ void data_parse()
 							//SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
 						}
 						break;
-						
+
+					case 0x80:
+						if(m_data.gu_ding  == 0x33)//process
+						{
+							if(0x00== m_data.lock_addr)//----4------
+							{
+//								debug_uart_send_data1((GI_T_1) | (GI_T_2<<1));
+								grp_level_1= GI_T_1 | (GI_T_2<<1) | (GI_T_3<<2) | (GI_T_4<<3) | (GI_T_5<<4) | (GI_T_6<<5) | (GI_T_7<<6) | (GI_T_8<<7);
+								grp_level_2= GI_T_9 | (GI_T_10<<1) | (GI_T_11<<2) | (GI_T_12<<3) | (GI_T_13<<4) | (GI_T_14<<5) | (GI_T_15<<6) | (GI_T_16<<7);
+								grp_level_3= GI_T_17 | (GI_T_18<<1) | (GI_T_19<<2) | (GI_T_20<<3) | (GI_T_21<<4) | (GI_T_22<<5) | (GI_T_23<<6) | (GI_T_24<<7);
+								//SEGGER_RTT_printf(0, "grp_level_1 = %x\n",grp_level_1);
+								//SEGGER_RTT_printf(0, "grp_level_2 = %x\n",grp_level_2);
+								//SEGGER_RTT_printf(0, "grp_level_3 = %x\n",grp_level_3);
+								
+								memcpy(tx_Buffer,"star",4);
+								tx_Buffer[4]= m_data.opcode;
+								tx_Buffer[5]= m_data.board_addr;
+								tx_Buffer[6]= grp_level_1;
+								tx_Buffer[7]= grp_level_2;
+								tx_Buffer[8]= grp_level_3;
+
+
+								
+								bcc_temp = ComputXor(tx_Buffer+4,5);
+								tx_Buffer[9]= bcc_temp;
+								memcpy(tx_Buffer+10,"end",3);//now is 2?
+								
+								tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+								
+								spear_uart_send_datas(tx_Buffer,13);
+								//spear_rtt_send_datas(tx_Buffer,12);//to do 13?
+
+								//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+								//spear_uart_send_datas
+							}
+							else//----3------
+							{
+								
+								switch(m_data.lock_addr)
+								{
+									case 1:
+										gpio_level= GI_1;
+										break;
+									case 2:
+										gpio_level= GI_2;
+										break;
+									case 3:
+										gpio_level= GI_3;
+										break;
+									case 4:
+										gpio_level= GI_4;
+										break;
+									case 5:
+										gpio_level= GI_5;
+										break;
+									case 6:
+										gpio_level= GI_6;
+									case 7:
+										gpio_level= GI_7;
+										break;
+									case 8:
+										gpio_level= GI_8;
+										break;
+									case 9:
+										gpio_level= GI_9;
+										break;
+									case 10:
+										gpio_level= GI_10;
+										break;
+									case 11:
+										gpio_level= GI_11;
+										break;
+									case 12:
+										gpio_level= GI_12;
+										break;
+									case 13:
+										gpio_level= GI_13;
+										break;
+									case 14:
+										gpio_level= GI_14;
+										break;
+									case 15:
+										gpio_level= GI_15;
+									case 16:
+										gpio_level= GI_16;
+										break;
+									case 17:
+										gpio_level= GI_17;
+										break;
+									case 18:
+										gpio_level= GI_18;
+										break;
+									case 19:
+										gpio_level= GI_19;
+										break;
+									case 20:
+										gpio_level= GI_20;
+										break;
+									case 21:
+										gpio_level= GI_21;
+										break;
+									case 22:
+										gpio_level= GI_22;
+										break;
+									case 23:
+										gpio_level= GI_23;
+										break;
+									case 24:
+										gpio_level= GI_24;
+										break;
+									
+									default:
+										break;
+
+								}
+								//SEGGER_RTT_printf(0, "--%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+								
+								memcpy(tx_Buffer,"star",4);
+								tx_Buffer[4]= m_data.opcode;
+								tx_Buffer[5]= m_data.board_addr;
+								tx_Buffer[6]= m_data.lock_addr;
+								
+								if(0x01 == gpio_level)
+									tx_Buffer[7]= 0x11;//lock state todo open
+								else
+									tx_Buffer[7]= 0x00;//lock state todo close
+
+								
+								bcc_temp = ComputXor(tx_Buffer+4,4);
+								tx_Buffer[8]= bcc_temp;
+								memcpy(tx_Buffer+9,"end",3);
+								
+								tx_Buffer[12]='\0';
+								
+								spear_uart_send_datas(tx_Buffer,12);
+								//spear_rtt_send_datas(tx_Buffer,12);
+
+								//SEGGER_RTT_printf(0, "--ok,m_data.opcode=%02x\n",m_data.opcode);
+							}
+							
+						}
+						else
+						{
+							//SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
+						}
+						break;
 
 					default:
 						break;
@@ -410,29 +568,8 @@ void data_parse()
 
 }
 
-
-
-
-/******************************************************************************/
-// ∫Ø ˝√˚≥∆£∫main 
-//  ‰»Î≤Œ ˝£∫ 
-//  ‰≥ˆ≤Œ ˝£∫ 
-// ∫Ø ˝π¶ƒ‹£∫ 
-/******************************************************************************/
-void main(void)
+void gpio_init(void)
 {
-//	uint16 ADC_RES;
-		
-	Uart1Init();
-//	Timer4_Init();
-	Timer0_Init();
-	ES = 1;
-	EA = 1;
-//	Read_ID_fromROM();	
-////	ADC_Init();
-//	PWM0_INIT();
-//	PCA_INIT();
-	
 	P1M0 = 0x6F;                                //??P1.0~P1.7???????
 	P1M1 = 0x00;
 
@@ -525,6 +662,31 @@ void main(void)
 
 	GO_24=0;
 	//GI_24=0;	
+
+}
+
+
+/******************************************************************************/
+// ∫Ø ˝√˚≥∆£∫main 
+//  ‰»Î≤Œ ˝£∫ 
+//  ‰≥ˆ≤Œ ˝£∫ 
+// ∫Ø ˝π¶ƒ‹£∫ 
+/******************************************************************************/
+void main(void)
+{
+//	uint16 ADC_RES;
+		
+	Uart1Init();
+//	Timer4_Init();
+	Timer0_Init();
+	ES = 1;
+	EA = 1;
+//	Read_ID_fromROM();	
+////	ADC_Init();
+//	PWM0_INIT();
+//	PCA_INIT();
+	
+	gpio_init();
 
 	
 	RS485_RX_EN();

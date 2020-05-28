@@ -27,9 +27,6 @@ Project File Date:  05/24/2020
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling MAIN.C...
-..\user\MAIN.C(88): warning C280: 'grp_level_1': unreferenced local variable
-..\user\MAIN.C(89): warning C280: 'grp_level_2': unreferenced local variable
-..\user\MAIN.C(90): warning C280: 'grp_level_3': unreferenced local variable
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_RS485_DELAY?DELAY
@@ -37,6 +34,8 @@ linking...
     SEGMENT: ?PR?DELAY100MS?DELAY
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DEBUG_UART_SEND_DATAS?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DEBUG_UART_SEND_DATA1?MAIN
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_RS485_DELAY?UART
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -77,10 +76,10 @@ linking...
     SEGMENT: ?PR?_RS485_DELAY?PCA
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?PCA_INIT?PCA
-Program Size: data=17.2 xdata=868 code=4308
+Program Size: data=17.2 xdata=900 code=5115
 creating hex file from "..\hex\stc8a8ks4a12 demo"...
-"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 26 Warning(s).
-Build Time Elapsed:  00:00:02
+"..\hex\stc8a8ks4a12 demo" - 0 Error(s), 24 Warning(s).
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
