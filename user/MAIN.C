@@ -132,23 +132,164 @@ void data_parse()
 							switch(m_data.lock_addr)
 							{			
 								case 1:
-									GO_1=1; 					//open
-									delay_ms(20);  
-									GO_1=0;						//close
-									delay_ms(20);  
+//									GO_1=1; 					//open
+//									delay_ms(20);  
+//									GO_1=0;						//close
+//									delay_ms(20);  
+									
+								
+								
 								
 									GO_1=1;
-									GI_1=1;
-								
-									GO_2=1;
-									GI_2=1;
-								
-									GO_3=1;
-									GI_3=1;
-
+                  //GI_1=1;
+                
+                  GO_2=1;
+                  //GI_2=1;
+                
+                  GO_3=1;
+                  //GI_3=1;
+                
+                  GO_4=1;
+                  //GI_4=1;
+                  
+                  GO_5=1;
+                  //GI_5=1;
+                  
+                  GO_6=1;
+                  //GI_6=1;
+                  
+                  GO_7=1;
+                  //GI_7=1;
+                  
+                  GO_8=1;
+                  //GI_8=1;
+                  
+                  GO_9=1;
+                  //GI_9=1;
+                  
+                  GO_10=1;
+                  //GI_10=1;
+                  
+                  GO_11=1;
+                  //GI_11=1;
+                
+                  GO_12=1;
+                  //GI_12=1;
+                
+                  GO_13=1;
+                  //GI_13=1;
+                
+                  GO_14=1;
+                  //GI_14=1;
+                  
+                  GO_15=1;
+                  //GI_15=1;
+                  
+                  GO_16=1;
+                  //GI_16=1;
+                  
+                  GO_17=1;
+                  //GI_17=1;
+                  
+                  GO_18=1;
+                  //GI_18=1;
+                  
+                  GO_19=1;
+                  //GI_19=1;
+                  
+                  GO_20=1;
+                  //GI_20=1;
+                  
+                  GO_21=1;
+                  //GI_21=1;
+                
+                  GO_22=1;
+                  //GI_22=1;
+                
+                  GO_23=1;
+                  //GI_23=1;
+                
+                  GO_24=1;
+                  //GI_24=1;
 									
-
+									delay_ms(20);  
 									
+                  GO_1=0;
+                  //GI_1=0;
+                  
+                  GO_2=0;
+                  //GI_2=0;
+                
+                  GO_3=0;
+                  //GI_3=0;
+
+                        
+                  GO_4=0;
+                  //GI_4=0;
+                  
+                  GO_5=0;
+                  //GI_5=0;
+                  
+                  GO_6=0;
+                  //GI_6=0;
+                  
+                  GO_7=0;
+                  //GI_7=0;
+                  
+                  GO_8=0;
+                  //GI_8=0;
+                  
+                  GO_9=0;
+                  //GI_9=0;
+                  
+                  GO_10=0;
+                  //GI_10=0;
+                  
+                  GO_11=0;
+                  //GI_11=0;
+                
+                  GO_12=0;
+                  //GI_12=0;
+                
+                  GO_13=0;
+                  //GI_13=0;
+                
+                  GO_14=0;
+                  //GI_14=0;
+                  
+                  GO_15=0;
+                  //GI_15=0;
+                  
+                  GO_16=0;
+                  //GI_16=0;
+                  
+                  GO_17=0;
+                  //GI_17=0;
+                  
+                  GO_18=0;
+                  //GI_18=0;
+                  
+                  GO_19=0;
+                  //GI_19=0;
+                  
+                  GO_20=0;
+                  //GI_20=0;
+                  
+                  GO_21=0;
+                  //GI_21=0;
+                
+                  GO_22=0;
+                  //GI_22=0;
+              
+                  GO_23=0;
+                  //GI_23=0;
+                
+                  GO_24=0;
+                  //GI_24=0;	
+								
+								
+
+									//LED1 =1;
 									gpio_level = 0x01;
 									//gpio_level= GI_1;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
@@ -161,18 +302,8 @@ void data_parse()
 									GO_2=0;	 						 //close
 									delay_ms(20);
 
-								
-									GO_1=0;
-									GI_1=0;
-									
-									GO_2=0;
-									GI_2=0;
-								
-									GO_3=0;
-									GI_3=0;
-								
 
-									
+									//LED1 =0;
 									//gpio_level= GI_2;
 									gpio_level = 0x01;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
@@ -181,18 +312,14 @@ void data_parse()
 								
 								
 								case 3:
-									GO_3=0;							 //open
+						
+									GO_3=1; 					//open
 									delay_ms(20);  
-									GO_3=1;	 						 //close
+									GO_3=0;						//close
 									delay_ms(20);  
-									
-//									GO_3=1; 					//open
-//									delay_ms(20);  
-//									GO_3=0;						//close
-//									delay_ms(20);  
 
 									gpio_level = 0x01;
-									//gpio_level= GI_1;
+									//gpio_level= GI_3;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									UartSendStr("\r\n--3--\r\n");
 									break;
@@ -272,10 +399,104 @@ void main(void)
 //	PWM0_INIT();
 //	PCA_INIT();
 	
+	P1M0 = 0x6F;                                //??P1.0~P1.7???????
+	P1M1 = 0x00;
+
+	P2M0 = 0x66;                                //
+	P2M1 = 0x00;
+	
+	P3M0 = 0x18;                                //
+	P3M1 = 0x00;
+	
+	P4M0 = 0x03;                                //
+	P4M1 = 0x00;
+	
+	P5M0 = 0x2F;                                //
+	P5M1 = 0x00;
+	
+	P6M0 = 0x8C;                                //
+	P6M1 = 0x00;
+	
+	P7M0 = 0x09;                                //
+	P7M1 = 0x00;
+
+	GO_1=0;
+	//GI_1=0;
+	
+	GO_2=0;
+	//GI_2=0;
+
+	GO_3=0;
+	//GI_3=0;
+
+				
+	GO_4=0;
+	//GI_4=0;
+	
+	GO_5=0;
+	//GI_5=0;
+	
+	GO_6=0;
+	//GI_6=0;
+	
+	GO_7=0;
+	//GI_7=0;
+	
+	GO_8=0;
+	//GI_8=0;
+	
+	GO_9=0;
+	//GI_9=0;
+	
+	GO_10=0;
+	//GI_10=0;
+	
+	GO_11=0;
+	//GI_11=0;
+
+	GO_12=0;
+	//GI_12=0;
+
+	GO_13=0;
+	//GI_13=0;
+
+	GO_14=0;
+	//GI_14=0;
+	
+	GO_15=0;
+	//GI_15=0;
+	
+	GO_16=0;
+	//GI_16=0;
+	
+	GO_17=0;
+	//GI_17=0;
+	
+	GO_18=0;
+	//GI_18=0;
+	
+	GO_19=0;
+	//GI_19=0;
+	
+	GO_20=0;
+	//GI_20=0;
+	
+	GO_21=0;
+	//GI_21=0;
+
+	GO_22=0;
+	//GI_22=0;
+
+	GO_23=0;
+	//GI_23=0;
+
+	GO_24=0;
+	//GI_24=0;	
+
 	
 	RS485_RX_EN();
 
-	UartSendStr("Uart Test 1!\r\n");
+	UartSendStr("power on !!!\r\n");
 	while(1)
 	{
 		if((1== packerflag))

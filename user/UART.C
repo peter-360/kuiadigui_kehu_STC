@@ -205,7 +205,6 @@ void Uart1Isr() interrupt 4 using 1
 		else//timer interrrupt, Uart1_Rx =0;
 		{
 			TR0 = 1;		//---on----
-			//TIM3_Set(1);
 		}
 		Uart1_Rx++;
 		//UartSend(Uart1_Rx);
