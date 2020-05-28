@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52          
   53          ///command struct
   54          typedef struct
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 2   
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 2   
 
   55          {
   56            //uint8_t type;
@@ -126,7 +126,7 @@ line level    source
  114   2          if(5==Uart1_Rx_T)
  115   2          {
  116   3            m_data.opcode = Uart1_Buffer_T[0];
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 3   
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 3   
 
  117   3            m_data.board_addr = Uart1_Buffer_T[1];// to do
  118   3            m_data.lock_addr = Uart1_Buffer_T[2];//
@@ -143,460 +143,494 @@ line level    source
  129   5                  //----1------
  130   5                  if(m_data.gu_ding  == 0x11)//process
  131   5                  {
- 132   6                    switch(m_data.lock_addr)
- 133   6                    {     
- 134   7                      case 1:
- 135   7      //                  GO_1=1;           //open
- 136   7      //                  delay_ms(20);  
- 137   7      //                  GO_1=0;           //close
- 138   7      //                  delay_ms(20);  
- 139   7                        
+ 132   6                    //UartSend(m_data.lock_addr);
+ 133   6                    switch(m_data.lock_addr)
+ 134   6                    {     
+ 135   7                      case 1:
+ 136   7                        GO_1=1;           //open
+ 137   7                        delay_ms(40);  
+ 138   7                        GO_1=0;           //close
+ 139   7                        delay_ms(40);  
  140   7                      
- 141   7                      
- 142   7                      
- 143   7                        GO_1=1;
- 144   7                        //GI_1=1;
- 145   7                      
- 146   7                        GO_2=1;
- 147   7                        //GI_2=1;
- 148   7                      
- 149   7                        GO_3=1;
- 150   7                        //GI_3=1;
- 151   7                      
- 152   7                        GO_4=1;
- 153   7                        //GI_4=1;
- 154   7                        
- 155   7                        GO_5=1;
- 156   7                        //GI_5=1;
- 157   7                        
- 158   7                        GO_6=1;
- 159   7                        //GI_6=1;
- 160   7                        
- 161   7                        GO_7=1;
- 162   7                        //GI_7=1;
- 163   7                        
- 164   7                        GO_8=1;
- 165   7                        //GI_8=1;
- 166   7                        
- 167   7                        GO_9=1;
- 168   7                        //GI_9=1;
- 169   7                        
- 170   7                        GO_10=1;
- 171   7                        //GI_10=1;
- 172   7                        
- 173   7                        GO_11=1;
- 174   7                        //GI_11=1;
- 175   7                      
- 176   7                        GO_12=1;
- 177   7                        //GI_12=1;
- 178   7                      
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 4   
+ 141   7                        //LED1 =1;
+ 142   7                        gpio_level= GI_1;
+ 143   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 144   7                        //UartSendStr("\r\n--1--\r\n");
+ 145   7                        
+ 146   7                        break;
+ 147   7                      
+ 148   7                      case 2:
+ 149   7                        GO_2=1;              //open
+ 150   7                        delay_ms(40);  
+ 151   7                        GO_2=0;              //close
+ 152   7                        delay_ms(40);
+ 153   7      
+ 154   7      
+ 155   7                        //LED1 =0;
+ 156   7                        gpio_level= GI_2;
+ 157   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 158   7                        //UartSendStr("\r\n--2--\r\n");
+ 159   7                        break;
+ 160   7                      
+ 161   7                    case 3:
+ 162   7                        GO_3=1;              //open
+ 163   7                        delay_ms(40);  
+ 164   7                        GO_3=0;              //close
+ 165   7                        delay_ms(40);  
+ 166   7      
+ 167   7                        gpio_level= GI_3;
+ 168   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 169   7                        break;
+ 170   7                      case 4:
+ 171   7                        GO_4=1;              //open
+ 172   7                        delay_ms(40);  
+ 173   7                        GO_4=0;              //close
+ 174   7                        delay_ms(40);  
+ 175   7      
+ 176   7                        gpio_level= GI_4;
+ 177   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 178   7                        break;
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 4   
 
- 179   7                        GO_13=1;
- 180   7                        //GI_13=1;
- 181   7                      
- 182   7                        GO_14=1;
- 183   7                        //GI_14=1;
- 184   7                        
- 185   7                        GO_15=1;
- 186   7                        //GI_15=1;
- 187   7                        
- 188   7                        GO_16=1;
- 189   7                        //GI_16=1;
- 190   7                        
- 191   7                        GO_17=1;
- 192   7                        //GI_17=1;
- 193   7                        
- 194   7                        GO_18=1;
- 195   7                        //GI_18=1;
- 196   7                        
- 197   7                        GO_19=1;
- 198   7                        //GI_19=1;
- 199   7                        
- 200   7                        GO_20=1;
- 201   7                        //GI_20=1;
- 202   7                        
- 203   7                        GO_21=1;
- 204   7                        //GI_21=1;
- 205   7                      
- 206   7                        GO_22=1;
- 207   7                        //GI_22=1;
- 208   7                      
- 209   7                        GO_23=1;
- 210   7                        //GI_23=1;
- 211   7                      
- 212   7                        GO_24=1;
- 213   7                        //GI_24=1;
- 214   7                        
- 215   7                        delay_ms(20);  
- 216   7                        
- 217   7                        GO_1=0;
- 218   7                        //GI_1=0;
- 219   7                        
- 220   7                        GO_2=0;
- 221   7                        //GI_2=0;
- 222   7                      
- 223   7                        GO_3=0;
- 224   7                        //GI_3=0;
- 225   7      
- 226   7                              
- 227   7                        GO_4=0;
- 228   7                        //GI_4=0;
- 229   7                        
- 230   7                        GO_5=0;
- 231   7                        //GI_5=0;
- 232   7                        
- 233   7                        GO_6=0;
- 234   7                        //GI_6=0;
- 235   7                        
- 236   7                        GO_7=0;
- 237   7                        //GI_7=0;
- 238   7                        
- 239   7                        GO_8=0;
- 240   7                        //GI_8=0;
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 5   
+ 179   7                      case 5:
+ 180   7                        GO_5=1;              //open
+ 181   7                        delay_ms(40);  
+ 182   7                        GO_5=0;              //close
+ 183   7                        delay_ms(40);  
+ 184   7      
+ 185   7                        gpio_level= GI_5;
+ 186   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 187   7                        break;
+ 188   7                      case 6:
+ 189   7                        GO_6=1;              //open
+ 190   7                        delay_ms(40);  
+ 191   7                        GO_6=0;              //close
+ 192   7                        delay_ms(40);  
+ 193   7      
+ 194   7                        gpio_level= GI_6;
+ 195   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 196   7                        break;
+ 197   7                      case 7:
+ 198   7                        GO_7=1;              //open
+ 199   7                        delay_ms(40);  
+ 200   7                        GO_7=0;              //close
+ 201   7                        delay_ms(40);  
+ 202   7      
+ 203   7                        gpio_level= GI_7;
+ 204   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 205   7                        break;
+ 206   7                      case 8:
+ 207   7                        GO_8=1;              //open
+ 208   7                        delay_ms(40);  
+ 209   7                        GO_8=0;              //close
+ 210   7                        delay_ms(40);  
+ 211   7      
+ 212   7                        gpio_level= GI_2;
+ 213   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 214   7                        break;
+ 215   7                      case 9:
+ 216   7                        GO_9=1;              //open
+ 217   7                        delay_ms(40);  
+ 218   7                        GO_9=0;              //close
+ 219   7                        delay_ms(40);  
+ 220   7      
+ 221   7                        gpio_level= GI_9;
+ 222   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 223   7                        break;
+ 224   7                      case 10:
+ 225   7                        GO_10=1;               //open
+ 226   7                        delay_ms(40);  
+ 227   7                        GO_10=0;               //close
+ 228   7                        delay_ms(40);  
+ 229   7      
+ 230   7                        gpio_level= GI_10;
+ 231   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 232   7                        break;
+ 233   7                      case 11:
+ 234   7                        GO_11=1;               //open
+ 235   7                        delay_ms(40);  
+ 236   7                        GO_11=0;               //close
+ 237   7                        delay_ms(40);  
+ 238   7      
+ 239   7                        gpio_level= GI_11;
+ 240   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 5   
 
- 241   7                        
- 242   7                        GO_9=0;
- 243   7                        //GI_9=0;
- 244   7                        
- 245   7                        GO_10=0;
- 246   7                        //GI_10=0;
- 247   7                        
- 248   7                        GO_11=0;
- 249   7                        //GI_11=0;
- 250   7                      
- 251   7                        GO_12=0;
- 252   7                        //GI_12=0;
- 253   7                      
- 254   7                        GO_13=0;
- 255   7                        //GI_13=0;
- 256   7                      
- 257   7                        GO_14=0;
- 258   7                        //GI_14=0;
- 259   7                        
- 260   7                        GO_15=0;
- 261   7                        //GI_15=0;
- 262   7                        
- 263   7                        GO_16=0;
- 264   7                        //GI_16=0;
- 265   7                        
- 266   7                        GO_17=0;
- 267   7                        //GI_17=0;
- 268   7                        
- 269   7                        GO_18=0;
- 270   7                        //GI_18=0;
- 271   7                        
- 272   7                        GO_19=0;
- 273   7                        //GI_19=0;
- 274   7                        
- 275   7                        GO_20=0;
- 276   7                        //GI_20=0;
- 277   7                        
- 278   7                        GO_21=0;
- 279   7                        //GI_21=0;
- 280   7                      
- 281   7                        GO_22=0;
- 282   7                        //GI_22=0;
- 283   7                    
- 284   7                        GO_23=0;
- 285   7                        //GI_23=0;
- 286   7                      
- 287   7                        GO_24=0;
- 288   7                        //GI_24=0;  
- 289   7                      
- 290   7                      
- 291   7      
- 292   7                        //LED1 =1;
- 293   7                        gpio_level = 0x01;
- 294   7                        //gpio_level= GI_1;
- 295   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
- 296   7                        UartSendStr("\r\n--1--\r\n");
- 297   7                        break;
- 298   7                      
- 299   7                      case 2:
- 300   7                        GO_2=1;              //open
- 301   7                        delay_ms(20);  
- 302   7                        GO_2=0;              //close
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 6   
+ 241   7                        break;
+ 242   7                      case 12:
+ 243   7                        GO_12=1;               //open
+ 244   7                        delay_ms(40);  
+ 245   7                        GO_12=0;               //close
+ 246   7                        delay_ms(40);  
+ 247   7      
+ 248   7                        gpio_level= GI_12;
+ 249   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 250   7                        break;
+ 251   7                      case 13:
+ 252   7                        GO_13=1;               //open
+ 253   7                        delay_ms(40);  
+ 254   7                        GO_13=0;               //close
+ 255   7                        delay_ms(40);  
+ 256   7      
+ 257   7                        gpio_level= GI_13;
+ 258   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 259   7                        break;
+ 260   7                      case 14:
+ 261   7                        GO_14=1;               //open
+ 262   7                        delay_ms(40);  
+ 263   7                        GO_14=0;               //close
+ 264   7                        delay_ms(40);  
+ 265   7      
+ 266   7                        gpio_level= GI_14;
+ 267   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 268   7                        break;
+ 269   7                      case 15:
+ 270   7                        GO_15=1;               //open
+ 271   7                        delay_ms(40);  
+ 272   7                        GO_15=0;               //close
+ 273   7                        delay_ms(40);  
+ 274   7      
+ 275   7                        gpio_level= GI_15;
+ 276   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 277   7                        break;
+ 278   7                      case 16:
+ 279   7                        GO_16=1;               //open
+ 280   7                        delay_ms(40);  
+ 281   7                        GO_16=0;               //close
+ 282   7                        delay_ms(40);  
+ 283   7      
+ 284   7                        gpio_level= GI_16;
+ 285   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 286   7                        break;
+ 287   7                      case 17:
+ 288   7                        GO_17=1;               //open
+ 289   7                        delay_ms(40);  
+ 290   7                        GO_17=0;               //close
+ 291   7                        delay_ms(40);  
+ 292   7      
+ 293   7                        gpio_level= GI_17;
+ 294   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 295   7                        break;
+ 296   7                      case 18:
+ 297   7                        GO_18=1;               //open
+ 298   7                        delay_ms(40);  
+ 299   7                        GO_18=0;               //close
+ 300   7                        delay_ms(40);  
+ 301   7      
+ 302   7                        gpio_level= GI_18;
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 6   
 
- 303   7                        delay_ms(20);
- 304   7      
- 305   7      
- 306   7                        //LED1 =0;
- 307   7                        //gpio_level= GI_2;
- 308   7                        gpio_level = 0x01;
- 309   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
- 310   7                        UartSendStr("\r\n--2--\r\n");
- 311   7                        break;
- 312   7                      
- 313   7                      
- 314   7                      case 3:
- 315   7                  
- 316   7                        GO_3=1;           //open
- 317   7                        delay_ms(20);  
- 318   7                        GO_3=0;           //close
- 319   7                        delay_ms(20);  
- 320   7      
- 321   7                        gpio_level = 0x01;
- 322   7                        //gpio_level= GI_3;
- 323   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
- 324   7                        UartSendStr("\r\n--3--\r\n");
- 325   7                        break;
- 326   7                      
- 327   7                      default:
- 328   7                        break;
- 329   7      
- 330   7                    }
- 331   6                    
- 332   6                    memcpy(tx_Buffer,"star",4);
- 333   6                    tx_Buffer[4]= m_data.opcode;
- 334   6                    tx_Buffer[5]= m_data.board_addr;
- 335   6                    tx_Buffer[6]= m_data.lock_addr;
- 336   6                    
- 337   6                    if(0x01 == gpio_level)
- 338   6                      tx_Buffer[7]= 0x11;//lock state todo open
- 339   6                    else
- 340   6                      tx_Buffer[7]= 0x00;//lock state todo close
- 341   6                    
- 342   6                    bcc_temp = ComputXor(tx_Buffer+4,4);
- 343   6                    tx_Buffer[8]= bcc_temp;
- 344   6                    memcpy(tx_Buffer+9,"end",3);
- 345   6                    
- 346   6                    tx_Buffer[12]='\0';
- 347   6                    
- 348   6                    spear_uart_send_datas(tx_Buffer,12);
- 349   6      //              spear_rtt_send_datas(tx_Buffer,12);
- 350   6      
- 351   6                    //SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
- 352   6                  }
- 353   5                  else
- 354   5                  {
- 355   6                    //SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
- 356   6                  }
- 357   5                  break;
- 358   5                  
- 359   5      
- 360   5                default:
- 361   5                  break;
- 362   5              }
- 363   4              
- 364   4              //SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 7   
+ 303   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 304   7                        break;
+ 305   7                      case 19:
+ 306   7                        GO_19=1;               //open
+ 307   7                        delay_ms(40);  
+ 308   7                        GO_19=0;               //close
+ 309   7                        delay_ms(40);  
+ 310   7      
+ 311   7                        gpio_level= GI_19;
+ 312   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 313   7                        break;
+ 314   7                      case 20:
+ 315   7                        GO_20=1;               //open
+ 316   7                        delay_ms(40);  
+ 317   7                        GO_20=0;               //close
+ 318   7                        delay_ms(40);  
+ 319   7      
+ 320   7                        gpio_level= GI_20;
+ 321   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 322   7                        break;
+ 323   7                      case 21:
+ 324   7                        GO_21=1;               //open
+ 325   7                        delay_ms(40);  
+ 326   7                        GO_21=0;               //close
+ 327   7                        delay_ms(40);  
+ 328   7      
+ 329   7                        gpio_level= GI_21;
+ 330   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 331   7                        break;
+ 332   7                      case 22:
+ 333   7                        GO_22=1;               //open
+ 334   7                        delay_ms(40);  
+ 335   7                        GO_22=0;               //close
+ 336   7                        delay_ms(40);  
+ 337   7      
+ 338   7                        gpio_level= GI_22;
+ 339   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 340   7                        break;
+ 341   7                      case 23:
+ 342   7                        GO_23=1;               //open
+ 343   7                        delay_ms(40);  
+ 344   7                        GO_23=0;               //close
+ 345   7                        delay_ms(40);  
+ 346   7      
+ 347   7                        gpio_level= GI_23;
+ 348   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 349   7                        break;
+ 350   7                      case 24:
+ 351   7                        GO_24=1;               //open
+ 352   7                        delay_ms(40);  
+ 353   7                        GO_24=0;               //close
+ 354   7                        delay_ms(40);  
+ 355   7      
+ 356   7                        gpio_level= GI_24;
+ 357   7                        //SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+ 358   7                        break;
+ 359   7      
+ 360   7                      
+ 361   7                      default:
+ 362   7                        break;
+ 363   7      
+ 364   7                    }
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 7   
 
- 365   4            }
- 366   3            else
- 367   3            {
- 368   4              //SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
- 369   4            }
- 370   3            
- 371   3          }
- 372   2          
- 373   2          
- 374   2          
- 375   2        }
- 376   1      
- 377   1      }
+ 365   6                    
+ 366   6                    memcpy(tx_Buffer,"star",4);
+ 367   6                    tx_Buffer[4]= m_data.opcode;
+ 368   6                    tx_Buffer[5]= m_data.board_addr;
+ 369   6                    tx_Buffer[6]= m_data.lock_addr;
+ 370   6                    
+ 371   6                    if(0x01 == gpio_level)
+ 372   6                      tx_Buffer[7]= 0x11;//lock state todo open
+ 373   6                    else
+ 374   6                      tx_Buffer[7]= 0x00;//lock state todo close
+ 375   6                    
+ 376   6                    bcc_temp = ComputXor(tx_Buffer+4,4);
+ 377   6                    tx_Buffer[8]= bcc_temp;
+ 378   6                    memcpy(tx_Buffer+9,"end",3);
+ 379   6                    
+ 380   6                    tx_Buffer[12]='\0';
+ 381   6                    
+ 382   6                    spear_uart_send_datas(tx_Buffer,12);
+ 383   6      //              spear_rtt_send_datas(tx_Buffer,12);
+ 384   6      
+ 385   6                    //SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+ 386   6                  }
+ 387   5                  else
+ 388   5                  {
+ 389   6                    //SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
+ 390   6                  }
+ 391   5                  break;
+ 392   5                  
+ 393   5      
+ 394   5                default:
+ 395   5                  break;
+ 396   5              }
+ 397   4              
+ 398   4              //SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
+ 399   4            }
+ 400   3            else
+ 401   3            {
+ 402   4              //SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
+ 403   4            }
+ 404   3            
+ 405   3          }
+ 406   2          
+ 407   2          
+ 408   2          
+ 409   2        }
+ 410   1      
+ 411   1      }
 *** WARNING C280 IN LINE 88 OF ..\user\MAIN.C: 'grp_level_1': unreferenced local variable
 *** WARNING C280 IN LINE 89 OF ..\user\MAIN.C: 'grp_level_2': unreferenced local variable
 *** WARNING C280 IN LINE 90 OF ..\user\MAIN.C: 'grp_level_3': unreferenced local variable
- 378          
- 379          
- 380          
- 381          
- 382          /******************************************************************************/
- 383          // 函数名称：main 
- 384          // 输入参数： 
- 385          // 输出参数： 
- 386          // 函数功能： 
- 387          /******************************************************************************/
- 388          void main(void)
- 389          {
- 390   1      //  uint16 ADC_RES;
- 391   1          
- 392   1        Uart1Init();
- 393   1      //  Timer4_Init();
- 394   1        Timer0_Init();
- 395   1        ES = 1;
- 396   1        EA = 1;
- 397   1      //  Read_ID_fromROM();  
- 398   1      ////  ADC_Init();
- 399   1      //  PWM0_INIT();
- 400   1      //  PCA_INIT();
- 401   1        
- 402   1        P1M0 = 0x6F;                                //??P1.0~P1.7???????
- 403   1        P1M1 = 0x00;
- 404   1      
- 405   1        P2M0 = 0x66;                                //
- 406   1        P2M1 = 0x00;
- 407   1        
- 408   1        P3M0 = 0x18;                                //
- 409   1        P3M1 = 0x00;
- 410   1        
- 411   1        P4M0 = 0x03;                                //
- 412   1        P4M1 = 0x00;
- 413   1        
- 414   1        P5M0 = 0x2F;                                //
- 415   1        P5M1 = 0x00;
- 416   1        
- 417   1        P6M0 = 0x8C;                                //
- 418   1        P6M1 = 0x00;
- 419   1        
- 420   1        P7M0 = 0x09;                                //
- 421   1        P7M1 = 0x00;
- 422   1      
- 423   1        GO_1=0;
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 8   
+ 412          
+ 413          
+ 414          
+ 415          
+ 416          /******************************************************************************/
+ 417          // 函数名称：main 
+ 418          // 输入参数： 
+ 419          // 输出参数： 
+ 420          // 函数功能： 
+ 421          /******************************************************************************/
+ 422          void main(void)
+ 423          {
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 8   
 
- 424   1        //GI_1=0;
- 425   1        
- 426   1        GO_2=0;
- 427   1        //GI_2=0;
- 428   1      
- 429   1        GO_3=0;
- 430   1        //GI_3=0;
- 431   1      
- 432   1              
- 433   1        GO_4=0;
- 434   1        //GI_4=0;
+ 424   1      //  uint16 ADC_RES;
+ 425   1          
+ 426   1        Uart1Init();
+ 427   1      //  Timer4_Init();
+ 428   1        Timer0_Init();
+ 429   1        ES = 1;
+ 430   1        EA = 1;
+ 431   1      //  Read_ID_fromROM();  
+ 432   1      ////  ADC_Init();
+ 433   1      //  PWM0_INIT();
+ 434   1      //  PCA_INIT();
  435   1        
- 436   1        GO_5=0;
- 437   1        //GI_5=0;
- 438   1        
- 439   1        GO_6=0;
- 440   1        //GI_6=0;
+ 436   1        P1M0 = 0x6F;                                //??P1.0~P1.7???????
+ 437   1        P1M1 = 0x00;
+ 438   1      
+ 439   1        P2M0 = 0x66;                                //
+ 440   1        P2M1 = 0x00;
  441   1        
- 442   1        GO_7=0;
- 443   1        //GI_7=0;
+ 442   1        P3M0 = 0x18;                                //
+ 443   1        P3M1 = 0x00;
  444   1        
- 445   1        GO_8=0;
- 446   1        //GI_8=0;
+ 445   1        P4M0 = 0x03;                                //
+ 446   1        P4M1 = 0x00;
  447   1        
- 448   1        GO_9=0;
- 449   1        //GI_9=0;
+ 448   1        P5M0 = 0x2F;                                //
+ 449   1        P5M1 = 0x00;
  450   1        
- 451   1        GO_10=0;
- 452   1        //GI_10=0;
+ 451   1        P6M0 = 0x8C;                                //
+ 452   1        P6M1 = 0x00;
  453   1        
- 454   1        GO_11=0;
- 455   1        //GI_11=0;
+ 454   1        P7M0 = 0x09;                                //
+ 455   1        P7M1 = 0x00;
  456   1      
- 457   1        GO_12=0;
- 458   1        //GI_12=0;
- 459   1      
- 460   1        GO_13=0;
- 461   1        //GI_13=0;
+ 457   1        GO_1=0;
+ 458   1        //GI_1=0;
+ 459   1        
+ 460   1        GO_2=0;
+ 461   1        //GI_2=0;
  462   1      
- 463   1        GO_14=0;
- 464   1        //GI_14=0;
- 465   1        
- 466   1        GO_15=0;
- 467   1        //GI_15=0;
- 468   1        
- 469   1        GO_16=0;
- 470   1        //GI_16=0;
- 471   1        
- 472   1        GO_17=0;
- 473   1        //GI_17=0;
- 474   1        
- 475   1        GO_18=0;
- 476   1        //GI_18=0;
- 477   1        
- 478   1        GO_19=0;
- 479   1        //GI_19=0;
- 480   1        
- 481   1        GO_20=0;
- 482   1        //GI_20=0;
- 483   1        
- 484   1        GO_21=0;
- 485   1        //GI_21=0;
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 9   
+ 463   1        GO_3=0;
+ 464   1        //GI_3=0;
+ 465   1      
+ 466   1              
+ 467   1        GO_4=0;
+ 468   1        //GI_4=0;
+ 469   1        
+ 470   1        GO_5=0;
+ 471   1        //GI_5=0;
+ 472   1        
+ 473   1        GO_6=0;
+ 474   1        //GI_6=0;
+ 475   1        
+ 476   1        GO_7=0;
+ 477   1        //GI_7=0;
+ 478   1        
+ 479   1        GO_8=0;
+ 480   1        //GI_8=0;
+ 481   1        
+ 482   1        GO_9=0;
+ 483   1        //GI_9=0;
+ 484   1        
+ 485   1        GO_10=0;
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 9   
 
- 486   1      
- 487   1        GO_22=0;
- 488   1        //GI_22=0;
- 489   1      
- 490   1        GO_23=0;
- 491   1        //GI_23=0;
- 492   1      
- 493   1        GO_24=0;
- 494   1        //GI_24=0;  
- 495   1      
- 496   1        
- 497   1        RS485_RX_EN();
- 498   1      
- 499   1        UartSendStr("power on !!!\r\n");
- 500   1        while(1)
- 501   1        {
- 502   2          if((1== packerflag))
- 503   2          {
- 504   3            RS485_TX_EN();
- 505   3      
- 506   3      //      SEGGER_RTT_printf(0, "\n");
- 507   3      //      SEGGER_RTT_printf(0, "-main-Uart1_Rx = %d\n",Uart1_Rx);      //RTT打印
- 508   3      //      SEGGER_RTT_printf(0, "---rcv-datas---"); 
- 509   3            //spear_rtt_send_datas(Uart1_Buffer,Uart1_Rx);
- 510   3            
- 511   3            //spear_uart_send_datas(Uart1_Buffer,Uart1_Rx); //debug
- 512   3      
- 513   3      
- 514   3            data_parse();
- 515   3            RS485_RX_EN();
- 516   3            
- 517   3            memset(Uart1_Buffer,0,13);//max =4+5+4 =13
- 518   3            Uart1_Rx   = 0 ;
- 519   3            packerflag = 0;
- 520   3            //Uart1_index_flag_end =0;
- 521   3          }
- 522   2          
- 523   2        
- 524   2          
- 525   2        }
- 526   1      }
- 527          
- 528          
- 529          
- 530          
- 531          
- 532          //    LED1 = 0;
- 533          ////    GO_1 = 0;
- 534          //    Delay100ms();
- 535          //    Delay100ms();
- 536          //    Delay100ms();
- 537          //    Delay100ms();
- 538          //    Delay100ms();
- 539          //    LED1 = 1;
- 540          ////    GO_1 =1;
- 541          //    Delay100ms();
- 542          //    Delay100ms();
- 543          //    Delay100ms();
- 544          //    Delay100ms();
- 545          //    Delay100ms();
- 546          
- 547          //    ADC_RES = Get_ADC_RES();
-C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:21:08 PAGE 10  
+ 486   1        //GI_10=0;
+ 487   1        
+ 488   1        GO_11=0;
+ 489   1        //GI_11=0;
+ 490   1      
+ 491   1        GO_12=0;
+ 492   1        //GI_12=0;
+ 493   1      
+ 494   1        GO_13=0;
+ 495   1        //GI_13=0;
+ 496   1      
+ 497   1        GO_14=0;
+ 498   1        //GI_14=0;
+ 499   1        
+ 500   1        GO_15=0;
+ 501   1        //GI_15=0;
+ 502   1        
+ 503   1        GO_16=0;
+ 504   1        //GI_16=0;
+ 505   1        
+ 506   1        GO_17=0;
+ 507   1        //GI_17=0;
+ 508   1        
+ 509   1        GO_18=0;
+ 510   1        //GI_18=0;
+ 511   1        
+ 512   1        GO_19=0;
+ 513   1        //GI_19=0;
+ 514   1        
+ 515   1        GO_20=0;
+ 516   1        //GI_20=0;
+ 517   1        
+ 518   1        GO_21=0;
+ 519   1        //GI_21=0;
+ 520   1      
+ 521   1        GO_22=0;
+ 522   1        //GI_22=0;
+ 523   1      
+ 524   1        GO_23=0;
+ 525   1        //GI_23=0;
+ 526   1      
+ 527   1        GO_24=0;
+ 528   1        //GI_24=0;  
+ 529   1      
+ 530   1        
+ 531   1        RS485_RX_EN();
+ 532   1      
+ 533   1        //UartSendStr("power on !!!\r\n");
+ 534   1        while(1)
+ 535   1        {
+ 536   2          if((1== packerflag))
+ 537   2          {
+ 538   3            RS485_TX_EN();
+ 539   3      
+ 540   3      //      SEGGER_RTT_printf(0, "\n");
+ 541   3      //      SEGGER_RTT_printf(0, "-main-Uart1_Rx = %d\n",Uart1_Rx);      //RTT打印
+ 542   3      //      SEGGER_RTT_printf(0, "---rcv-datas---"); 
+ 543   3            //spear_rtt_send_datas(Uart1_Buffer,Uart1_Rx);
+ 544   3            
+ 545   3            //spear_uart_send_datas(Uart1_Buffer,Uart1_Rx); //debug
+ 546   3      
+ 547   3      
+C51 COMPILER V9.60.0.0   MAIN                                                              05/28/2020 11:36:44 PAGE 10  
 
- 548          //    UartSend(ADC_RES);
- 549          //    ADC_RES = ADC_RES>>8;
- 550          //    UartSend(ADC_RES>>8);
- 551              
- 552          
- 553          //    UartSend(length);
- 554          //    UartSend(length>>8);
- 555          //    UartSend(length>>16);
- 556          //    UartSend(length>>24);
- 557          //    RS485_RX_EN();
- 558          //    UartSendStr("Uart Test 2 -RX!\r\n");
- 559          //    delay_ms(4000);
- 560          //    
- 561          //    RS485_TX_EN();
- 562          //    UartSendStr("Uart Test 3 -TX!\r\n");//no xianshi
- 563          //    delay_ms(2100);
+ 548   3            data_parse();
+ 549   3            RS485_RX_EN();
+ 550   3            
+ 551   3            memset(Uart1_Buffer,0,13);//max =4+5+4 =13
+ 552   3            Uart1_Rx   = 0 ;
+ 553   3            packerflag = 0;
+ 554   3            //Uart1_index_flag_end =0;
+ 555   3          }
+ 556   2          
+ 557   2        
+ 558   2          
+ 559   2        }
+ 560   1      }
+ 561          
+ 562          
+ 563          
+ 564          
+ 565          
+ 566          //    LED1 = 0;
+ 567          ////    GO_1 = 0;
+ 568          //    Delay100ms();
+ 569          //    Delay100ms();
+ 570          //    Delay100ms();
+ 571          //    Delay100ms();
+ 572          //    Delay100ms();
+ 573          //    LED1 = 1;
+ 574          ////    GO_1 =1;
+ 575          //    Delay100ms();
+ 576          //    Delay100ms();
+ 577          //    Delay100ms();
+ 578          //    Delay100ms();
+ 579          //    Delay100ms();
+ 580          
+ 581          //    ADC_RES = Get_ADC_RES();
+ 582          //    UartSend(ADC_RES);
+ 583          //    ADC_RES = ADC_RES>>8;
+ 584          //    UartSend(ADC_RES>>8);
+ 585              
+ 586          
+ 587          //    UartSend(length);
+ 588          //    UartSend(length>>8);
+ 589          //    UartSend(length>>16);
+ 590          //    UartSend(length>>24);
+ 591          //    RS485_RX_EN();
+ 592          //    UartSendStr("Uart Test 2 -RX!\r\n");
+ 593          //    delay_ms(4000);
+ 594          //    
+ 595          //    RS485_TX_EN();
+ 596          //    UartSendStr("Uart Test 3 -TX!\r\n");//no xianshi
+ 597          //    delay_ms(2100);
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1013    ----
-   CONSTANT SIZE    =    566    ----
+   CODE SIZE        =   1447    ----
+   CONSTANT SIZE    =    521    ----
    XDATA SIZE       =      5     536
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----

@@ -129,200 +129,234 @@ void data_parse()
 						//----1------
 						if(m_data.gu_ding  == 0x11)//process
 						{
+							//UartSend(m_data.lock_addr);
 							switch(m_data.lock_addr)
 							{			
 								case 1:
-//									GO_1=1; 					//open
-//									delay_ms(20);  
-//									GO_1=0;						//close
-//									delay_ms(20);  
-									
+									GO_1=1; 					//open
+									delay_ms(40);  
+									GO_1=0;						//close
+									delay_ms(40);  
 								
-								
-								
-									GO_1=1;
-                  //GI_1=1;
-                
-                  GO_2=1;
-                  //GI_2=1;
-                
-                  GO_3=1;
-                  //GI_3=1;
-                
-                  GO_4=1;
-                  //GI_4=1;
-                  
-                  GO_5=1;
-                  //GI_5=1;
-                  
-                  GO_6=1;
-                  //GI_6=1;
-                  
-                  GO_7=1;
-                  //GI_7=1;
-                  
-                  GO_8=1;
-                  //GI_8=1;
-                  
-                  GO_9=1;
-                  //GI_9=1;
-                  
-                  GO_10=1;
-                  //GI_10=1;
-                  
-                  GO_11=1;
-                  //GI_11=1;
-                
-                  GO_12=1;
-                  //GI_12=1;
-                
-                  GO_13=1;
-                  //GI_13=1;
-                
-                  GO_14=1;
-                  //GI_14=1;
-                  
-                  GO_15=1;
-                  //GI_15=1;
-                  
-                  GO_16=1;
-                  //GI_16=1;
-                  
-                  GO_17=1;
-                  //GI_17=1;
-                  
-                  GO_18=1;
-                  //GI_18=1;
-                  
-                  GO_19=1;
-                  //GI_19=1;
-                  
-                  GO_20=1;
-                  //GI_20=1;
-                  
-                  GO_21=1;
-                  //GI_21=1;
-                
-                  GO_22=1;
-                  //GI_22=1;
-                
-                  GO_23=1;
-                  //GI_23=1;
-                
-                  GO_24=1;
-                  //GI_24=1;
-									
-									delay_ms(20);  
-									
-                  GO_1=0;
-                  //GI_1=0;
-                  
-                  GO_2=0;
-                  //GI_2=0;
-                
-                  GO_3=0;
-                  //GI_3=0;
-
-                        
-                  GO_4=0;
-                  //GI_4=0;
-                  
-                  GO_5=0;
-                  //GI_5=0;
-                  
-                  GO_6=0;
-                  //GI_6=0;
-                  
-                  GO_7=0;
-                  //GI_7=0;
-                  
-                  GO_8=0;
-                  //GI_8=0;
-                  
-                  GO_9=0;
-                  //GI_9=0;
-                  
-                  GO_10=0;
-                  //GI_10=0;
-                  
-                  GO_11=0;
-                  //GI_11=0;
-                
-                  GO_12=0;
-                  //GI_12=0;
-                
-                  GO_13=0;
-                  //GI_13=0;
-                
-                  GO_14=0;
-                  //GI_14=0;
-                  
-                  GO_15=0;
-                  //GI_15=0;
-                  
-                  GO_16=0;
-                  //GI_16=0;
-                  
-                  GO_17=0;
-                  //GI_17=0;
-                  
-                  GO_18=0;
-                  //GI_18=0;
-                  
-                  GO_19=0;
-                  //GI_19=0;
-                  
-                  GO_20=0;
-                  //GI_20=0;
-                  
-                  GO_21=0;
-                  //GI_21=0;
-                
-                  GO_22=0;
-                  //GI_22=0;
-              
-                  GO_23=0;
-                  //GI_23=0;
-                
-                  GO_24=0;
-                  //GI_24=0;	
-								
-								
-
 									//LED1 =1;
-									gpio_level = 0x01;
-									//gpio_level= GI_1;
+									gpio_level= GI_1;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
-									UartSendStr("\r\n--1--\r\n");
+									//UartSendStr("\r\n--1--\r\n");
+									
 									break;
 								
 								case 2:
 									GO_2=1;							 //open
-									delay_ms(20);  
+									delay_ms(40);  
 									GO_2=0;	 						 //close
-									delay_ms(20);
+									delay_ms(40);
 
 
 									//LED1 =0;
-									//gpio_level= GI_2;
-									gpio_level = 0x01;
+									gpio_level= GI_2;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
-									UartSendStr("\r\n--2--\r\n");
+									//UartSendStr("\r\n--2--\r\n");
 									break;
 								
-								
-								case 3:
-						
-									GO_3=1; 					//open
-									delay_ms(20);  
-									GO_3=0;						//close
-									delay_ms(20);  
+							case 3:
+									GO_3=1;							 //open
+									delay_ms(40);  
+									GO_3=0;	 						 //close
+									delay_ms(40);  
 
-									gpio_level = 0x01;
-									//gpio_level= GI_3;
+									gpio_level= GI_3;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
-									UartSendStr("\r\n--3--\r\n");
 									break;
+								case 4:
+									GO_4=1;							 //open
+									delay_ms(40);  
+									GO_4=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_4;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 5:
+									GO_5=1;							 //open
+									delay_ms(40);  
+									GO_5=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_5;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 6:
+									GO_6=1;							 //open
+									delay_ms(40);  
+									GO_6=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_6;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 7:
+									GO_7=1;							 //open
+									delay_ms(40);  
+									GO_7=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_7;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 8:
+									GO_8=1;							 //open
+									delay_ms(40);  
+									GO_8=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_2;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 9:
+									GO_9=1;							 //open
+									delay_ms(40);  
+									GO_9=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_9;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 10:
+									GO_10=1;							 //open
+									delay_ms(40);  
+									GO_10=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_10;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 11:
+									GO_11=1;							 //open
+									delay_ms(40);  
+									GO_11=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_11;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 12:
+									GO_12=1;							 //open
+									delay_ms(40);  
+									GO_12=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_12;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 13:
+									GO_13=1;							 //open
+									delay_ms(40);  
+									GO_13=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_13;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 14:
+									GO_14=1;							 //open
+									delay_ms(40);  
+									GO_14=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_14;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 15:
+									GO_15=1;							 //open
+									delay_ms(40);  
+									GO_15=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_15;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 16:
+									GO_16=1;							 //open
+									delay_ms(40);  
+									GO_16=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_16;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 17:
+									GO_17=1;							 //open
+									delay_ms(40);  
+									GO_17=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_17;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 18:
+									GO_18=1;							 //open
+									delay_ms(40);  
+									GO_18=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_18;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 19:
+									GO_19=1;							 //open
+									delay_ms(40);  
+									GO_19=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_19;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 20:
+									GO_20=1;							 //open
+									delay_ms(40);  
+									GO_20=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_20;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 21:
+									GO_21=1;							 //open
+									delay_ms(40);  
+									GO_21=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_21;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 22:
+									GO_22=1;							 //open
+									delay_ms(40);  
+									GO_22=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_22;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 23:
+									GO_23=1;							 //open
+									delay_ms(40);  
+									GO_23=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_23;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 24:
+									GO_24=1;							 //open
+									delay_ms(40);  
+									GO_24=0;	 						 //close
+									delay_ms(40);  
+
+									gpio_level= GI_24;
+									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+
 								
 								default:
 									break;
@@ -429,7 +463,6 @@ void main(void)
 	GO_3=0;
 	//GI_3=0;
 
-				
 	GO_4=0;
 	//GI_4=0;
 	
@@ -496,7 +529,7 @@ void main(void)
 	
 	RS485_RX_EN();
 
-	UartSendStr("power on !!!\r\n");
+	//UartSendStr("power on !!!\r\n");
 	while(1)
 	{
 		if((1== packerflag))
