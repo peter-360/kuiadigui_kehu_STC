@@ -1175,12 +1175,56 @@ void data_parse()
 				{
 					case 0x90://--------2---------
 						lock_all_on_off();
-					
+						grp_level_1= GI_T_1 | (GI_T_2<<1) | (GI_T_3<<2) | (GI_T_4<<3) | (GI_T_5<<4) | (GI_T_6<<5) | (GI_T_7<<6) | (GI_T_8<<7);
+						grp_level_2= GI_T_9 | (GI_T_10<<1) | (GI_T_11<<2) | (GI_T_12<<3) | (GI_T_13<<4) | (GI_T_14<<5) | (GI_T_15<<6) | (GI_T_16<<7);
+						grp_level_3= GI_T_17 | (GI_T_18<<1) | (GI_T_19<<2) | (GI_T_20<<3) | (GI_T_21<<4) | (GI_T_22<<5) | (GI_T_23<<6) | (GI_T_24<<7);
+						//SEGGER_RTT_printf(0, "grp_level_1 = %x\n",grp_level_1);
+						//SEGGER_RTT_printf(0, "grp_level_2 = %x\n",grp_level_2);
+						//SEGGER_RTT_printf(0, "grp_level_3 = %x\n",grp_level_3);
+						
+						memcpy(tx_Buffer,"star",4);
+						tx_Buffer[4]= 0x80;//m_data.opcode;
+						tx_Buffer[5]= m_data.board_addr;
+						tx_Buffer[6]= grp_level_1;
+						tx_Buffer[7]= grp_level_2;
+						tx_Buffer[8]= grp_level_3;
+
+
+						
+						bcc_temp = ComputXor(tx_Buffer+4,5);
+						tx_Buffer[9]= bcc_temp;
+						memcpy(tx_Buffer+10,"end",3);//now is 2?
+						
+						tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+						
+						spear_uart_send_datas(tx_Buffer,13);
 						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
 						break;
 					case 0x91://--------2.1---------
 						lock_all_on_off();
-					
+						grp_level_1= GI_T_1 | (GI_T_2<<1) | (GI_T_3<<2) | (GI_T_4<<3) | (GI_T_5<<4) | (GI_T_6<<5) | (GI_T_7<<6) | (GI_T_8<<7);
+						grp_level_2= GI_T_9 | (GI_T_10<<1) | (GI_T_11<<2) | (GI_T_12<<3) | (GI_T_13<<4) | (GI_T_14<<5) | (GI_T_15<<6) | (GI_T_16<<7);
+						grp_level_3= GI_T_17 | (GI_T_18<<1) | (GI_T_19<<2) | (GI_T_20<<3) | (GI_T_21<<4) | (GI_T_22<<5) | (GI_T_23<<6) | (GI_T_24<<7);
+						//SEGGER_RTT_printf(0, "grp_level_1 = %x\n",grp_level_1);
+						//SEGGER_RTT_printf(0, "grp_level_2 = %x\n",grp_level_2);
+						//SEGGER_RTT_printf(0, "grp_level_3 = %x\n",grp_level_3);
+						
+						memcpy(tx_Buffer,"star",4);
+						tx_Buffer[4]= 0x80;//m_data.opcode;
+						tx_Buffer[5]= m_data.board_addr;
+						tx_Buffer[6]= grp_level_1;
+						tx_Buffer[7]= grp_level_2;
+						tx_Buffer[8]= grp_level_3;
+
+
+						
+						bcc_temp = ComputXor(tx_Buffer+4,5);
+						tx_Buffer[9]= bcc_temp;
+						memcpy(tx_Buffer+10,"end",3);//now is 2?
+						
+						tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+						
+						spear_uart_send_datas(tx_Buffer,13);
 						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
 						break;
 					case 0x92://--------2.2---------
@@ -1198,6 +1242,7 @@ void data_parse()
 					default:
 						break;
 				}
+				//todo
 				
 				//SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
 			}
