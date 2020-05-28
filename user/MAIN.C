@@ -76,6 +76,432 @@ typedef struct
 command1_struct m_data;
 
 
+void lock_all_off(void)
+{
+	GO_1=0;
+	//GI_1=0;
+
+	GO_2=0;
+	//GI_2=0;
+
+	GO_3=0;
+	//GI_3=0;
+
+
+	GO_4=0;
+	//GI_4=0;
+
+	GO_5=0;
+	//GI_5=0;
+
+	GO_6=0;
+	//GI_6=0;
+
+	GO_7=0;
+	//GI_7=0;
+
+	GO_8=0;
+	//GI_8=0;
+
+	GO_9=0;
+	//GI_9=0;
+
+	GO_10=0;
+	//GI_10=0;
+
+	GO_11=0;
+	//GI_11=0;
+
+	GO_12=0;
+	//GI_12=0;
+
+	GO_13=0;
+	//GI_13=0;
+
+	GO_14=0;
+	//GI_14=0;
+
+	GO_15=0;
+	//GI_15=0;
+
+	GO_16=0;
+	//GI_16=0;
+
+	GO_17=0;
+	//GI_17=0;
+
+	GO_18=0;
+	//GI_18=0;
+
+	GO_19=0;
+	//GI_19=0;
+
+	GO_20=0;
+	//GI_20=0;
+
+	GO_21=0;
+	//GI_21=0;
+
+	GO_22=0;
+	//GI_22=0;
+
+	GO_23=0;
+	//GI_23=0;
+
+	GO_24=0;
+	//GI_24=0;  
+
+}
+
+
+void lock_all_on_off(void)
+{
+
+	GO_1=1; 					//open
+	delay_ms(100);  //>=20
+	if(1==GI_1)//no open
+	{
+		//debug_uart_send_data1(0x01);
+		delay_ms(300);
+	}
+	if(1==GI_1)//no open
+	{
+		//debug_uart_send_data1(0x02);
+		delay_ms(600);
+	}
+	GO_1=0;						//close
+	delay_ms(700);
+
+
+	//LED1 =1;
+
+	
+	GO_2=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_2)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_2)//no open
+	{
+		delay_ms(600);
+	}
+	GO_2=0;	 						 //close
+	//LED1 =0;
+	delay_ms(700);
+
+	
+	
+	GO_3=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_3)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_3)//no open
+	{
+		delay_ms(600);
+	}
+	GO_3=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_4=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_4)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_4)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_4=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_5=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_5)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_5)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_5=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_6=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_6)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_6)//no open
+	{
+		delay_ms(600);
+	}
+	GO_6=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_7=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_7)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_7)//no open
+	{
+		delay_ms(600);
+	}
+	GO_7=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_8=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_8)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_8)//no open
+	{
+		delay_ms(600);
+	}
+	GO_8=0;	 						 //close
+	delay_ms(700);
+	
+
+	GO_9=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_9)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_9)//no open
+	{
+		delay_ms(600);
+	}
+	GO_9=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_10=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_10)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_10)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_10=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_11=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_11)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_11)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_11=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_12=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_12)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_12)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_12=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_13=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_13)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_13)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_13=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_14=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_14)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_14)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_14=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_15=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_15)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_15)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_15=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_16=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_16)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_16)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_16=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_17=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_17)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_17)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_17=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_18=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_18)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_18)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_18=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_19=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_19)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_19)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_19=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_20=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_20)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_20)//no open
+	{
+		delay_ms(600);
+	}   
+	GO_20=0;	 						 //close
+	delay_ms(700);
+
+
+	
+	GO_21=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_21)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_21)//no open
+	{
+		delay_ms(600);
+	}  
+	GO_21=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_22=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_22)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_22)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_22=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_23=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_23)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_23)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_23=0;	 						 //close
+	delay_ms(700);
+
+
+	GO_24=1;							 //open
+	delay_ms(100);  //>=20
+	if(1==GI_24)//no open
+	{
+		delay_ms(300);
+	}
+	if(1==GI_24)//no open
+	{
+		delay_ms(600);
+	} 
+	GO_24=0;	 						 //close
+	
+	lock_all_off();
+
+}
 uint8_t ComputXor(uint8_t *InData, uint16_t Len)
 {
 	uint8_t Sum = 0;
@@ -148,9 +574,19 @@ void data_parse()
 							{			
 								case 1:
 									GO_1=1; 					//open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_1)//no open
+									{
+										//debug_uart_send_data1(0x01);
+										delay_ms(300);
+									}
+									if(1==GI_1)//no open
+									{
+										//debug_uart_send_data1(0x02);
+										delay_ms(600);
+									}
 									GO_1=0;						//close
-									delay_ms(40);  
+
 								
 									//LED1 =1;
 									gpio_level= GI_1;
@@ -161,9 +597,16 @@ void data_parse()
 								
 								case 2:
 									GO_2=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_2)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_2)//no open
+									{
+										delay_ms(600);
+									}
 									GO_2=0;	 						 //close
-									delay_ms(40);
 
 
 									//LED1 =0;
@@ -173,198 +616,352 @@ void data_parse()
 								
 							case 3:
 									GO_3=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_3)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_3)//no open
+									{
+										delay_ms(600);
+									}
 									GO_3=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_3;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 4:
 									GO_4=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_4)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_4)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_4=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_4;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 5:
 									GO_5=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_5)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_5)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_5=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_5;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 6:
 									GO_6=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_6)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_6)//no open
+									{
+										delay_ms(600);
+									}
 									GO_6=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_6;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 7:
 									GO_7=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_7)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_7)//no open
+									{
+										delay_ms(600);
+									}
 									GO_7=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_7;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 8:
 									GO_8=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_8)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_8)//no open
+									{
+										delay_ms(600);
+									}
 									GO_8=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_2;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 9:
 									GO_9=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_9)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_9)//no open
+									{
+										delay_ms(600);
+									}
 									GO_9=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_9;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 10:
 									GO_10=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_10)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_10)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_10=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_10;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 11:
 									GO_11=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_11)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_11)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_11=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_11;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 12:
 									GO_12=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_12)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_12)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_12=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_12;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 13:
 									GO_13=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_13)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_13)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_13=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_13;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 14:
 									GO_14=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_14)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_14)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_14=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_14;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 15:
 									GO_15=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_15)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_15)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_15=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_15;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 16:
 									GO_16=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_16)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_16)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_16=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_16;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 17:
 									GO_17=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_17)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_17)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_17=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_17;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 18:
 									GO_18=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_18)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_18)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_18=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_18;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 19:
 									GO_19=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_19)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_19)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_19=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_19;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 20:
 									GO_20=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_20)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_20)//no open
+									{
+										delay_ms(600);
+									}   
 									GO_20=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_20;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 21:
 									GO_21=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_21)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_21)//no open
+									{
+										delay_ms(600);
+									}  
 									GO_21=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_21;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 22:
 									GO_22=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_22)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_22)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_22=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_22;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 23:
 									GO_23=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_23)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_23)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_23=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_23;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								case 24:
 									GO_24=1;							 //open
-									delay_ms(40);  
+									delay_ms(100);  //>=20
+									if(1==GI_24)//no open
+									{
+										delay_ms(300);
+									}
+									if(1==GI_24)//no open
+									{
+										delay_ms(600);
+									} 
 									GO_24=0;	 						 //close
-									delay_ms(40);  
 
 									gpio_level= GI_24;
 									//SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
@@ -375,12 +972,14 @@ void data_parse()
 									break;
 
 							}
+							lock_all_off();
 							
 							memcpy(tx_Buffer,"star",4);
 							tx_Buffer[4]= m_data.opcode;
 							tx_Buffer[5]= m_data.board_addr;
 							tx_Buffer[6]= m_data.lock_addr;
 							
+//							if(0x00 == gpio_level)
 							if(0x01 == gpio_level)
 								tx_Buffer[7]= 0x11;//lock state todo open
 							else
@@ -561,6 +1160,53 @@ void data_parse()
 			}
 			
 		}
+		else if(3==Uart1_Rx_T)
+		{
+			m_data.opcode = Uart1_Buffer_T[0];
+			m_data.board_addr = Uart1_Buffer_T[1];
+
+			m_data.bcc = Uart1_Buffer_T[2];
+			
+			bcc_temp = ComputXor(Uart1_Buffer_T,2);
+			//SEGGER_RTT_printf(0, "bcc_temp = %x\n",bcc_temp);
+			if(bcc_temp == m_data.bcc)
+			{
+				switch(m_data.opcode)
+				{
+					case 0x90://--------2---------
+						lock_all_on_off();
+					
+						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x91://--------2.1---------
+						lock_all_on_off();
+					
+						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x92://--------2.2---------
+						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x93://--------2.3---------
+						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x70://--------2.4---------
+						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x71://--------2.5---------
+						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;					
+					default:
+						break;
+				}
+				
+				//SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
+			}
+			else
+			{
+				//SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
+			}
+		
+		}
 		
 		
 		
@@ -590,78 +1236,8 @@ void gpio_init(void)
 	
 	P7M0 = 0x09;                                //
 	P7M1 = 0x00;
-
-	GO_1=0;
-	//GI_1=0;
 	
-	GO_2=0;
-	//GI_2=0;
-
-	GO_3=0;
-	//GI_3=0;
-
-	GO_4=0;
-	//GI_4=0;
-	
-	GO_5=0;
-	//GI_5=0;
-	
-	GO_6=0;
-	//GI_6=0;
-	
-	GO_7=0;
-	//GI_7=0;
-	
-	GO_8=0;
-	//GI_8=0;
-	
-	GO_9=0;
-	//GI_9=0;
-	
-	GO_10=0;
-	//GI_10=0;
-	
-	GO_11=0;
-	//GI_11=0;
-
-	GO_12=0;
-	//GI_12=0;
-
-	GO_13=0;
-	//GI_13=0;
-
-	GO_14=0;
-	//GI_14=0;
-	
-	GO_15=0;
-	//GI_15=0;
-	
-	GO_16=0;
-	//GI_16=0;
-	
-	GO_17=0;
-	//GI_17=0;
-	
-	GO_18=0;
-	//GI_18=0;
-	
-	GO_19=0;
-	//GI_19=0;
-	
-	GO_20=0;
-	//GI_20=0;
-	
-	GO_21=0;
-	//GI_21=0;
-
-	GO_22=0;
-	//GI_22=0;
-
-	GO_23=0;
-	//GI_23=0;
-
-	GO_24=0;
-	//GI_24=0;	
+	lock_all_off();
 
 }
 
