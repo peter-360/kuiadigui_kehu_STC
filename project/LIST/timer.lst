@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 11:02:34 PAGE 1   
+C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 18:22:11 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TIMER
@@ -62,7 +62,7 @@ line level    source
   52   1        TR0 = 0;
   53   1      
   54   1        //UartSend(Uart1_Rx);
-C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 11:02:34 PAGE 2   
+C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 18:22:11 PAGE 2   
 
   55   1        Uart1_Rx =0 ;
   56   1        
@@ -85,99 +85,117 @@ line level    source
   73          
   74          void TM1_Isr() interrupt 3 using 1
   75          {
-  76   1          Timer_CNT++;
-  77   1        if(Timer_CNT >= 500)
-  78   1        {
-  79   2          Timer_CNT = 0;
-  80   2          LED = !LED;      //测试端口
-  81   2        }                                  
-  82   1      }
-  83          
-  84          void Timer1_Init(void)
-  85          {
-  86   1          TMOD = 0x00;                                //模式0
-  87   1          TL1 = 0x66;                                 //65536-11.0592M/12/1000
-  88   1          TH1 = 0xfc;
-  89   1          TR1 = 1;                                    //启动定时器
-  90   1          ET1 = 1;                                    //使能定时器中断
-  91   1          EA = 1;
-  92   1      }
-  93          
-  94          
-  95          void TM2_Isr() interrupt 12 using 1
-  96          {
-  97   1          AUXINTIF &= ~T2IF;                          //清中断标志
-  98   1        Timer_CNT++;
-  99   1        if(Timer_CNT >= 300)
- 100   1        {
- 101   2          Timer_CNT = 0;
- 102   2          LED = !LED;      //测试端口
- 103   2        } 
- 104   1      }
- 105          
- 106          void Timer2_Init(void)
- 107          {
- 108   1          T2L = 0x66;                                 //65536-11.0592M/12/1000
- 109   1          T2H = 0xfc;
- 110   1          AUXR = 0x10;                                //启动定时器
- 111   1          IE2 = ET2;                                  //使能定时器中断
- 112   1          EA = 1;
- 113   1      }
- 114          
- 115          void TM3_Isr() interrupt 19 using 1
- 116          {
-C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 11:02:34 PAGE 3   
+  76   1        TF1 = 0;    //??TF1??
+  77   1        TR1 = 0;    //???1????
+  78   1        
+  79   1        
+  80   1      //  Timer_CNT++;
+  81   1      //  if(Timer_CNT >= 500)
+  82   1      //  {
+  83   1      //    Timer_CNT = 0;
+  84   1      //    LED = !LED;      //测试端口
+  85   1      //  }                                  
+  86   1      }
+  87          
+  88          //void Timer1_Init(void)
+  89          //{
+  90          //    TMOD = 0x00;                                //模式0
+  91          //    TL1 = 0x66;                                 //65536-11.0592M/12/1000
+  92          //    TH1 = 0xfc;
+  93          //    TR1 = 1;                                    //启动定时器
+  94          //    ET1 = 1;                                    //使能定时器中断
+  95          //    EA = 1;
+  96          //}
+  97          
+  98          void Timer1Init(void)   //10??@20.000MHz
+  99          {
+ 100   1        AUXR &= 0xBF;   //?????12T??
+ 101   1        TMOD = 0x00;
+ 102   1        TL1 = 0xE5;   //??????
+ 103   1        TH1 = 0xBE;   //??????
+ 104   1        
+ 105   1        ET1 = 1;
+ 106   1        TF1 = 0;    //??TF1??
+ 107   1        TR1 = 0;    //???1????
+ 108   1      }
+ 109          
+ 110          
+ 111          void TM2_Isr() interrupt 12 using 1
+ 112          {
+ 113   1          AUXINTIF &= ~T2IF;                          //清中断标志
+ 114   1        Timer_CNT++;
+ 115   1        if(Timer_CNT >= 300)
+ 116   1        {
+C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 18:22:11 PAGE 3   
 
- 117   1          AUXINTIF &= ~T3IF;                          //清中断标志
- 118   1      
- 119   1        Timer_CNT++;
- 120   1        if(Timer_CNT >= 700)
- 121   1        {
- 122   2          Timer_CNT = 0;
- 123   2          LED = !LED;      //测试端口
- 124   2        }
- 125   1      }
- 126          
- 127          void Timer3_Init(void)
- 128          {
- 129   1          T3L = 0x66;                                 //65536-11.0592M/12/1000
- 130   1          T3H = 0xfc;
- 131   1          T4T3M = 0x08;                               //启动定时器
- 132   1          IE2 = ET3;                                  //使能定时器中断
- 133   1          EA = 1;
- 134   1      }
- 135          
- 136          void TM4_Isr() interrupt 20 using 1
- 137          {                                //测试端口
- 138   1          AUXINTIF &= ~T4IF;                          //清中断标志
- 139   1        Timer_CNT++;
- 140   1        if(Timer_CNT >= 1000)
- 141   1        {
- 142   2          Timer_CNT = 0;
- 143   2          LED = !LED;      //测试端口
- 144   2        }
- 145   1      }
- 146          
- 147          void Timer4_Init(void)
- 148          {
- 149   1          T4L = 0x66;                                 //65536-11.0592M/12/1000
- 150   1          T4H = 0xfc;
- 151   1          T4T3M = 0x80;                               //启动定时器
- 152   1          IE2 = ET4;                                  //使能定时器中断
- 153   1          EA = 1;
- 154   1      }
- 155          
- 156          
- 157          
- 158          
- 159          
- 160          
- 161          
+ 117   2          Timer_CNT = 0;
+ 118   2          LED = !LED;      //测试端口
+ 119   2        } 
+ 120   1      }
+ 121          
+ 122          void Timer2_Init(void)
+ 123          {
+ 124   1          T2L = 0x66;                                 //65536-11.0592M/12/1000
+ 125   1          T2H = 0xfc;
+ 126   1          AUXR = 0x10;                                //启动定时器
+ 127   1          IE2 = ET2;                                  //使能定时器中断
+ 128   1          EA = 1;
+ 129   1      }
+ 130          
+ 131          void TM3_Isr() interrupt 19 using 1
+ 132          {
+ 133   1          AUXINTIF &= ~T3IF;                          //清中断标志
+ 134   1      
+ 135   1        Timer_CNT++;
+ 136   1        if(Timer_CNT >= 700)
+ 137   1        {
+ 138   2          Timer_CNT = 0;
+ 139   2          LED = !LED;      //测试端口
+ 140   2        }
+ 141   1      }
+ 142          
+ 143          void Timer3_Init(void)
+ 144          {
+ 145   1          T3L = 0x66;                                 //65536-11.0592M/12/1000
+ 146   1          T3H = 0xfc;
+ 147   1          T4T3M = 0x08;                               //启动定时器
+ 148   1          IE2 = ET3;                                  //使能定时器中断
+ 149   1          EA = 1;
+ 150   1      }
+ 151          
+ 152          void TM4_Isr() interrupt 20 using 1
+ 153          {                                //测试端口
+ 154   1          AUXINTIF &= ~T4IF;                          //清中断标志
+ 155   1        Timer_CNT++;
+ 156   1        if(Timer_CNT >= 1000)
+ 157   1        {
+ 158   2          Timer_CNT = 0;
+ 159   2          LED = !LED;      //测试端口
+ 160   2        }
+ 161   1      }
  162          
+ 163          void Timer4_Init(void)
+ 164          {
+ 165   1          T4L = 0x66;                                 //65536-11.0592M/12/1000
+ 166   1          T4H = 0xfc;
+ 167   1          T4T3M = 0x80;                               //启动定时器
+ 168   1          IE2 = ET4;                                  //使能定时器中断
+ 169   1          EA = 1;
+ 170   1      }
+ 171          
+ 172          
+ 173          
+ 174          
+ 175          
+ 176          
+ 177          
+ 178          
+C51 COMPILER V9.60.0.0   TIMER                                                             05/28/2020 18:22:11 PAGE 4   
+
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    383    ----
+   CODE SIZE        =    339    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =      2       4
    PDATA SIZE       =   ----    ----

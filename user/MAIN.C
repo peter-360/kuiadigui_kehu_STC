@@ -170,7 +170,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}
 	GO_1=0;						//close
-	delay_ms(700);
+	delay_ms(500);
 
 
 	//LED1 =1;
@@ -188,7 +188,7 @@ void lock_all_on_off(void)
 	}
 	GO_2=0;	 						 //close
 	//LED1 =0;
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 	
 	
@@ -203,7 +203,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}
 	GO_3=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_4=1;							 //open
@@ -217,7 +217,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_4=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_5=1;							 //open
@@ -231,7 +231,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_5=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_6=1;							 //open
@@ -245,7 +245,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}
 	GO_6=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_7=1;							 //open
@@ -259,7 +259,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}
 	GO_7=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_8=1;							 //open
@@ -273,7 +273,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}
 	GO_8=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 	
 
 	GO_9=1;							 //open
@@ -287,7 +287,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}
 	GO_9=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_10=1;							 //open
@@ -301,7 +301,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_10=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_11=1;							 //open
@@ -315,7 +315,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_11=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_12=1;							 //open
@@ -329,7 +329,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_12=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_13=1;							 //open
@@ -343,7 +343,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_13=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_14=1;							 //open
@@ -357,7 +357,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_14=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_15=1;							 //open
@@ -371,7 +371,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_15=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_16=1;							 //open
@@ -385,7 +385,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_16=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_17=1;							 //open
@@ -399,7 +399,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_17=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_18=1;							 //open
@@ -413,7 +413,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_18=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_19=1;							 //open
@@ -427,7 +427,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_19=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_20=1;							 //open
@@ -441,7 +441,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}   
 	GO_20=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	
@@ -456,7 +456,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	}  
 	GO_21=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_22=1;							 //open
@@ -470,7 +470,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_22=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_23=1;							 //open
@@ -484,7 +484,7 @@ void lock_all_on_off(void)
 		delay_ms(600);
 	} 
 	GO_23=0;	 						 //close
-	delay_ms(700);
+	delay_ms(500);LED1=!LED1;
 
 
 	GO_24=1;							 //open
@@ -1028,9 +1028,9 @@ void data_parse()
 								tx_Buffer[9]= bcc_temp;
 								memcpy(tx_Buffer+10,"end",3);//now is 2?
 								
-								tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+								tx_Buffer[12]='\0';//tx_Buffer[12]='\0';
 								
-								spear_uart_send_datas(tx_Buffer,13);
+								spear_uart_send_datas(tx_Buffer,12);
 								//spear_rtt_send_datas(tx_Buffer,12);//to do 13?
 
 								//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
@@ -1195,9 +1195,9 @@ void data_parse()
 						tx_Buffer[9]= bcc_temp;
 						memcpy(tx_Buffer+10,"end",3);//now is 2?
 						
-						tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+						tx_Buffer[12]='\0';//tx_Buffer[12]='\0';
 						
-						spear_uart_send_datas(tx_Buffer,13);
+						spear_uart_send_datas(tx_Buffer,12);
 						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
 						break;
 					case 0x91://--------2.1---------
@@ -1222,9 +1222,9 @@ void data_parse()
 						tx_Buffer[9]= bcc_temp;
 						memcpy(tx_Buffer+10,"end",3);//now is 2?
 						
-						tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+						tx_Buffer[12]='\0';//tx_Buffer[12]='\0';
 						
-						spear_uart_send_datas(tx_Buffer,13);
+						spear_uart_send_datas(tx_Buffer,12);
 						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
 						break;
 					case 0x92://--------2.2---------
@@ -1296,6 +1296,7 @@ void gpio_init(void)
 void main(void)
 {
 //	uint16 ADC_RES;
+	uint32_t tick_times=0;
 		
 	Uart1Init();
 //	Timer4_Init();
@@ -1335,6 +1336,16 @@ void main(void)
 			packerflag = 0;
 			//Uart1_index_flag_end =0;
 		}
+		
+		tick_times++;
+		if(tick_times%1000==0)
+		{
+			//SEGGER_RTT_printf(0, "---test1---\n"); 
+			LED1=0;
+			delay_ms(50); 
+			LED1=1;
+		}
+		delay_ms(5); 
 		
 	
 		

@@ -73,22 +73,38 @@ void TM0_Isr() interrupt 1 using 1
 
 void TM1_Isr() interrupt 3 using 1
 {
-    Timer_CNT++;
-	if(Timer_CNT >= 500)
-	{
-		Timer_CNT = 0;
-		LED = !LED;			 //测试端口
-	}                                  
+	TF1 = 0;		//??TF1??
+	TR1 = 0;		//???1????
+	
+	
+//  Timer_CNT++;
+//	if(Timer_CNT >= 500)
+//	{
+//		Timer_CNT = 0;
+//		LED = !LED;			 //测试端口
+//	}                                  
 }
 
-void Timer1_Init(void)
+//void Timer1_Init(void)
+//{
+//    TMOD = 0x00;                                //模式0
+//    TL1 = 0x66;                                 //65536-11.0592M/12/1000
+//    TH1 = 0xfc;
+//    TR1 = 1;                                    //启动定时器
+//    ET1 = 1;                                    //使能定时器中断
+//    EA = 1;
+//}
+
+void Timer1Init(void)		//10??@20.000MHz
 {
-    TMOD = 0x00;                                //模式0
-    TL1 = 0x66;                                 //65536-11.0592M/12/1000
-    TH1 = 0xfc;
-    TR1 = 1;                                    //启动定时器
-    ET1 = 1;                                    //使能定时器中断
-    EA = 1;
+	AUXR &= 0xBF;		//?????12T??
+	TMOD = 0x00;
+	TL1 = 0xE5;		//??????
+	TH1 = 0xBE;		//??????
+	
+	ET1 = 1;
+	TF1 = 0;		//??TF1??
+	TR1 = 0;		//???1????
 }
 
 
