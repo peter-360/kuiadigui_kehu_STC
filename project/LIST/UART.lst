@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   UART                                                              05/28/2020 11:02:33 PAGE 1   
+C51 COMPILER V9.60.0.0   UART                                                              06/18/2020 15:51:23 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART
@@ -62,7 +62,7 @@ line level    source
   52          
   53          //void Uart1Init(void)    //9600bps@20.000MHz
   54          //{
-C51 COMPILER V9.60.0.0   UART                                                              05/28/2020 11:02:33 PAGE 2   
+C51 COMPILER V9.60.0.0   UART                                                              06/18/2020 15:51:23 PAGE 2   
 
   55          //  SCON = 0x50;    //8???,?????
   56          //  AUXR |= 0x01;   //??1?????2???????
@@ -126,7 +126,7 @@ line level    source
  114          
  115          
  116          
-C51 COMPILER V9.60.0.0   UART                                                              05/28/2020 11:02:33 PAGE 3   
+C51 COMPILER V9.60.0.0   UART                                                              06/18/2020 15:51:23 PAGE 3   
 
  117          unsigned char Uart1_index_flag=0,Uart1_index_flag_end=0;                //???????
  118          
@@ -190,7 +190,7 @@ line level    source
  176   4                if(ch == 'n')//process
  177   4                  Uart1_index_flag_end =2;
  178   4                break;
-C51 COMPILER V9.60.0.0   UART                                                              05/28/2020 11:02:33 PAGE 4   
+C51 COMPILER V9.60.0.0   UART                                                              06/18/2020 15:51:23 PAGE 4   
 
  179   4              case 2:
  180   4                if(ch == 'd')//process
@@ -254,7 +254,7 @@ line level    source
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    331    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V9.60.0.0   UART                                                              05/28/2020 11:02:33 PAGE 5   
+C51 COMPILER V9.60.0.0   UART                                                              06/18/2020 15:51:23 PAGE 5   
 
    XDATA SIZE       =    278       7
    PDATA SIZE       =   ----    ----

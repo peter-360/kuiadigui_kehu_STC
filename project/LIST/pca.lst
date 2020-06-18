@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   PCA                                                               05/28/2020 11:02:36 PAGE 1   
+C51 COMPILER V9.60.0.0   PCA                                                               06/18/2020 15:51:25 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PCA
@@ -62,7 +62,7 @@ line level    source
   52          (65536*cnt+CCAP0H:CCAP0L)/11059200 = 脉冲宽度
   53          */
   54          void PCA_Isr() interrupt 7 using 1
-C51 COMPILER V9.60.0.0   PCA                                                               05/28/2020 11:02:36 PAGE 2   
+C51 COMPILER V9.60.0.0   PCA                                                               06/18/2020 15:51:25 PAGE 2   
 
   55          {
   56   1          if (CF)                   //PCA计数器溢出中断
