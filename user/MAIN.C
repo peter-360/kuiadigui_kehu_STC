@@ -1351,6 +1351,7 @@ void main(void)
 //	uint16 ADC_RES;
 	uint32_t tick_times=0;
 	int i=0;
+	u8 red_flag=0;
 		
 	Uart1Init();
 //	Timer4_Init();
@@ -1401,12 +1402,21 @@ void main(void)
 		}
 		
 		tick_times++;
-		if(tick_times%1000==0)
+		if(tick_times%200==0)
 		{
 			//SEGGER_RTT_printf(0, "---test1---\n"); 
-			LED1=0;
-			delay_ms(50); 
-			LED1=1;
+			if(0==red_flag)
+			{
+				red_flag =1;
+				LED1=0;				
+			}
+			else
+			{
+				red_flag =0;
+				LED1=1;
+			}
+			// delay_ms(50); 
+			
 		}
 		delay_ms(5); 
 		
