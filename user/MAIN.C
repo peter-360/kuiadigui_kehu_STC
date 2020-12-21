@@ -569,6 +569,7 @@ void data_parse()
 						//----1------
 						if(m_data.gu_ding  == 0x11)//process
 						{
+							LED1=0;	//on
 							//UartSend(m_data.lock_addr);
 							switch(m_data.lock_addr)
 							{			
@@ -1000,6 +1001,7 @@ void data_parse()
 						{
 							//SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
 						}
+						LED1=1;	//off
 						break;
 
 					case 0x80:
@@ -1402,22 +1404,28 @@ void main(void)
 		}
 		
 		tick_times++;
-		if(tick_times%200==0)
+
+		//SEGGER_RTT_printf(0, "---test1---\n"); 
+		if(0==red_flag)
 		{
-			//SEGGER_RTT_printf(0, "---test1---\n"); 
-			if(0==red_flag)
+			if(tick_times%200==0)
 			{
 				red_flag =1;
-				LED1=0;				
+				LED1=0;	//on
 			}
-			else
+		}
+		else
+		{
+			if(tick_times%20==0)
 			{
 				red_flag =0;
 				LED1=1;
 			}
 			// delay_ms(50); 
-			
 		}
+
+			
+		
 		delay_ms(5); 
 		
 	
