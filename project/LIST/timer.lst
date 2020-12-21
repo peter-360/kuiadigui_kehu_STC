@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   TIMER                                                             06/18/2020 15:51:24 PAGE 1   
+C51 COMPILER V9.60.0.0   TIMER                                                             12/21/2020 12:00:36 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TIMER
@@ -62,7 +62,7 @@ line level    source
   52   1        TR0 = 0;
   53   1      
   54   1        //UartSend(Uart1_Rx);
-C51 COMPILER V9.60.0.0   TIMER                                                             06/18/2020 15:51:24 PAGE 2   
+C51 COMPILER V9.60.0.0   TIMER                                                             12/21/2020 12:00:36 PAGE 2   
 
   55   1        Uart1_Rx =0 ;
   56   1        
@@ -126,7 +126,7 @@ line level    source
  114   1        Timer_CNT++;
  115   1        if(Timer_CNT >= 300)
  116   1        {
-C51 COMPILER V9.60.0.0   TIMER                                                             06/18/2020 15:51:24 PAGE 3   
+C51 COMPILER V9.60.0.0   TIMER                                                             12/21/2020 12:00:36 PAGE 3   
 
  117   2          Timer_CNT = 0;
  118   2          LED = !LED;      //²âÊÔ¶Ë¿Ú
@@ -190,7 +190,7 @@ line level    source
  176          
  177          
  178          
-C51 COMPILER V9.60.0.0   TIMER                                                             06/18/2020 15:51:24 PAGE 4   
+C51 COMPILER V9.60.0.0   TIMER                                                             12/21/2020 12:00:36 PAGE 4   
 
 
 

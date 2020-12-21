@@ -1238,7 +1238,60 @@ void data_parse()
 						break;
 					case 0x71://--------2.5---------
 						//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-						break;					
+						break;		
+
+					case 0xf1://--------2.6---------  software version  add
+						// SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						memset(tx_Buffer,0,256);
+						memcpy(tx_Buffer,"star",4);
+						tx_Buffer[4]= m_data.opcode;
+						tx_Buffer[5]= board_addr;
+
+						tx_Buffer[6]= 0x00;//major  V0.0.1
+						tx_Buffer[7]= 0x00;//minor
+						tx_Buffer[8]= 0x01;//rev
+
+
+
+						bcc_temp = ComputXor(tx_Buffer+4,5);
+						tx_Buffer[9]= bcc_temp;
+						memcpy(tx_Buffer+10,"end",3);//now is 2?
+
+						tx_Buffer[13]='\0';//tx_Buffer[12]='\0';
+
+						delay_ms(50);  //>=20
+						spear_uart_send_datas(tx_Buffer,13);
+
+						// SEGGER_RTT_printf(0, "-----------debug1-----------\n");
+						//spear_rtt_send_datas(tx_Buffer,13);
+						break;		
+
+					case 0xf2://--------2.7--------- hardware version and dan/shuang xian type  add
+						// SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						memset(tx_Buffer,0,256);
+						memcpy(tx_Buffer,"star",4);
+						tx_Buffer[4]= m_data.opcode;
+						tx_Buffer[5]= board_addr;
+
+						tx_Buffer[6]= 'S';//major  V4.0.B_1
+						tx_Buffer[7]= 'T';//minor
+						tx_Buffer[8]= 'C';//REV
+						tx_Buffer[9]= 0x02;//dan:1/shuang:2 xian
+
+
+						bcc_temp = ComputXor(tx_Buffer+4,6);
+						tx_Buffer[10]= bcc_temp;
+						memcpy(tx_Buffer+11,"end",3);//now is 2?
+
+						tx_Buffer[14]='\0';//tx_Buffer[12]='\0';
+
+						delay_ms(50);  //>=20
+						spear_uart_send_datas(tx_Buffer,14);
+
+						// SEGGER_RTT_printf(0, "-----------debug2-----------\n");
+						//spear_rtt_send_datas(tx_Buffer,14);
+						break;
+
 					default:
 						break;
 				}
@@ -1297,6 +1350,7 @@ void main(void)
 {
 //	uint16 ADC_RES;
 	uint32_t tick_times=0;
+	int i=0;
 		
 	Uart1Init();
 //	Timer4_Init();
@@ -1310,7 +1364,16 @@ void main(void)
 	
 	gpio_init();
 
-	
+
+	for(i=0;i<5;i++)
+	{
+		LED1=0;//on
+		delay_ms(50); 
+		LED1=1;
+		delay_ms(50); 
+	}
+
+
 	RS485_RX_EN();
 
 	//UartSendStr("power on !!!\r\n");

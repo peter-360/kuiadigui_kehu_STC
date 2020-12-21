@@ -63,9 +63,9 @@ void delay_ms(unsigned  int  nms)
 	unsigned  int  i,j;
 	for(j=0;j<nms;j++)//1.3..nms
 	{
-		for(i=0;i<730;i++)
+		for(i=0;i<1584;i++)//1584,24M;       730,11.0592M
 		{
-			Delay1us();
+			Delay1us();//0.46us, 2.17
 		}
 	}
 	

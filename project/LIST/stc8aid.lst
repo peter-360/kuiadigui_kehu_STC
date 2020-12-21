@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   STC8AID                                                           06/18/2020 15:51:23 PAGE 1   
+C51 COMPILER V9.60.0.0   STC8AID                                                           12/21/2020 12:00:35 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE STC8AID
@@ -62,7 +62,7 @@ line level    source
   52   1      
   53   1        ID = (char idata *)0xf1;
   54   1      
-C51 COMPILER V9.60.0.0   STC8AID                                                           06/18/2020 15:51:23 PAGE 2   
+C51 COMPILER V9.60.0.0   STC8AID                                                           12/21/2020 12:00:35 PAGE 2   
 
   55   1        for (i=0; i<7; i++)
   56   1        {
