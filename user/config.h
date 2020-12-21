@@ -70,87 +70,87 @@ sbit LED  = P0^0;	//P5^4;
 sbit LED1 = P0^0;	//P2^6;
 
 
-	sbit GI_24 = P3^2;//
-	sbit GO_24 = P3^3;	//
+	sbit GI_1 = P3^2;//
+	sbit GO_1 = P3^3;	//
 
-	sbit GI_23 = P3^5;//
-	sbit GO_23 = P3^4;	//
+	sbit GI_2 = P3^5;//
+	sbit GO_2 = P3^4;	//
 
-	sbit GI_22 = P6^6;//
-	sbit GO_22 = P5^0;	//
+	sbit GI_3 = P6^6;//
+	sbit GO_3 = P5^0;	//
 	
-	sbit GI_21 = P3^6;//
-	sbit GO_21 = P5^1;	//
+	sbit GI_4 = P3^6;//
+	sbit GO_4 = P5^1;	//
 
-	sbit GI_20 = P3^7;//
-	sbit GO_20 = P4^1;	//
+	sbit GI_5 = P3^7;//
+	sbit GO_5 = P4^1;	//
 
-	sbit GI_19 = P7^1;//
-	sbit GO_19 = P7^0;	//
+	sbit GI_6 = P7^1;//
+	sbit GO_6 = P7^0;	//
 	
-	sbit GI_18 = P7^2;//
-	sbit GO_18 = P6^7;	//
+	sbit GI_7 = P7^2;//
+	sbit GO_7 = P6^7;	//
 	
-	sbit GI_17 = P2^0;//
-	sbit GO_17 = P7^3;	//
+	sbit GI_8 = P2^0;//
+	sbit GO_8 = P7^3;	//
 	
-	sbit GI_16 = P4^2;//
-	sbit GO_16 = P2^1;	//
+	sbit GI_9 = P4^2;//
+	sbit GO_9 = P2^1;	//
 	
-	sbit GI_15 = P2^3;//
-	sbit GO_15 = P2^2;	//
+	sbit GI_10 = P2^3;//
+	sbit GO_10 = P2^2;	//
 
-	sbit GI_14 = P2^4;//
-	sbit GO_14 = P2^5;	//
+	sbit GI_11 = P2^4;//
+	sbit GO_11 = P2^5;	//
 
-	sbit GI_13 = P2^7;//
-	sbit GO_13 = P2^6;	//
+	sbit GI_12 = P2^7;//
+	sbit GO_12 = P2^6;	//
 
 
 
-	sbit GI_12 = P6^4;//
-	sbit GO_12 = P4^0;	//
+	sbit GI_13 = P6^4;//
+	sbit GO_13 = P4^0;	//
 	
-	sbit GI_11 = P5^4;//
-	sbit GO_11 = P5^5;	//
+	sbit GI_14 = P5^4;//
+	sbit GO_14 = P5^5;	//
 	
-
-
-	
-	sbit GI_10 = P1^7;//
-	sbit GO_10 = P1^6;	//
-
-	sbit GI_9 = P4^4;//
-	sbit GO_9 = P1^5;	//
-
-	sbit GI_8 = P1^4;//
-	sbit GO_8 = P6^3;	//
-
-	sbit GI_7 = P6^1;//
-	sbit GO_7 = P6^2;	//
-
-	sbit GI_6 = P6^0;	//
-	sbit GO_6 = P1^3;//
 
 
 	
-	sbit GI_5 = P0^7;//
-	sbit GO_5 = P1^2;	//
-	
-	
-	sbit GI_4 = P0^6;//
-	sbit GO_4 = P1^1;	//
+	sbit GI_15 = P1^7;//
+	sbit GO_15 = P1^6;	//
 
-	sbit GI_3 = P0^5;//
-	sbit GO_3 = P5^3;	//
+	sbit GI_16 = P4^4;//
+	sbit GO_16 = P1^5;	//
+
+	sbit GI_17 = P1^4;//
+	sbit GO_17 = P6^3;	//
+
+	sbit GI_18 = P6^1;//
+	sbit GO_18 = P6^2;	//
+
+	sbit GI_19 = P6^0;	//
+	sbit GO_19 = P1^3;//
+
+
+	
+	sbit GI_20 = P0^7;//
+	sbit GO_20 = P1^2;	//
+	
+	
+	sbit GI_21 = P0^6;//
+	sbit GO_21 = P1^1;	//
+
+	sbit GI_22 = P0^5;//
+	sbit GO_22 = P5^3;	//
 	
 	
 	
-	sbit GI_2 = P0^4;//
-	sbit GO_2 = P5^2;	//
+	sbit GI_23 = P0^4;//
+	sbit GO_23 = P5^2;	//
 	
-	sbit GI_1 = P0^3;//
-	sbit GO_1 = P1^0;	//
+	sbit GI_24 = P0^3;//
+	sbit GO_24 = P1^0;	//
 	
 
 
