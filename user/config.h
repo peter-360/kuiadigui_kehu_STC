@@ -188,7 +188,7 @@ static void RS485_delay( u32 nCount)//__IO
 
 
 //6000
-#define DELAY_485 9000
+#define DELAY_485 1000
 /*控制收发引脚*/
 #if 0
 //进入接收模式,必须要有延时等待485处理完数据

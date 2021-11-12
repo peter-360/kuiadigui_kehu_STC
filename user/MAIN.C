@@ -1436,9 +1436,10 @@ void user_send_cmd_response(uint8_t opCode, uint8_t rsp)
 	;
 }
 
-bool retn = false;
+
 bool spear_uart_process_data(uint8_t byt)
 {
+	bool retn = false;
     uint8_t data_t[64]={0};
     // uint8_t data_crc1=0;
     // uint8_t data_crc2=0;
@@ -1690,7 +1691,7 @@ void main(void)
 		   	// debug_uart_send_data2(sh,0x55);		
 			if(spear_uart_process_data(sh))
 			{
-				retn = false;
+				// retn = false;
 				UartSendStr("----11---\r\n");
 				packerflag =1;
 
@@ -1734,8 +1735,9 @@ void main(void)
 		tick_times++;
 		if(0==red_flag)
 		{
-			if(tick_times%1000==0)
+			if(tick_times%40000==0)//1000
 			{
+				tick_times =0;
 				red_flag =1;
 				LED1=0;	//on
 				//UartSendStr("power on !!!\r\n");
@@ -1743,13 +1745,13 @@ void main(void)
 		}
 		else
 		{
-			if(tick_times%100==0)
+			if(tick_times%4000==0)//100
 			{
 				red_flag =0;
 				LED1=1;
 			}
 		}
-		delay_ms(1); 
+		// delay_ms(1); 
 	}
 }
 
