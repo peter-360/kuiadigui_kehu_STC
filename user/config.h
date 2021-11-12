@@ -240,9 +240,9 @@ typedef enum UART_STATE_ENUM
 
 
 
-//20
+//20 128
 #define ElemType      uint8_t
-#define QueueSize     64
+#define QueueSize     128
 #define QueueFull     0
 #define QueueEmpty    1
 #define QueueOperateOk 2
