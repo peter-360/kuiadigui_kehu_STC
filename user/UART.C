@@ -20,7 +20,7 @@
 bit busy;
 char wptr;
 char rptr;
-char buffer[16];
+//char buffer[16];
 
 /******************************************************************************/
 // 函数名称：uart1Init 
@@ -94,6 +94,27 @@ void UartSend(uint8 dat)
 	TI =0;
 }
 
+void UartSend_dbg(uint8 dat)
+{
+    // RS485_TX_EN();
+
+	// SBUF =0xAA;
+	// while(!TI);
+	// TI =0;
+
+
+	// SBUF =dat;
+	// while(!TI);
+	// TI =0;
+
+
+	// SBUF =0x55;
+	// while(!TI);
+	// TI =0;
+
+    // RS485_RX_EN();
+}
+
 /******************************************************************************/
 // 函数名称：uartSendString 
 // 输入参数：pS: 字符串首地址 
@@ -102,10 +123,12 @@ void UartSend(uint8 dat)
 /******************************************************************************/
 void UartSendStr(uint8 *p)
 {
-    while (*p)
-    {
-        UartSend(*p++);
-    }
+    // RS485_TX_EN();
+    // while (*p)
+    // {
+    //     UartSend(*p++);
+    // }
+    // RS485_RX_EN();
 }
 
 
@@ -117,8 +140,53 @@ void UartSendStr(uint8 *p)
 unsigned char Uart1_index_flag=0,Uart1_index_flag_end=0;                //???????
 
 unsigned char Uart1_Buffer[256];        //?????
-unsigned char Uart1_Rx = 0;             //Uart1_Buffer??
+//unsigned char Uart1_Rx = 0;             //Uart1_Buffer??
+uint8_t Uart1_Rx = 0;             //Uart1_Buffer??
 unsigned char packerflag=0;
+
+
+
+
+// circle_buffer buffer;
+
+// int bufferPop(unsigned char* _buf)
+// {
+//     if(buffer.head_pos==buffer.tail_pos)        //如果头尾接触表示缓冲区为空
+// 	{
+
+//         *_buf=0xFF;		
+// 		return -1;
+// 	}
+
+//     else
+//     {
+//         *_buf=buffer.circle_buffer[buffer.head_pos];    //如果缓冲区非空则取头节点值并偏移头节点
+//         if(++buffer.head_pos>=BUFFER_MAX)
+//             buffer.head_pos=0;
+
+// 		return 1;
+//     }
+
+
+// }
+
+// void bufferPush(const unsigned char _buf)
+// {   
+//     buffer.circle_buffer[buffer.tail_pos]=_buf; //从尾部追加
+//     if(++buffer.tail_pos>=BUFFER_MAX)           //尾节点偏移
+//         buffer.tail_pos=0;                      //大于数组最大长度 制零 形成环形队列
+//         if(buffer.tail_pos==buffer.head_pos)    //如果尾部节点追到头部节点 则修改头节点偏移位置丢弃早期数据
+//         if(++buffer.head_pos>=BUFFER_MAX)
+//             buffer.head_pos=0;
+
+// }
+
+
+
+
+
+extern struct FifoQueue MyQueue;
+extern void debug_uart_send_data2(uint8_t str,uint8_t dbg_data);
 /******************************************************************************/
 // 函数名称：time0ISR 
 // 输入参数：无 
@@ -127,88 +195,32 @@ unsigned char packerflag=0;
 /******************************************************************************/
 void Uart1Isr() interrupt 4 using 1
 {
-	uint8 ch;
-	if (TI)
-	{
-			TI = 0;
-			busy = 0;
-	}
-//	if (RI)
-//	{
-//			RI = 0;
-//			buffer[wptr++] = SBUF;
-//			wptr &= 0x0f;
-//	}
-	if (RI)
-	{
-		RI = 0;
-		ch = SBUF;
-//		UartSend(ch);
-		
-		
-		Uart1_Buffer[Uart1_Rx] = ch; 
-		
-		if(Uart1_Rx>13)//4+5+4
-			Uart1_Rx=0;
-		
-		if(('s'== Uart1_Buffer[0])
-			&&('t'== Uart1_Buffer[1])
-			&&('a'== Uart1_Buffer[2])
-			&&('r'== Uart1_Buffer[3])
-			&& (Uart1_Rx >4))
-		{
+    uint8 ch;
+	if(RI)
+    {
+        RI=0;    
+        ch = SBUF;
 
-			//debug_uart_send_datas(Uart1_Buffer,4);
-//			SEGGER_RTT_printf(0, "1-Uart1_Buffer[Uart1_Rx] = %02x, Uart1_Rx=%d\n",
-//															Uart1_Buffer[Uart1_Rx],Uart1_Rx);      //RTT打印
-			switch(Uart1_index_flag_end)
-			{
-				case 0:
-					if(ch == 'e')//process
-					{
-//						SEGGER_RTT_printf(0, "2-Uart1_Buffer[Uart1_Rx] = %02x, Uart1_Rx=%d\n",
-//						Uart1_Buffer[Uart1_Rx],Uart1_Rx);      //RTT打印
 
-						Uart1_index_flag_end =1;
-					}
-					break;
-				case 1:
-					if(ch == 'n')//process
-						Uart1_index_flag_end =2;
-					break;
-				case 2:
-					if(ch == 'd')//process
-						Uart1_index_flag_end =3;
-					break;
-				case 3:
-					if(ch == 'o')//process
-					{
-						//TIM3_Set(0);
-//						SEGGER_RTT_printf(0, "3-Uart1_Buffer[Uart1_Rx] = %02x, Uart1_Rx=%d\n",
-//												Uart1_Buffer[Uart1_Rx],Uart1_Rx);      //RTT打印
-//						debug_uart_send_datas(Uart1_Buffer,13);
-//						debug_uart_send_datas(&Uart1_Rx,1);
-						
-						Uart1_index_flag_end =0;
-						packerflag = 1;                      //
+        // bufferPush(SBUF);
+        if(QueueIn(&MyQueue,ch) == QueueFull) 
+        {
+            //debug_uart_send_data2(ch,0x52);	
+            //break;			   
+        }
+        else
+        {
+            //debug_uart_send_data2(ch,0x54);			   
+        }
+        
+		// ringq_push(p_queue,SBUF);
 
-					}
-					break;
-				default:
-					break;
-						
-				
-			}
-		
-		
-		}
-		else//timer interrrupt, Uart1_Rx =0;
-		{
-			TR0 = 1;		//---on----
-		}
-		Uart1_Rx++;
-		//UartSend(Uart1_Rx);
-	}
+    }
+    if(TI)
+    {
+        TI=0;
+    }
+
 }
 
 /******************************************************************************/

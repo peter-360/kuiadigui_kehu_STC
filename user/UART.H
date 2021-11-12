@@ -20,6 +20,41 @@
 
 #include "config.h"
 
+
+/**
+    用途：     小内存环形缓冲区（FIFO模式）
+    作者： 南栀<kellygod95@gmail.com>
+*/
+// #define BUFFER_MAX  64
+// //16      //缓冲区大小
+
+// typedef struct _circle_buffer{
+//     unsigned char head_pos;             //缓冲区头部位置
+//     unsigned char tail_pos;             //缓冲区尾部位置   
+//     unsigned char circle_buffer[BUFFER_MAX];    //缓冲区数组 
+// }circle_buffer;
+
+
+//  #define QUEUE_MAX 64  
+// typedef struct ringq{  
+//     int head;   
+//     int tail;    
+//     int tag ;   
+//      int size_t ;   
+//     unsigned char space[QUEUE_MAX];   
+// }RINGQ;  
+ 
+// extern int ringq_init(RINGQ * p_queue);  
+// extern int ringq_free(RINGQ * p_queue);    
+// extern int ringq_push(RINGQ * p_queue,int data_t);  
+// extern int ringq_poll(RINGQ * p_queue,int *p_data);  
+// #define ringq_is_empty(q) ( (q->head == q->tail) && (q->tag == 0))  
+// #define ringq_is_full(q) ( (q->head == q->tail) && (q->tag == 1))  
+// #define print_ringq(q) printf("ring head %d,tail %d,tag %d\n", q->head,q->tail,q->tag);  
+
+// extern RINGQ rq, * p_queue;
+
+
 void Uart1Init(void);
 void UartSend(unsigned char dat);
 void UART1_IOPORT_CHANGE(void);
@@ -35,4 +70,7 @@ extern unsigned char packerflag;
 
 
 extern void debug_uart_send_datas(unsigned char* str, unsigned char len);
+extern int bufferPop(unsigned char* _buf);
+extern void UartSend_dbg(unsigned char dat);
+//extern circle_buffer buffer;
 #endif

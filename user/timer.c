@@ -45,16 +45,27 @@ void Timer0_Init(void)		//10000??@24.000MHz
 	TR0 = 0;		//---off-----???0????
 }
 
-
+extern void debug_uart_send_data1(uint8_t str);
+extern u16	RX_write;
+extern u8 	xdata RX1_Buffer[];
 void TM0_Isr() interrupt 1 using 1
 {
-	TF0 = 0;
-	TR0 = 0;
+	Timer_CNT++;
+	//debug_uart_send_data1(Timer_CNT);
+	if(Timer_CNT >= 30)
+	{
+		Timer_CNT =0;
+		TF0 = 0;
+		TR0 = 0;
 
-	//UartSend(Uart1_Rx);
-	Uart1_Rx =0 ;
-	
-	//LED = !LED;
+		debug_uart_send_data1(Uart1_Rx);
+
+		Uart1_Rx =0 ;
+		
+//		RX_write = 0;	//add
+//		memset(RX1_Buffer,0,RX_Length);//add
+		//LED = !LED;
+	}
 	
 	//Timer0_Init();
 	//TR0 = 1;                       

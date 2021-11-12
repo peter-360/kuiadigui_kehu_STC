@@ -16,15 +16,19 @@
 // (c) Duhemayi Corporation. All rights reserved.     
 ******************************************************************************/
 #include "config.h"
+#include "stdlib.h"
+#include <stdio.h>
 
 
 
-
+u8 	xdata RX1_Buffer[RX_Length];	//接收缓冲
+u16	RX_write;		//发送写指针
 
 
 
 void spear_uart_send_datas(uint8* str, uint8 len)
 {
+	RS485_TX_EN();
 	while(len--)
 	{
 //		USART_SendData(USART1, *str);
@@ -32,10 +36,12 @@ void spear_uart_send_datas(uint8* str, uint8 len)
 //		str++;
 		UartSend(*str++);
 	}
+	RS485_RX_EN();
 }
 
 void debug_uart_send_datas(uint8* str, uint8 len)
 {
+	RS485_TX_EN();
 	UartSend(0xee);
 	while(len--)
 	{
@@ -44,18 +50,28 @@ void debug_uart_send_datas(uint8* str, uint8 len)
 //		str++;
 		UartSend(*str++);
 	}
-	UartSend(0xff);
+	UartSend(0xDD);
+	RS485_RX_EN();
 }
 
 
 
-void debug_uart_send_data1(uint8 str)
+void debug_uart_send_data1(uint8_t str)//
 {
+	RS485_TX_EN();
 	UartSend(0xee);
 	UartSend(str);
 	UartSend(0xff);
+	RS485_RX_EN();
 }
-
+void debug_uart_send_data2(uint8_t str,uint8_t dbg_data)//add
+{
+	// RS485_TX_EN();
+	// UartSend(0xaa);
+	// UartSend(str);
+	// UartSend(dbg_data);
+	// RS485_RX_EN();
+}
 
 
 ///command struct
@@ -513,7 +529,7 @@ uint8_t ComputXor(uint8_t *InData, uint16_t Len)
 	return Sum;
 }
 
-void data_parse()
+void data_parse(uint8_t* RX1_Buffer_0,uint16_t Uart1_Rx_0)
 {
 	uint8_t bcc_temp;
 	uint8_t tx_Buffer[256]={0};        //?????
@@ -535,11 +551,15 @@ void data_parse()
 					GI_T_19=GI_19, GI_T_20=GI_20, GI_T_21=GI_21, GI_T_22=GI_22, GI_T_23=GI_23, GI_T_24=GI_24;
 	
 					
-	//SEGGER_RTT_printf(0, "-parse-Uart1_Rx = %d\n",Uart1_Rx);      //RTT��ӡ
-	Uart1_Rx_T = Uart1_Rx - 8;
-	//SEGGER_RTT_printf(0, "-Uart1_Rx_T = %d\n",Uart1_Rx_T);      //RTT��?
-	memcpy(Uart1_Buffer_T,Uart1_Buffer+4,Uart1_Rx_T);
+	// Uart1_Rx_T = Uart1_Rx_0 - 8;
+	// memcpy(Uart1_Buffer_T,RX1_Buffer_0+4,Uart1_Rx_T);
 	
+
+	Uart1_Rx_T = Uart1_Rx_0 ;
+	memcpy(Uart1_Buffer_T,RX1_Buffer_0,Uart1_Rx_T);
+
+
+
 	DSW_T_1 = ~DSW_1;
 	DSW_T_2 = ~DSW_2;
 	DSW_T_3 = ~DSW_3;
@@ -548,7 +568,9 @@ void data_parse()
 	DSW_T_6 = ~DSW_6;
 	board_addr= DSW_T_1 | (DSW_T_2<<1) | (DSW_T_3<<2) | (DSW_T_4<<3) | (DSW_T_5<<4) | (DSW_T_6<<5) ;
 	
-	//UartSend(board_addr);
+	// UartSend(board_addr);
+	debug_uart_send_data2(board_addr,0x58);
+	debug_uart_send_data2(Uart1_Buffer_T[1],0x59);
 	if(board_addr == Uart1_Buffer_T[1])//todo
 	{
 		if(5==Uart1_Rx_T)
@@ -993,6 +1015,8 @@ void data_parse()
 							tx_Buffer[12]='\0';
 							
 							spear_uart_send_datas(tx_Buffer,12);
+
+							debug_uart_send_data2(Uart1_Buffer_T[1],0x5a);
 //							spear_rtt_send_datas(tx_Buffer,12);
 
 							//SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
@@ -1249,9 +1273,9 @@ void data_parse()
 						tx_Buffer[4]= m_data.opcode;
 						tx_Buffer[5]= board_addr;
 
-						tx_Buffer[6]= 0x00;//major  V0.0.1
-						tx_Buffer[7]= 0x00;//minor
-						tx_Buffer[8]= 0x01;//rev
+						tx_Buffer[6]= SOFT_VERSION_1;//major  V0.0.1
+						tx_Buffer[7]= SOFT_VERSION_2;//minor
+						tx_Buffer[8]= SOFT_VERSION_3;//rev
 
 
 
@@ -1275,10 +1299,10 @@ void data_parse()
 						tx_Buffer[4]= m_data.opcode;
 						tx_Buffer[5]= board_addr;
 
-						tx_Buffer[6]= 'S';//major  V4.0.B_1
-						tx_Buffer[7]= 'T';//minor
-						tx_Buffer[8]= 'C';//REV
-						tx_Buffer[9]= 0x02;//dan:1/shuang:2 xian
+						tx_Buffer[6]= HARD_VERSION_1;//major  V4.0.B_1
+						tx_Buffer[7]= HARD_VERSION_2;//minor
+						tx_Buffer[8]= HARD_VERSION_3;//REV
+						tx_Buffer[9]= HARD_VERSION_4;//dan:1/shuang:2 xian
 
 
 						bcc_temp = ComputXor(tx_Buffer+4,6);
@@ -1342,19 +1366,286 @@ void gpio_init(void)
 }
 
 
+static const char *my_memmem(const char *haystack, size_t hlen, const char *needle, size_t nlen)
+{
+	const char *cur;
+	const char *last;
+	//assert(haystack);
+	//assert(needle);
+	//assert(nlen > 1);
+	last = haystack + hlen - nlen;
+	for (cur = haystack; cur <= last; ++cur)
+	{
+		if (cur[0] == needle[0] && memcmp(cur, needle, nlen) == 0)
+		{
+			return cur;
+		}
+	}
+	return NULL;
+}
+
+///command struct
+typedef struct
+{
+	//uint8_t type;
+	uint8_t len;
+	uint8_t opcode;
+	uint8_t sum;//uint16_t
+	uint8_t dIndx;
+	uint8_t data_pkg[256];
+	
+}command_struct;
+
+command_struct g_data;
+
+
+#define CMD_SUCCESS 0x01
+#define CMD_FAIL	     0x00
+
+/////start process the data in
+uint8_t uState = 0;
+// static void user_cmd_buffer_clear(void)
+// {
+// 	uState = 0;
+// 	g_data.len = 0;
+// 	g_data.type = 0;
+// 	g_data.opcode = 0;
+// 	g_data.sum = 0;
+// 	g_data.dIndx = 0;
+// }
+
+
+void user_send_cmd_response(uint8_t opCode, uint8_t rsp)
+{
+	// uint8_t sum = 0;
+	// uint8_t responseBuffer[32] = {0};
+	// responseBuffer[0] = 0x55;
+	// responseBuffer[1] = 0x02;
+	// responseBuffer[2] = 4;
+	// responseBuffer[3] = opCode;
+	// responseBuffer[4] = rsp;
+
+	// sum += responseBuffer[2];
+	// sum += responseBuffer[3];
+	// sum += responseBuffer[4];
+
+	// responseBuffer[5] = sum;
+
+    //uart_write_bytes(UART_NUM_LCD, (const char *) data_rx, len_rx);
+	//spear_uart_send_datas(responseBuffer, 6);
+	;
+}
+
+bool retn = false;
+bool spear_uart_process_data(uint8_t byt)
+{
+    uint8_t data_t[64]={0};
+    // uint8_t data_crc1=0;
+    // uint8_t data_crc2=0;
+	// UartSendStr(" %x: ", byt);
+	// debug_uart_send_data2(byt,0x51);
+	switch(uState)
+	{
+		case UART_IDLE:
+		case UART_HEADER1:
+			if(byt == 's')
+			{
+				retn = false;
+				g_data.dIndx =0;
+				uState = UART_HEADER2;
+				//user_start_cmd_receive(true);
+			}
+			//UartSendStr("header = %02x\r\n", byt);
+			break;
+
+		case UART_HEADER2:
+			if(byt == 't')
+			{
+				uState = UART_HEADER3;
+				//user_start_cmd_receive(true);
+			}
+			//UartSendStr("header = %02x\r\n", byt);
+			break;
+		case UART_HEADER3:
+			if(byt == 'a')
+			{
+				uState = UART_HEADER4;
+				//user_start_cmd_receive(true);
+			}
+			//UartSendStr("header = %02x\r\n", byt);
+			break;
+		case UART_HEADER4:
+			if(byt == 'r')
+			{
+				uState = UART_OPCODE;
+				//user_start_cmd_receive(true);
+			}
+			//UartSendStr("header = %02x\r\n", byt);
+			break;
+
+		case UART_OPCODE:
+			g_data.opcode = byt;
+
+			if((0x8A == g_data.opcode)
+				||(0x80 == g_data.opcode))
+			{
+				g_data.len =3+1;
+			}
+			else if((0x90 == g_data.opcode)
+					||(0x91 == g_data.opcode)
+					||(0xf1 == g_data.opcode)
+					||(0xf2 == g_data.opcode))
+			{
+				g_data.len =1+1;
+			}
+			else
+			{
+				g_data.len =1+1;
+			}
+			//g_data.sum += byt;
+            //g_data.sum = byt;
+			uState++;
+			//UartSendStr("opcode = %02x\r\n", byt);
+			break;
+		case UART_PAYLOAD:
+			if(g_data.dIndx < g_data.len-1)//<   1
+			{
+				
+				g_data.data_pkg[g_data.dIndx] = byt;
+				//g_data.sum += byt;
+				//UartSendStr("data_pkg[%d] = %02x\r\n",g_data.dIndx, byt);
+                g_data.dIndx++;
+				debug_uart_send_data2(g_data.dIndx,0x52);
+			}
+			else//crc2
+			{
+				
+                g_data.data_pkg[g_data.dIndx] = byt;
+                g_data.dIndx++;
+				debug_uart_send_data2(g_data.dIndx,0x53);
+				//user_start_cmd_receive(false);
+				// uState = 0;//--------------
+                data_t[0] = g_data.opcode;
+                memcpy(data_t+1,g_data.data_pkg,g_data.len -1);//-1
+
+                g_data.sum = ComputXor(data_t, g_data.len  );//+1
+
+                // debug_uart_send_data2(g_data.sum,0x54);
+				// debug_uart_send_data2(g_data.data_pkg[g_data.len-1],0x55);
+
+				if(g_data.sum  == g_data.data_pkg[g_data.len-1] )//byt
+				{
+                    UartSendStr("---data rcv----1-pass\r\n");
+					uState = UART_END1;
+					// r = true;
+				}
+				else
+				{
+					uState =0;
+                    UartSendStr("---data rcv----1-fail\r\n");
+					// user_send_cmd_response(g_data.opcode, CMD_FAIL);
+				}
+			}
+			break;
+
+
+		case UART_END1:
+			if(byt == 'e')
+			{
+				UartSendStr("----01---\r\n");
+				uState++;
+			}
+			break;
+		case UART_END2:
+			if(byt == 'n')
+			{
+				uState++;
+			}
+			break;
+		case UART_END3:
+			if(byt == 'd')
+			{
+				uState++;
+			}
+			break;
+		case UART_END4:
+			if(byt == 'o')
+			{
+				UartSendStr("----02---\r\n");
+				uState = UART_IDLE;
+				retn = true;
+
+				
+			}
+			break;
+
+		case UART_RESERVE:
+		default:
+			break;
+	}
+
+	return retn;
+}
+
+//Queue Init
+void QueueInit(struct FifoQueue *Queue)
+{
+   Queue->front = Queue->rear;
+   Queue->count = 0;
+}
+// Queue In
+uint8 QueueIn(struct FifoQueue *Queue,ElemType sdat)
+{
+   if((Queue->front == Queue->rear) && (Queue->count == QueueSize))
+   {                   // full
+       return QueueFull;
+    }else
+   {                   // in
+       Queue->dat[Queue->rear] = sdat;
+       Queue->rear = (Queue->rear + 1) % QueueSize;
+       Queue->count = Queue->count + 1;
+       return QueueOperateOk;
+    }
+}
+// Queue Out
+uint8 QueueOut(struct FifoQueue *Queue,ElemType *sdat)
+{
+   if((Queue->front == Queue->rear) && (Queue->count == 0))
+   {                   // empty
+       return QueueEmpty;
+    }else
+   {                   // out
+       *sdat = Queue->dat[Queue->front];
+       Queue->front = (Queue->front + 1) % QueueSize;
+       Queue->count = Queue->count - 1;
+       return QueueOperateOk;
+    }
+}
+
+u8 queue_rcv_over;
+struct FifoQueue MyQueue;
+
+
+// str = (char*)malloc(50 * sizeof(char)); //给字符串str分配 50字节空间
 /******************************************************************************/
-// �������ƣ�main 
-// ��������� 
-// ��������� 
-// �������ܣ� 
+//-------main-------
+
 /******************************************************************************/
 void main(void)
 {
+	char *retvalue_star=NULL;
+	//内存分配，比如字符串内存动态分配
+	char *str=NULL;
+	
+	unsigned char dat_rcv=0 ;
 //	uint16 ADC_RES;
 	uint32_t tick_times=0;
 	int i=0;
 	u8 red_flag=0;
-		
+	
+    ElemType sh;
+
+	
 	Uart1Init();
 //	Timer4_Init();
 	Timer0_Init();
@@ -1379,93 +1670,86 @@ void main(void)
 
 	RS485_RX_EN();
 
-	//UartSendStr("power on !!!\r\n");
-	while(1)
-	{
-		if((1== packerflag))
-		{
-			RS485_TX_EN();
+	UartSendStr("power on !!!\r\n");
+	UartSendStr("power on--2222 !!!\r\n");
+	
 
-//			SEGGER_RTT_printf(0, "\n");
-//			SEGGER_RTT_printf(0, "-main-Uart1_Rx = %d\n",Uart1_Rx);      //RTT��ӡ
-//			SEGGER_RTT_printf(0, "---rcv-datas---"); 
-			//spear_rtt_send_datas(Uart1_Buffer,Uart1_Rx);
-			
-			//spear_uart_send_datas(Uart1_Buffer,Uart1_Rx); //debug
+   QueueInit(&MyQueue);
+   while(1)
+    {
+
+	   if(0==packerflag)
+       {
+           if(QueueOut(&MyQueue,&sh) == QueueEmpty) 
+		   {
+			// debug_uart_send_data2(i,0x53);	
+		   	// break;			   
+		   }
+		   else
+		   {
+		   	// debug_uart_send_data2(sh,0x55);		
+			if(spear_uart_process_data(sh))
+			{
+				retn = false;
+				UartSendStr("----11---\r\n");
+				packerflag =1;
 
 
-			data_parse();
-			RS485_RX_EN();
-			
-			memset(Uart1_Buffer,0,13);//max =4+5+4 =13
-			Uart1_Rx   = 0 ;
-			packerflag = 0;
-			//Uart1_index_flag_end =0;
-		}
-		
+
+
+				debug_uart_send_data2(g_data.len,0x56);
+				// spear_uart_send_datas(g_data.data_pkg,g_data.len);
+
+				Uart1_Buffer[0] = g_data.opcode;
+				memcpy(Uart1_Buffer+1,g_data.data_pkg,g_data.len );//-1
+				// Uart1_Buffer[g_data.len] = g_data.sum;
+
+				Uart1_Rx = g_data.len + 1;
+
+
+				debug_uart_send_data2(Uart1_Rx,0x57);
+				// spear_uart_send_datas(Uart1_Buffer,Uart1_Rx);
+				data_parse(Uart1_Buffer,Uart1_Rx);
+
+				
+				//memset(RX1_Buffer,0,13);//max =4+5+4 =13
+				// memset(RX1_Buffer,0,RX_Length);
+				// RX_write =0;//add
+
+				memset(Uart1_Buffer,0,RX_Length);
+				Uart1_Rx   = 0 ;
+				packerflag = 0;
+
+			}
+			else
+			{
+				// UartSendStr("----10---\r\n");;
+			}
+
+
+		   }
+
+       }
+
 		tick_times++;
-
-		//SEGGER_RTT_printf(0, "---test1---\n"); 
 		if(0==red_flag)
 		{
-			if(tick_times%200==0)
+			if(tick_times%1000==0)
 			{
 				red_flag =1;
 				LED1=0;	//on
+				//UartSendStr("power on !!!\r\n");
 			}
 		}
 		else
 		{
-			if(tick_times%20==0)
+			if(tick_times%100==0)
 			{
 				red_flag =0;
 				LED1=1;
 			}
-			// delay_ms(50); 
 		}
-
-			
-		
-		delay_ms(5); 
-		
-	
-		
+		delay_ms(1); 
 	}
 }
 
-
-
-
-
-//		LED1 = 0;
-////		GO_1 = 0;
-//		Delay100ms();
-//		Delay100ms();
-//		Delay100ms();
-//		Delay100ms();
-//		Delay100ms();
-//		LED1 = 1;
-////		GO_1 =1;
-//		Delay100ms();
-//		Delay100ms();
-//		Delay100ms();
-//		Delay100ms();
-//		Delay100ms();
-
-//		ADC_RES = Get_ADC_RES();
-//		UartSend(ADC_RES);
-//		ADC_RES = ADC_RES>>8;
-//		UartSend(ADC_RES>>8);
-		
-
-//		UartSend(length);
-//		UartSend(length>>8);
-//		UartSend(length>>16);
-//		UartSend(length>>24);
-//		RS485_RX_EN();
-//		UartSendStr("Uart Test 2 -RX!\r\n");
-//		delay_ms(4000);
-//		
-//		RS485_TX_EN();
-//		UartSendStr("Uart Test 3 -TX!\r\n");//no xianshi
-//		delay_ms(2100);

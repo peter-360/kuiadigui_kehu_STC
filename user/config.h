@@ -32,6 +32,19 @@
 #include "pca.h"
 #include "string.h"
 
+
+
+#define SOFT_VERSION_1  0x00
+#define SOFT_VERSION_2  0x00
+#define SOFT_VERSION_3  0x02
+
+#define HARD_VERSION_1  'S'
+#define HARD_VERSION_2  'T'
+#define HARD_VERSION_3  '1'
+#define HARD_VERSION_4  'B'
+
+
+
 /* 数据类型定义 */
 typedef  signed    char    int8;    // 8位有符号整型数
 typedef  signed    int     int16;   //16位有符号整型数
@@ -48,6 +61,11 @@ typedef  unsigned  char    uint8_t;   // 8位无符号整型数
 typedef  unsigned  int     uint16_t;  //16位无符号整型数
 typedef  unsigned  long    uint32_t;  //32位无符号整型数
 
+typedef enum
+{
+    true=1, false=0
+}bool;
+
 
 
 typedef uint32_t  u32;
@@ -55,14 +73,12 @@ typedef uint16_t u16;
 typedef uint8_t  u8;
 
 /* 全局运行参数定义 */
+//------24MHz on use--------
 //#define FOSC   11059200L  //系统主时钟频率，即振荡器频率÷12
-#define FOSC   20000000L  //系统主时钟频率，即振荡器频率÷12
-#define	BRT	(65536 - FOSC / 115200 / 4)
-
-#define F125KHZ (65536-(FOSC/2/125000/12))
-
-
-#define PGACOUNT      0x07
+// #define FOSC   20000000L  //系统主时钟频率，即振荡器频率÷12
+// #define	BRT	(65536 - FOSC / 115200 / 4)
+// #define F125KHZ (65536-(FOSC/2/125000/12))
+// #define PGACOUNT      0x07
 
 /* IO引脚分配定义 */
 
@@ -170,6 +186,9 @@ static void RS485_delay( u32 nCount)//__IO
 	for(; nCount != 0; nCount--);
 } 
 
+
+//6000
+#define DELAY_485 9000
 /*控制收发引脚*/
 #if 0
 //进入接收模式,必须要有延时等待485处理完数据
@@ -179,9 +198,73 @@ static void RS485_delay( u32 nCount)//__IO
 
 #else
 
-#define RS485_RX_EN()						RS485_delay(1000); RS485_RE=0;  			RS485_delay(1000);
+#define RS485_RX_EN() RS485_delay(DELAY_485); RS485_RE=0; RS485_delay(DELAY_485);
 //进入发送模式,必须要有延时等待485处理完数据
-#define RS485_TX_EN()						RS485_delay(1000); RS485_RE=1;  			RS485_delay(1000);
+#define RS485_TX_EN() RS485_delay(DELAY_485); RS485_RE=1; RS485_delay(DELAY_485);
+
+
+
+#define	RX_Length	256
+
+
+
+
+
+///command enum
+typedef enum UART_STATE_ENUM
+{
+	UART_IDLE =0,
+	UART_HEADER1,
+	UART_HEADER2,
+	UART_HEADER3,
+	UART_HEADER4,
+	// UART_TYPE,
+	// UART_LENGTH,
+	UART_OPCODE,
+	UART_PAYLOAD,
+	// UART_CHECKSUM,
+	// UART_RESERVE,
+	UART_END1,
+	UART_END2,
+	UART_END3,
+	UART_END4,
+	UART_RESERVE,
+}  UART_STATE_ENUM;
+
+
+
+
+
+
+
+
+
+
+//20
+#define ElemType      uint8_t
+#define QueueSize     64
+#define QueueFull     0
+#define QueueEmpty    1
+#define QueueOperateOk 2
+// typedef 
+struct FifoQueue
+{
+    uint16_t front;
+    uint16_t rear;
+    uint16_t count;
+    ElemType dat[QueueSize];
+};
+//Queue Initalize
+extern void QueueInit(struct FifoQueue *Queue);
+// Queue In
+extern uint8 QueueIn(struct FifoQueue *Queue,ElemType sdat);
+// Queue Out
+extern uint8 QueueOut(struct FifoQueue *Queue,ElemType *sdat);
+
+
+
+
+
 
 
 #endif
