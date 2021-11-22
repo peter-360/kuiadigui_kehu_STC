@@ -235,7 +235,7 @@ typedef enum UART_STATE_ENUM
 
 
 
-
+extern uint8 lock_channel;
 
 
 

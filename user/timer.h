@@ -26,4 +26,8 @@ void Timer2_Init(void);
 void Timer3_Init(void);
 void Timer4_Init(void);
 
+
+//  void UartSendStr(uint8_t *p);
+//  extern void UartSend(uint8_t dat);
+
 #endif
