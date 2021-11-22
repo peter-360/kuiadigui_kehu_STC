@@ -58,9 +58,9 @@ void debug_uart_send_datas(uint8 *str, uint8 len) {
 void debug_uart_send_data1(uint8_t str) //
 {
   // RS485_TX_EN();
-  UartSend(0xee);
-  UartSend(str);
-  UartSend(0xff);
+  // UartSend(0xee);
+  // UartSend(str);
+  // UartSend(0xff);
   // RS485_RX_EN();
 }
 void debug_uart_send_data2(uint8_t str, uint8_t dbg_data) // add
