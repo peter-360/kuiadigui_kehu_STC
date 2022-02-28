@@ -73,4 +73,12 @@ extern void debug_uart_send_datas(unsigned char* str, unsigned char len);
 extern int bufferPop(unsigned char* _buf);
 extern void UartSend_dbg(unsigned char dat);
 //extern circle_buffer buffer;
+
+
+
+
+#define UART_DBG_P 0//printf
+#define UART_DBG_0 0
+#define UART_DBG_1 0
+#define UART_DBG_2 0
 #endif

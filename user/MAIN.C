@@ -43,7 +43,7 @@ void spear_uart_send_datas(uint8 *str, uint8 len) {
 }
 
 void debug_uart_send_datas(uint8 *str, uint8 len) {
-  RS485_TX_EN();
+  // RS485_TX_EN();
   UartSend(0xee);
   while (len--) {
     //		USART_SendData(USART1, *str);
@@ -52,26 +52,37 @@ void debug_uart_send_datas(uint8 *str, uint8 len) {
     UartSend(*str++);
   }
   UartSend(0xDD);
-  RS485_RX_EN();
+  // RS485_RX_EN();
 }
 
 void debug_uart_send_data1(uint8_t str) //
 {
+#if UART_DBG_1
   // RS485_TX_EN();
-  // UartSend(0xee);
-  // UartSend(str);
-  // UartSend(0xff);
+  UartSend(0xee);
+  UartSend(str);
+  UartSend(0xff);
   // RS485_RX_EN();
+#endif
 }
-void debug_uart_send_data2(uint8_t str, uint8_t dbg_data) // add
+void debug_uart_send_data2(unsigned char str, unsigned char dbg_data) // add
 {
+#if UART_DBG_2
   // RS485_TX_EN();
-  // UartSend(0xaa);
-  // UartSend(str);
-  // UartSend(dbg_data);
+  UartSend(0xaa);
+  UartSend(str);
+  UartSend(dbg_data);
   // RS485_RX_EN();
+#endif
 }
+void debug_uart_send_data3(unsigned char str) // add
+{
+#if UART_DBG_2
 
+  UartSend(str);
+
+#endif
+}
 /// command struct
 typedef struct {
   // uint8_t type;
@@ -521,7 +532,49 @@ uint8_t ComputXor(uint8_t *InData, uint16_t Len) {
   }
   return Sum;
 }
+void openall_cmd()
+{
+  uint8_t tx_Buffer[64];
+  uint8_t grp_level_1;
+  uint8_t grp_level_2;
+  uint8_t grp_level_3;
+  uint8_t bcc_temp;
+  uint8_t GI_T_1 = GI_1, GI_T_2 = GI_2, GI_T_3 = GI_3, GI_T_4 = GI_4,
+          GI_T_5 = GI_5, GI_T_6 = GI_6, GI_T_7 = GI_7, GI_T_8 = GI_8,
+          GI_T_9 = GI_9, GI_T_10 = GI_10, GI_T_11 = GI_11, GI_T_12 = GI_12,
+          GI_T_13 = GI_13, GI_T_14 = GI_14, GI_T_15 = GI_15, GI_T_16 = GI_16,
+          GI_T_17 = GI_17, GI_T_18 = GI_18, GI_T_19 = GI_19, GI_T_20 = GI_20,
+          GI_T_21 = GI_21, GI_T_22 = GI_22, GI_T_23 = GI_23, GI_T_24 = GI_24;
 
+  lock_all_on_off();
+  grp_level_1 = GI_T_1 | (GI_T_2 << 1) | (GI_T_3 << 2) | (GI_T_4 << 3) |
+                (GI_T_5 << 4) | (GI_T_6 << 5) | (GI_T_7 << 6) |
+                (GI_T_8 << 7);
+  grp_level_2 = GI_T_9 | (GI_T_10 << 1) | (GI_T_11 << 2) |
+                (GI_T_12 << 3) | (GI_T_13 << 4) | (GI_T_14 << 5) |
+                (GI_T_15 << 6) | (GI_T_16 << 7);
+  grp_level_3 = GI_T_17 | (GI_T_18 << 1) | (GI_T_19 << 2) |
+                (GI_T_20 << 3) | (GI_T_21 << 4) | (GI_T_22 << 5) |
+                (GI_T_23 << 6) | (GI_T_24 << 7);
+  // SEGGER_RTT_printf(0, "grp_level_1 = %x\n",grp_level_1);
+  // SEGGER_RTT_printf(0, "grp_level_2 = %x\n",grp_level_2);
+  // SEGGER_RTT_printf(0, "grp_level_3 = %x\n",grp_level_3);
+
+  memcpy(tx_Buffer, "star", 4);
+  tx_Buffer[4] = 0x90; // m_data.opcode;
+  tx_Buffer[5] = m_data.board_addr;
+  tx_Buffer[6] = grp_level_1;
+  tx_Buffer[7] = grp_level_2;
+  tx_Buffer[8] = grp_level_3;
+
+  bcc_temp = ComputXor(tx_Buffer + 4, 5);
+  tx_Buffer[9] = bcc_temp;
+  memcpy(tx_Buffer + 10, "end", 3); // now is 2?
+
+  tx_Buffer[12] = '\0'; // tx_Buffer[12]='\0';
+
+  spear_uart_send_datas(tx_Buffer, 12);
+}
 void data_parse(uint8_t *RX1_Buffer_0, uint16_t Uart1_Rx_0) {
   uint8_t bcc_temp;
   uint8_t tx_Buffer[256] = {0}; //?????
@@ -1206,36 +1259,7 @@ void data_parse(uint8_t *RX1_Buffer_0, uint16_t Uart1_Rx_0) {
           if(1==lock_channel)
           {
             timer_open_init();    
-
-            lock_all_on_off();
-            grp_level_1 = GI_T_1 | (GI_T_2 << 1) | (GI_T_3 << 2) | (GI_T_4 << 3) |
-                          (GI_T_5 << 4) | (GI_T_6 << 5) | (GI_T_7 << 6) |
-                          (GI_T_8 << 7);
-            grp_level_2 = GI_T_9 | (GI_T_10 << 1) | (GI_T_11 << 2) |
-                          (GI_T_12 << 3) | (GI_T_13 << 4) | (GI_T_14 << 5) |
-                          (GI_T_15 << 6) | (GI_T_16 << 7);
-            grp_level_3 = GI_T_17 | (GI_T_18 << 1) | (GI_T_19 << 2) |
-                          (GI_T_20 << 3) | (GI_T_21 << 4) | (GI_T_22 << 5) |
-                          (GI_T_23 << 6) | (GI_T_24 << 7);
-            // SEGGER_RTT_printf(0, "grp_level_1 = %x\n",grp_level_1);
-            // SEGGER_RTT_printf(0, "grp_level_2 = %x\n",grp_level_2);
-            // SEGGER_RTT_printf(0, "grp_level_3 = %x\n",grp_level_3);
-
-            memcpy(tx_Buffer, "star", 4);
-            tx_Buffer[4] = 0x90; // m_data.opcode;
-            tx_Buffer[5] = m_data.board_addr;
-            tx_Buffer[6] = grp_level_1;
-            tx_Buffer[7] = grp_level_2;
-            tx_Buffer[8] = grp_level_3;
-
-            bcc_temp = ComputXor(tx_Buffer + 4, 5);
-            tx_Buffer[9] = bcc_temp;
-            memcpy(tx_Buffer + 10, "end", 3); // now is 2?
-
-            tx_Buffer[12] = '\0'; // tx_Buffer[12]='\0';
-
-            spear_uart_send_datas(tx_Buffer, 12);
-            // SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+            // openall_cmd();
 
           }
           else
@@ -1609,9 +1633,68 @@ uint8 QueueOut(struct FifoQueue *Queue, ElemType *sdat) {
 u8 queue_rcv_over;
 struct FifoQueue MyQueue;
 
+//volatile uint32  timer_tick_count = 0;                                               //定时器节拍
+//uint8  cmd_buffer[CMD_MAX_SIZE];                                                     //指令缓存
 // str = (char*)malloc(50 * sizeof(char)); //给字符串str分配 50字节空间
 /******************************************************************************/
 //-------main-------
+
+
+
+
+
+
+Queue queue;
+
+void initQueue(Queue *qu)
+{
+    qu->front = 0;
+    qu->rear = -1;
+    qu->counter = 0;
+    UartSendStr("init a queue successfully!\n");
+}
+ 
+void inQueue(Queue *qu,unsigned  char ele)
+{
+    if(qu->counter >= SIZE_M)
+    {
+        UartSendStr("the queue is full!\n");
+    }
+    else
+    {
+        qu->rear = (qu->rear + 1) % SIZE_M;
+        qu->arr[qu->rear] = ele;
+        qu->counter ++;
+        // printf("in queue an element %x\n",ele);
+        // debug_uart_send_data2(ele,0XCC);
+    }
+}                    
+ 
+int outQueue(Queue *qu)
+{
+    if(0 == qu->counter)
+    {
+        // UartSendStr("the queue is empty!\n");
+        return -1;
+    }
+    else
+    {
+        unsigned  char ele;
+        ele = qu->arr[qu->front];
+        // printf("out queue is %x\n",ele);
+        debug_uart_send_data3(ele);
+        qu->front = (qu->front + 1) % SIZE_M;
+        qu->counter --;
+
+        return ele;
+    }
+}
+
+
+
+
+
+
 
 /******************************************************************************/
 void main(void) {
@@ -1625,9 +1708,22 @@ void main(void) {
   int i = 0;
   u8 red_flag = 0;
 
+  int sh_t;
   ElemType sh;
+  //qsize  size_m = 0;
+  uint32 timer_tick_last_update = 0;
+  //qdata _data = 0;
+
+
+
 
   Uart1Init();//Timer2
+// #if UART_DBG_P
+//   TI =1;//printf
+// #endif
+
+
+
   //	Timer4_Init();
   // Timer0_Init();
   Timer3_Init();
@@ -1652,17 +1748,18 @@ void main(void) {
   UartSendStr("power on !!!\r\n");
   UartSendStr("power on--2222 !!!\r\n");
 
-  QueueInit(&MyQueue);
+  // QueueInit(&MyQueue);
+  // queue_reset();//清空指令接收缓冲区
+  initQueue(&queue);
 
   WDT_CONTR = 0x27; //使能看门狗,溢出时间约为8s    test:4s
   while (1) {
 
-    //if(0==packerflag)
+
+    sh_t = outQueue(&queue);
+    if(-1 != sh_t)
     {
-      if (QueueOut(&MyQueue, &sh) == QueueEmpty) {
-        // debug_uart_send_data2(i,0x53);
-        // break;
-      } else {
+        sh = sh_t;
         // debug_uart_send_data2(sh,0x55);
         if (spear_uart_process_data(sh)) {
           // retn = false;
@@ -1693,8 +1790,8 @@ void main(void) {
         } else {
           // UartSendStr("----10---\r\n");;
         }
-      }
-    }
+    }         
+    
 
     tick_times++;
     if (0 == red_flag) {
@@ -1704,17 +1801,33 @@ void main(void) {
         tick_times = 0;
         red_flag = 1;
         LED1 = 0; // on
-        // UartSendStr("power on !!!\r\n");
+        // UartSendStr("dbg1 !!!\r\n");
       }
     } else {
-      if (tick_times % 4000 == 0) // 100
+      if(1==lock_channel)
       {
-        // feed_dog();
-        red_flag = 0;
-        LED1 = 1;
+        if (tick_times % 1000 == 0) // 100
+        {
+          // feed_dog();
+          red_flag = 0;
+          LED1 = 1;
+          // UartSendStr("dbg2 !!!\r\n");
+        }
       }
+      else//自检
+      {
+        if (tick_times % 10000 == 0) // 100
+        {
+          // feed_dog();
+          red_flag = 0;
+          LED1 = 1;
+          // UartSendStr("dbg2 !!!\r\n");
+        }
+      }
+
     }
     feed_dog();
+		
     // delay_ms(1);
   }
 }

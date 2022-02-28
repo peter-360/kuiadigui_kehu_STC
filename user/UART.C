@@ -16,6 +16,7 @@
 // (c) Duhemayi Corporation. All rights reserved.     
 ******************************************************************************/
 #include "uart.h"
+#include "cmd_queue.h"
 
 bit busy;
 char wptr;
@@ -123,12 +124,14 @@ void UartSend_dbg(uint8 dat)
 /******************************************************************************/
 void UartSendStr(uint8 *p)
 {
+#if UART_DBG_0
     // RS485_TX_EN();
-    // while (*p)
-    // {
-    //     UartSend(*p++);
-    // }
+    while (*p)
+    {
+        UartSend(*p++);
+    }
     // RS485_RX_EN();
+#endif
 }
 
 
@@ -187,6 +190,7 @@ unsigned char packerflag=0;
 
 extern struct FifoQueue MyQueue;
 extern void debug_uart_send_data2(uint8_t str,uint8_t dbg_data);
+extern void inQueue(Queue *qu,unsigned  char ele);
 /******************************************************************************/
 // 函数名称：time0ISR 
 // 输入参数：无 
@@ -201,17 +205,18 @@ void Uart1Isr() interrupt 4 using 1
         RI=0;    
         ch = SBUF;
 
-
-        // bufferPush(SBUF);
-        if(QueueIn(&MyQueue,ch) == QueueFull) 
-        {
-            //debug_uart_send_data2(ch,0x52);	
-            //break;			   
-        }
-        else
-        {
-            //debug_uart_send_data2(ch,0x54);			   
-        }
+        inQueue(&queue,ch);
+        // queue_push(ch);                             //压入到指令缓冲区
+            // bufferPush(SBUF);
+        // if(QueueIn(&MyQueue,ch) == QueueFull) 
+        // {
+        //     //debug_uart_send_data2(ch,0x52);	
+        //     //break;			   
+        // }
+        // else
+        // {
+        //     //debug_uart_send_data2(ch,0x54);			   
+        // }
         
 		// ringq_push(p_queue,SBUF);
 

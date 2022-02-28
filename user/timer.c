@@ -610,7 +610,8 @@ void TM3_Isr() interrupt 19 using 1
 						debug_uart_send_data1(0x21);
 						GO_24=1; 					//open
 						timer_close_init();
-
+						
+						openall_cmd();//add
 					}
 					else
 					{

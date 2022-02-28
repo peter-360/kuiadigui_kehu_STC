@@ -36,7 +36,7 @@
 
 #define SOFT_VERSION_1  0x00
 #define SOFT_VERSION_2  0x00
-#define SOFT_VERSION_3  0x02
+#define SOFT_VERSION_3  0x03
 
 #define HARD_VERSION_1  'S'
 #define HARD_VERSION_2  'T'
@@ -262,9 +262,19 @@ extern uint8 QueueIn(struct FifoQueue *Queue,ElemType sdat);
 extern uint8 QueueOut(struct FifoQueue *Queue,ElemType *sdat);
 
 
+extern void openall_cmd();
 
+#define SIZE_M 30                                                    
+    
+typedef struct Queue_t
+{
+    unsigned  char arr[SIZE_M];
+    int front;
+    int rear;
+    int counter;
+} Queue;
 
-
+extern Queue queue;
 
 
 #endif
