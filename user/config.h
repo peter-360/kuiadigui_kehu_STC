@@ -264,7 +264,8 @@ extern uint8 QueueOut(struct FifoQueue *Queue,ElemType *sdat);
 
 extern void openall_cmd();
 
-#define SIZE_M 30                                                    
+//30
+#define SIZE_M 80                                                    
     
 typedef struct Queue_t
 {
