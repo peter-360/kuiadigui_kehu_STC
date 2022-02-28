@@ -571,9 +571,9 @@ void openall_cmd()
   tx_Buffer[9] = bcc_temp;
   memcpy(tx_Buffer + 10, "end", 3); // now is 2?
 
-  tx_Buffer[12] = '\0'; // tx_Buffer[12]='\0';
+  // tx_Buffer[12] = '\0'; // tx_Buffer[12]='\0';
 
-  spear_uart_send_datas(tx_Buffer, 12);
+  spear_uart_send_datas(tx_Buffer, 13);
 }
 void data_parse(uint8_t *RX1_Buffer_0, uint16_t Uart1_Rx_0) {
   uint8_t bcc_temp;
